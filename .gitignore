@@ -1,0 +1,11 @@
+#Ignore everything
+*
+
+# Allow .gitignore
+!.gitignore
+
+#Let .sv and .xcf and .bit files
+!./*.sv
+!./*.bit
+!./*.xcf
+

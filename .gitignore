@@ -1,11 +1,16 @@
 #Ignore everything
-*
+/*
 
 # Allow .gitignore
 !.gitignore
 
-#Let .sv and .xcf and .bit files
-!./*.sv
-!./*.bit
-!./*.xcf
+# Allow subdirs
+!/*
 
+#Let .sv and .xcf and .bit files
+!*.sv
+!*.bit
+!*.xcf
+
+# Ignore cache folder
+WimpFi_prj/WimpFi_prj.cache/*

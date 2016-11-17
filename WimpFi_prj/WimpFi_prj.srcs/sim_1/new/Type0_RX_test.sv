@@ -94,10 +94,60 @@ module Type0_RX_test(
 	endtask
 
 	task send_two_packets;
-
-
+		check_group_begin("Rx mac address type 0 multi packet");
+		pos = 0;
+		length = 7;
+		#100;
+		enb = 1;
+		#100;
+		enb = 0;
+		@(posedge rrdy); // There is data available
+		// send another packet before it is read out
+		pos = 14;
+		length = 21;
+		#100;
+		enb = 1;
+		#100;
+		enb = 0;
+		
+		@(negedge txen); // wait for the tx to stop
+		@(negedge txen); // wait for the tx to stop twice
+		#1; // get away from a clock
+		rrd = 1;
+		@(posedge clk);
+		check("Incomming message from a1 not changed by b0", rdata, 8'ha1);
+		@(posedge clk);
+		check("Packet type 0", rdata, 8'h30);
+		@(posedge clk);
+		check("Data correct from a1", rdata, 8'ha1);
+		@(posedge clk);
+		#1 rrd = 0;
+		check("All data removed", rrdy, 1'b0);
+		check_group_end;
 	endtask
 	
+	task bad_mac_address;
+		check_group_begin("Rx not our mac address type 0");
+		pos = 21;
+		length = 32;
+		#100;
+		enb = 1;
+		#100;
+		enb = 0;
+		fork : rrdy_txen_timeout
+			begin
+				@(posedge rrdy) check("Ignore mac address", 1'b0, 1'b1);
+				disable rrdy_txen_timeout;
+			end
+			begin
+				@(negedge txen) check("Ignore mac address", 1'b1, 1'b1);
+				disable rrdy_txen_timeout;
+			end
+		join;
+
+		check_group_end;
+	endtask
+
 	initial
 	begin
 		#100;
@@ -106,6 +156,11 @@ module Type0_RX_test(
 		send_1byte_addr;
 		#10_000;
 		send_1byte_all_call;
+		#10_000;
+		send_two_packets;
+		#10_000;
+		bad_mac_address;
+		#10_000;
 		check_summary_stop;
 		$finish;
 	end

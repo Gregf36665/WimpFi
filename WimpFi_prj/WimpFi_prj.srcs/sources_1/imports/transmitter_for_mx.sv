@@ -17,7 +17,7 @@
 // 09.05.2016 : created
 //-----------------------------------------------------------------------------
 
-module transmitter_for_mx #(parameter EOF_WIDTH = 2, parameter BAUD_RATE = 9600)(
+module transmitter_for_mx #(parameter EOF_WIDTH = 2, parameter BIT_RATE = 9600)(
     input logic clk,
     input logic send,
     input logic reset,
@@ -233,7 +233,7 @@ module transmitter_for_mx #(parameter EOF_WIDTH = 2, parameter BAUD_RATE = 9600)
             endcase
         end
         
-        clkenb #(.DIVFREQ(BAUD_RATE)) U_CLKENB (.clk(clk), .enb(enb), .reset(clk_reset));
+        clkenb #(.DIVFREQ(BIT_RATE)) U_CLKENB (.clk(clk), .enb(enb), .reset(clk_reset));
         reg_parm #(.W(8))      U_SNAPSHOT (.clk, .reset(1'b0), .lden, .d(data), .q(saved_data));
         
   
@@ -245,7 +245,7 @@ module transmitter_for_mx #(parameter EOF_WIDTH = 2, parameter BAUD_RATE = 9600)
         counter_parm #(.W($clog2(EOF_WIDTH+1)), .CARRY_VAL(EOF_WIDTH))  
                 U_EOF_WIDTH_COUNT (.clk, .enb(enb), .reset(eof_reset), .q(eof_count), .carry(eof_carry));
         
-        clkenb_baud #(.DIVFREQ(BAUD_RATE * 2)) U_BAUD_GEN (.clk(clk), .baud(baud), .reset(clk_reset), .enb());
+        clkenb_baud #(.DIVFREQ(BIT_RATE * 2)) U_BAUD_GEN (.clk(clk), .baud(baud), .reset(clk_reset), .enb());
         
         assign txen = sending && (eof_count != EOF_WIDTH);
             

@@ -101,11 +101,11 @@ module mxtest_2(
 					8'h30,
 					8'hff,
 					//  length = 21
-					// Another all call packet
+					// A packet not to us
 					8'h55,
 					8'h55, 
 					8'hd0,
-					8'h2a,
+					8'h2b,
 					8'ha1,
 					8'h30,
 					8'h01,

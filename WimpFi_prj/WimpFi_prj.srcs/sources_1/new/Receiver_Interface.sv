@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Receiver_Interface(
+module Receiver_Interface #(parameter BIT_RATE = 50_000) (
     input clk,
     input reset,
     input rrd,
@@ -38,7 +38,7 @@ module Receiver_Interface(
 	logic [7:0] data_rx;
 
 	// Create the modules to attach together
-	mx_rcvr U_RX_MX (.clk, .reset, .rxd, .cardet, .data(data_rx), .write(write_rx), .error,
+	mx_rcvr #(.BIT_RATE(BIT_RATE)) U_RX_MX (.clk, .reset, .rxd, .cardet, .data(data_rx), .write(write_rx), .error,
 					.error1(), .error2(), .error3(), .looking(), .error_count());
 
 	FSM_Address_check U_FSM_ADDR (.clk, .reset, .write(write_rx), .error,

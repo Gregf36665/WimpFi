@@ -3,7 +3,7 @@
 // Created by Greg Flynn
 // 2016-11-01
 
-module ReceiverTestUnit(
+module ReceiverTestUnit #(parameter BIT_RATE = 50_000) (
 				input logic clk, reset,
 				input logic rxdata,
 				output logic [6:0] SEGS,

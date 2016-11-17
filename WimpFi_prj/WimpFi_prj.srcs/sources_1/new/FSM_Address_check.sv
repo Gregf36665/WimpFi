@@ -26,19 +26,22 @@ module FSM_Address_check(
     input write,
     input cardet,
 	input error,
+	input empty,
 	input [7:0] address,
 	input [7:0] data,
     output logic write_enb,
-	output logic clear_fifo
+	output logic clear_fifo,
+	output logic data_available
     );
 
 	localparam ALL_CALL = 8'h2a; // all call address = *
 
-	typedef enum logic [1:0] {
-		IDLE = 2'b00,
-		STORE_DATA = 2'b01,
-		NOT_US = 2'b10,
-		FLUSH = 2'b11
+	typedef enum logic [2:0] {
+		IDLE = 3'b000,
+		STORE_DATA = 3'b001,
+		NOT_US = 3'b010,
+		FLUSH = 3'b011,
+		DONE = 3'b100
 	} states;
 
 	states state, next;
@@ -51,6 +54,7 @@ module FSM_Address_check(
 		// Default values
 		clear_fifo = 0;
 		write_enb = 0;
+		data_available = 0;
 		next = IDLE;
 
 		case(state)
@@ -65,7 +69,7 @@ module FSM_Address_check(
 				begin
 					write_enb = 1;
 					if(error) next = FLUSH;
-					else next = cardet ? STORE_DATA : IDLE;
+					else next = cardet ? STORE_DATA : DONE;
 				end
 			FLUSH:
 				// If there is an error with the receiver error
@@ -76,6 +80,13 @@ module FSM_Address_check(
 			NOT_US:
 				// If it is not our address wait till cardet drops
 				next = cardet ? NOT_US : IDLE;
+			DONE:
+				// Wait until the FIFO has been drained
+				begin
+					data_available = 1;
+					next = empty ? IDLE : DONE;
+				end
+
 		endcase
 	end
 

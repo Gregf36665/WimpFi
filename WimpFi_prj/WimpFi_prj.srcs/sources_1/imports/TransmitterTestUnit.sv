@@ -28,7 +28,7 @@ module TransmitterTestUnit(
 	single_pulser U_PULSER (.clk, .reset, .pulse(run), .enb);
 
 	// mx_test, ROM to send bytes 
-	mxtest_2 U_MXTEST (.clk, .reset, .run, .length, .send, .data, .ready(rdy));
+	mxtest_2 U_MXTEST (.clk, .reset, .run, .length, .send, .data, .ready(rdy), .pos);
 
 	// transmitter 
 	manchester_tx U_TX (.clk, .reset, .send, .txen, .data, .rdy, .txd(txdata));

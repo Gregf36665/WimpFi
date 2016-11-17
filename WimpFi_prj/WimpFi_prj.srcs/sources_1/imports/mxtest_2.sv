@@ -75,38 +75,44 @@ module mxtest_2(
 
    // ROM Contents - change these to the values of your choice
    wire [0:MEM_SIZE-1][7:0] byterom  = {
+					// One byte MAC test
 					8'h55,  // byterom[0]
 					8'h55,
 					8'hd0, // SFD
 					8'h55, 
 					8'ha1, 
-					8'ha2,
-					8'ha3, 
-					8'ha4, 
-					8'ha5,
-					8'ha6,
-					8'ha7,
-					8'ha8,
-					8'ha9,
-					8'haa,
-					8'hab, 
-					8'hac,
-					8'had,
-					8'hae,
-					8'haf,
+					8'h30, // Type 0
+					8'ha1, // Data // length = 7
+					// One byte all call 
+					8'h55, 
+					8'h55,
+					8'hd0,
+					8'h2a,
+					8'ha1,
+					8'h30,
+					8'h10,  // length = 14
+					// Done
+					// Another packet to a specific address
+					8'h55, 
+					8'h55,
+					8'hd0,
+					8'h55,
 					8'hb0,
-					8'hb1,
-					8'hb2,
-					8'hb3, 
-					8'hb4,
-					8'hb5,
-					8'hb6,
-					8'hb7,
-					8'hb8,
-					8'hb9,
-					8'hba,
-					8'hbb,
-					8'hbc 
+					8'h30,
+					8'hff,
+					//  length = 21
+					// Another all call packet
+					8'h55,
+					8'h55, 
+					8'hd0,
+					8'h2a,
+					8'ha1,
+					8'h30,
+					8'h01,
+					8'h03,
+					8'h05,
+					8'h07,
+					8'h09 
 					}; 
    
    assign data = byterom[byte_addr];

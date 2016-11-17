@@ -33,11 +33,21 @@ module FSM_fifo_to_send(
 	output logic xrdy
     );
 
-	typedef enum logic[1:0]{
-		IDLE = 2'b00,
-		TIMING_CHECK = 2'b01,
-		STAND_BY = 2'b10,
-		SEND = 2'b11
+	localparam PREAMBLE = 8'h55;
+	localparam SFD = 8'hd0;
+
+	typedef enum logic[3:0]{
+		IDLE = 4'h0,
+		TIMING_CHECK = 4'h1,
+		STAND_BY = 4'h2,
+		SEND = 4'h3,
+		LOAD_PREAMBLE1 = 4'h4,
+		SEND_PREAMBLE1 = 4'h5,
+		LOAD_PREAMBLE2 = 4'h6,
+		SEND_PREAMBLE2 = 4'h7,
+		LOAD_SFD = 4'h8,
+		SEND_SFD = 4'h9
+
 	} states;
 
 	states state, next;
@@ -62,7 +72,13 @@ module FSM_fifo_to_send(
 		TIMING_CHECK:
 			begin
 				rts = 1;
-				next = cts ? STAND_BY : TIMING_CHECK;
+				next = cts ? LOAD_PREAMBLE1 : TIMING_CHECK;
+			end
+		LOAD_PREAMBLE1:
+			begin
+				data = PREAMBLE;
+				use_fsm = 1;
+				next = rdy ? SEND_PREAMBLE1 : LOAD_PREAMBLE1;
 			end
 		STAND_BY:
 			next = rdy ? SEND : STAND_BY;

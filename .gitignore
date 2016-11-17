@@ -14,6 +14,11 @@
 
 # Ignore cache folder
 WimpFi_prj/WimpFi_prj.cache/*
+WimpFi_prj/WimpFi_prj.sim/*
+WimpFi_prj/WimpFi_prj.ip_user_files/*
 
 # Ignore swp files
 *.swp
+
+# Ignore log files
+*.log

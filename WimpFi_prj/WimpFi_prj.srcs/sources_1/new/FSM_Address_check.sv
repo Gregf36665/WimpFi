@@ -25,10 +25,11 @@ module FSM_Address_check(
     input reset,
     input write,
     input cardet,
+	input error,
 	input [7:0] address,
 	input [7:0] data,
-    output write_enb,
-	output clear_fifo
+    output logic write_enb,
+	output logic clear_fifo
     );
 
 	localparam ALL_CALL = 8'h2a; // all call address = *

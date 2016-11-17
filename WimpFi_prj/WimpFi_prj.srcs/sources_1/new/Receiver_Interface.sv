@@ -34,14 +34,23 @@ module Receiver_Interface(
 
 
 	// Create the modules to attach together
+	logic [7:0] data_rx;
 
-	U_RX_MX mx_rcvr (.clk, .reset, .rxd, .cardet, .data(data_rx), .write(write_rx), .error(),
+	mx_rcvr U_RX_MX (.clk, .reset, .rxd, .cardet, .data(data_rx), .write(write_rx), .error,
 					.error1(), .error2(), .error3(), .looking(), .error_count());
 
-	U_FSM_ADDR FSM_Address_check (.clk, .reset, .write(write_rx), .cardet, .address(mac), .data(data_rx),
+	FSM_Address_check U_FSM_ADDR (.clk, .reset, .write(write_rx), .error,
+									.cardet, .address(mac), .data(data_rx),
 									.write_enb, .clear_fifo);
 	
 	// Active low reset
-	U_FIFO p_fifo (.clk, .rst(~reset), .clr(clear_fifo), .din(data_rx), .we, .re(rrd), .full(), .empty, .dout(rdata));
+	p_fifo #(.DEPTH(256)) U_FIFO (.clk, .rst(~reset), .clr(clear_fifo), .din(data_rx), 
+								.we, .re(rrd), .full(), .empty, .dout(rdata));
+
+	// Create appropriate connections 
+	logic write_enb, error, empty;
+	assign we = write_rx & write_enb; // Make sure the address matches first
+	assign rrdy = !empty;
+	assign rerrcnt = 0; // This can only be triggered by the FCS
 
 endmodule

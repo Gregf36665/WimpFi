@@ -37,7 +37,8 @@ module mxtest_2(
 	      input logic [5:0] length, // number of bytes to send
 	      output logic 	 send, // start the Manchester transmitter
 	      output logic [7:0] data, // data output (connects to transmitter data input logic)
-	      input logic 	 ready // ready input (connects to transmitter ready output)
+	      input logic 	 ready, // ready input (connects to transmitter ready output)
+		  input logic [7:0] pos // pointer position on reset
 	      );
    
    parameter  MEM_SIZE = 32;
@@ -61,7 +62,7 @@ module mxtest_2(
    
 
    always_ff @(posedge clk)  // does separating register and counting logic result in a BRAM?
-     if (reset | byte_addr_reset) byte_addr <= 0;
+     if (reset | byte_addr_reset) byte_addr <= pos;
      else if (byte_addr_enable) 
        begin
           if (byte_addr==MEM_SIZE-1) byte_addr <= 0;
@@ -76,8 +77,8 @@ module mxtest_2(
    wire [0:MEM_SIZE-1][7:0] byterom  = {
 					8'h55,  // byterom[0]
 					8'h55,
-					8'hd0,
-					8'ha0, 
+					8'hd0, // SFD
+					8'h55, 
 					8'ha1, 
 					8'ha2,
 					8'ha3, 

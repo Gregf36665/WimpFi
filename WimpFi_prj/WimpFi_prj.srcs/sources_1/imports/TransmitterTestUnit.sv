@@ -9,6 +9,7 @@ module TransmitterTestUnit(
 			input logic reset,
 			input logic enb,
 			input logic [5:0] length,
+			input logic [7:0] pos,
 			output logic txen,
 			output logic txdata
             );

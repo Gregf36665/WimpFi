@@ -60,6 +60,8 @@ module Type0_RX_test(
 		#1; // get away from a clock
 		rrd = 1;
 		@(posedge clk);
+		check("Incomming message to 55", rdata, 8'h55);
+		@(posedge clk);
 		check("Incomming message from a1", rdata, 8'ha1);
 		@(posedge clk);
 		check("Packet type 0", rdata, 8'h30);
@@ -80,6 +82,8 @@ module Type0_RX_test(
 		#100 enb = 0;
 		@(posedge rrdy); // Data available
 		rrd = 1;
+		@(posedge clk);
+		check("Incomming all call", rdata, 8'h2a);
 		@(posedge clk);
 		check("Incomming all call from a1", rdata, 8'ha1);
 		@(posedge clk);
@@ -115,6 +119,8 @@ module Type0_RX_test(
 		#1; // get away from a clock
 		rrd = 1;
 		@(posedge clk);
+		check("Incomming message for 55 not changed by b0", rdata, 8'h55);
+		@(posedge clk);
 		check("Incomming message from a1 not changed by b0", rdata, 8'ha1);
 		@(posedge clk);
 		check("Packet type 0", rdata, 8'h30);
@@ -136,10 +142,12 @@ module Type0_RX_test(
 		enb = 0;
 		fork : rrdy_txen_timeout
 			begin
+				// Data appeared when it should not have
 				@(posedge rrdy) check("Ignore mac address", 1'b0, 1'b1);
 				disable rrdy_txen_timeout;
 			end
 			begin
+				// Ignored data not for us
 				@(negedge txen) check("Ignore mac address", 1'b1, 1'b1);
 				disable rrdy_txen_timeout;
 			end

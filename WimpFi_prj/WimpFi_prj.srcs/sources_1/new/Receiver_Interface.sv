@@ -34,7 +34,7 @@ module Receiver_Interface #(parameter BIT_RATE = 50_000) (
 
 
 	// Create appropriate connections 
-	logic write_enb, error, empty, data_available;
+	logic write_enb, error, empty, data_available, force_write;
 	logic [7:0] data_rx;
 
 	// Create the modules to attach together
@@ -43,7 +43,7 @@ module Receiver_Interface #(parameter BIT_RATE = 50_000) (
 
 	FSM_Address_check U_FSM_ADDR (.clk, .reset, .write(write_rx), .error,
 									.cardet, .address(mac), .data(data_rx),
-									.write_enb, .clear_fifo, .empty, .data_available);
+									.write_enb, .clear_fifo, .empty, .data_available, .force_write);
 	
 	// Active low reset
 	p_fifo #(.DEPTH(256)) U_FIFO (.clk, .rst(~reset), .clr(clear_fifo), .din(data_rx), 
@@ -51,7 +51,8 @@ module Receiver_Interface #(parameter BIT_RATE = 50_000) (
 
 
 	// Assign wires to the top level
-	assign we = write_rx & write_enb; // Make sure the address matches first
+	assign we = (write_rx & write_enb) | force_write; // Make sure the address matches first 
+	//or the FSM wants to write something out
 	assign rrdy = data_available;
 	assign rerrcnt = 0; // This can only be triggered by the FCS
 

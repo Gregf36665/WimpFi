@@ -30,6 +30,7 @@ module FSM_Address_check(
 	input [7:0] address,
 	input [7:0] data,
     output logic write_enb,
+	output logic force_write,
 	output logic clear_fifo,
 	output logic data_available
     );
@@ -56,13 +57,23 @@ module FSM_Address_check(
 		write_enb = 0;
 		data_available = 0;
 		next = IDLE;
+		force_write = 0;
 
 		case(state)
 			IDLE: // Wait till data is coming in
-				if(write)
+				if(write) // saw a good byte
 				begin
-					if(data == address) next = STORE_DATA;
-					if(data == ALL_CALL) next = STORE_DATA;
+					if(data == address)
+					begin
+						next = STORE_DATA;
+						force_write = 1; // Save the dest address
+					end
+					else if(data == ALL_CALL) 
+					begin
+						next = STORE_DATA;
+						force_write = 1; // save the all call address
+					end
+					else next = NOT_US; // address didn't match us
 				end
 			STORE_DATA:
 				// If match on address start saving data

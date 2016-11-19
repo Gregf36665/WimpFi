@@ -27,7 +27,7 @@ module Type0_TX_MX_RX_UART_test();
 	logic reset = 1;
 	logic cardet = 0;
 	logic txen, txd; // outputs
-	logic rts, cts;
+	logic xrdy, xsnd;
 
 	// Wires for UART transmitter
 	logic send = 0;

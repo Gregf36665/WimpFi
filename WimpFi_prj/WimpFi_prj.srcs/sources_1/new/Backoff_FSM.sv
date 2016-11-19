@@ -68,7 +68,7 @@ module Backoff_FSM(
 
 			NETWORK_BUSY:
 			begin
-				next = difs_timeout ? NETWORK_BUSY : ROLL;
+				next = difs_timeout ? ROLL : NETWORK_BUSY;
 				enb_difs_counter = 1;
 			end
 			

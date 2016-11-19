@@ -20,7 +20,43 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Type0_TX_MX_RX_UART_test(
+module Type0_TX_MX_RX_UART_test();
 
-    );
+	// Wires for transmitter side
+	logic clk = 0;
+	logic reset = 1;
+	logic cardet = 0;
+	logic txen, txd; // outputs
+
+	// Wires for UART transmitter
+	logic send = 0;
+	logic [7:0] data = 8'h55;
+	logic rdy; 
+
+	assign UART_TXD_IN = UART_txd; // connect the UART tx to the tx side
+
+	transmitter_side DUV (.*);
+
+	transmitter U_UART_TX (.txd(UART_txd), .*);
+
+	always
+		#5 clk = ~clk;
+
+	task send_one_byte;
+		send = 1;
+		@(negedge rdy) send = 0;
+		data = 8'h04; // Send command
+		@(posedge rdy) send = 1;
+		@(negedge rdy) send = 0;
+	endtask
+
+	initial 
+	begin
+		#100;
+		reset = 0;
+		#100;
+		send_one_byte;
+
+	end
 endmodule
+

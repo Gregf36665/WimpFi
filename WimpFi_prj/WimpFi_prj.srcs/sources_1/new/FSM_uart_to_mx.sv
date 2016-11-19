@@ -24,6 +24,7 @@ module FSM_uart_to_mx(
     input logic clk,
     input logic reset,
 	input logic UART_ready,
+	input logic MX_ready,
 	input logic ferr,
     input logic [7:0] data_in,
     output logic save_byte,
@@ -54,17 +55,17 @@ module FSM_uart_to_mx(
 		case(state)
 		IDLE:
 			// the UART receiver is seeing something
-			next = ready ? IDLE : DATA_INCOMING;
+			next = UART_ready ? IDLE : DATA_INCOMING;
 		DATA_INCOMING:
 			// wait until the UART is done
 			if (ferr) next = IDLE; // Did the UART-rx get an error
-			else next = ready ? PARSE_DATA : DATA_INCOMING; // good data
+			else next = UART_ready ? PARSE_DATA : DATA_INCOMING; // good data
 		PARSE_DATA:
 			// Should we send the data
 			next = (data_in == SEND_CODE) ? SEND : SAVE_DATA;
 		SEND:
 			begin
-				next = IDLE;
+				next = MX_ready ? IDLE : SEND; // Wait until ready is high
 				send = 1;
 			end
 		SAVE_DATA:

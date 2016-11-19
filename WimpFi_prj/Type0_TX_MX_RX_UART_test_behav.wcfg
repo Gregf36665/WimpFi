@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Type0_TX_MX_RX_UART_test_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Type0_TX_MX_RX_UART_test" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="20970509977827fs"></ZoomStartTime>
+      <ZoomEndTime time="22849223946786fs"></ZoomEndTime>
+      <Cursor1Time time="22261865478000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="18" />
+   <wave_markers>
+      <marker time="28880105000000" label="" />
+      <marker time="21340105000000" label="" />
+      <marker time="21660105000000" label="" />
+      <marker time="21500105000000" label="" />
+   </wave_markers>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/cardet" type="logic">
+      <obj_property name="ElementShortName">cardet</obj_property>
+      <obj_property name="ObjectShortName">cardet</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/txen" type="logic">
+      <obj_property name="ElementShortName">txen</obj_property>
+      <obj_property name="ObjectShortName">txen</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/txd" type="logic">
+      <obj_property name="ElementShortName">txd</obj_property>
+      <obj_property name="ObjectShortName">txd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/xrdy" type="logic">
+      <obj_property name="ElementShortName">xrdy</obj_property>
+      <obj_property name="ObjectShortName">xrdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/xsnd" type="logic">
+      <obj_property name="ElementShortName">xsnd</obj_property>
+      <obj_property name="ObjectShortName">xsnd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/send" type="logic">
+      <obj_property name="ElementShortName">send</obj_property>
+      <obj_property name="ObjectShortName">send</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/data" type="array">
+      <obj_property name="ElementShortName">data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/rdy" type="logic">
+      <obj_property name="ElementShortName">rdy</obj_property>
+      <obj_property name="ObjectShortName">rdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/UART_TXD_IN" type="logic">
+      <obj_property name="ElementShortName">UART_TXD_IN</obj_property>
+      <obj_property name="ObjectShortName">UART_TXD_IN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/UART_txd" type="logic">
+      <obj_property name="ElementShortName">UART_txd</obj_property>
+      <obj_property name="ObjectShortName">UART_txd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/DUV/U_TX_INTERFACE/U_BACKOFF_MODULE/difs_timeout" type="logic">
+      <obj_property name="ElementShortName">difs_timeout</obj_property>
+      <obj_property name="ObjectShortName">difs_timeout</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/DUV/U_TX_INTERFACE/U_BACKOFF_MODULE/slots_done" type="logic">
+      <obj_property name="ElementShortName">slots_done</obj_property>
+      <obj_property name="ObjectShortName">slots_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/DUV/U_TX_INTERFACE/U_BACKOFF_MODULE/slot_target" type="array">
+      <obj_property name="ElementShortName">slot_target[5:0]</obj_property>
+      <obj_property name="ObjectShortName">slot_target[5:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/DUV/U_TX_INTERFACE/U_BACKOFF_MODULE/U_SLOTS_COUNTER/q" type="array">
+      <obj_property name="ElementShortName">q[5:0]</obj_property>
+      <obj_property name="ObjectShortName">q[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/DUV/U_TX_INTERFACE/U_BACKOFF_MODULE/U_SLOTS_TIMER/q" type="array">
+      <obj_property name="ElementShortName">q[2:0]</obj_property>
+      <obj_property name="ObjectShortName">q[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type0_TX_MX_RX_UART_test/DUV/U_TX_INTERFACE/U_BACKOFF_MODULE/U_SLOTS_TIMER/enb" type="logic">
+      <obj_property name="ElementShortName">enb</obj_property>
+      <obj_property name="ObjectShortName">enb</obj_property>
+   </wvobject>
+</wave_config>

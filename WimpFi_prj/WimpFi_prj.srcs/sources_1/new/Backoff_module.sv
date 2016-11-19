@@ -60,7 +60,7 @@ module Backoff_module(
 					(.clk, .reset(reset | reset_counters), .enb(enb & enb_sifs_counter),
 					.carry(sifs_timeout), .q());
 
-	counter_parm #(.W($clog2(SLOT_TIME + 1)), .CARRY_VAL(SLOT_TIME)) U_SLOTS_TIMER
+	counter_parm #(.W($clog2(SLOT_TIME)), .CARRY_VAL(SLOT_TIME-1)) U_SLOTS_TIMER
 					(.clk, .reset(reset | reset_counters), .enb(enb & enb_slots_counter),
 					.carry(inc_slots), .q());
 

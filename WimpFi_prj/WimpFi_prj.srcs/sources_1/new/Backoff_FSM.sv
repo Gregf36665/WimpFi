@@ -75,7 +75,7 @@ module Backoff_FSM(
 			ROLL:
 			begin
 				roll = 1;
-				next = CONTENTION;
+				next = cardet ? NETWORK_BUSY : CONTENTION;
 				reset_counters = 1;
 			end
 			CONTENTION:

@@ -34,15 +34,19 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
     );
 
 	// Internal connections
-	logic [7:0] data; // connection from FIFO to data
-	logic empty, re, rdy, send;
+	logic [7:0] data, fsm_data, fifo_data; // connection from FIFO to data
+	logic empty, re, rdy, send, rts, use_fsm;
 	manchester_tx #(.BIT_RATE(BIT_RATE)) U_TX_MX (.clk, .send, .reset, .data, 
 													.rdy, .txen, .txd);
 
 	p_fifo #(.DEPTH(255)) U_BUFFER (.clk, .rst(reset), .clr(), .din(xdata), .we(xwr), .re,
-									.full(), .empty, .dout(data));
+									.full(), .empty, .dout(fifo_data));
 
 	FSM_fifo_to_send U_FSM_TX (.clk, .reset, .xsnd, .empty, .rts, .cts,
-								.rdy, .send, .read(re), .xrdy);
+								.rdy, .send, .read_data(re), .xrdy, .data(fsm_data), 
+								.use_fsm);
+
+	assign data = use_fsm ? fsm_data : fifo_data;
+	assign cts = 1'b1; // todo implement rts/cts
 
 endmodule

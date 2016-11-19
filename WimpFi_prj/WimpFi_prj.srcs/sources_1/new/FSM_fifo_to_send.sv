@@ -29,8 +29,10 @@ module FSM_fifo_to_send(
     input logic cts,
     input logic rdy,
     output logic send,
-    output logic read,
-	output logic xrdy
+    output logic read_data,
+	output logic xrdy,
+	output logic [7:0] data,
+	output logic use_fsm
     );
 
 	localparam PREAMBLE = 8'h55;
@@ -59,7 +61,7 @@ module FSM_fifo_to_send(
 	begin
 		rts = 0;
 		send = 0;
-		read = 0;
+		read_data = 0;
 		xrdy = 0;
 		next = IDLE;
 		case(state)

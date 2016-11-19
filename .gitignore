@@ -19,8 +19,12 @@ WimpFi_prj/WimpFi_prj.ip_user_files/*
 WimpFi_prj/WimpFi_prj.hw/*
 WimpFi_prj/WimpFi_prj.runs/*
 
+# Allow the bitstream file
+!WimpFi_prj/WimpFi_prj.runs/impl_1/nexys4DDR.bit
+
 # Ignore swp files
 *.swp
 
 # Ignore log files
 *.log
+

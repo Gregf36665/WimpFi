@@ -28,7 +28,7 @@ module nexys4DDR (
 		  output logic [6:0]  SEGS,
 		  output logic [7:0]  AN,
 		  output logic 	      DP,
-//		  input logic         UART_TXD_IN,
+		  input logic         UART_TXD_IN,
 		  input logic         IN_JA1,
 		  output logic        OUT_JA2,
 		  output logic        OUT_JA3,
@@ -47,8 +47,8 @@ module nexys4DDR (
 
 	// PMOD connections
 	assign rxd = IN_JA1; // Rx on pin 1
-//	assign OUT_JA2 = txdata;  // Tx on pin 2
-//	assign OUT_JA3 = ~txen; // txen is the inversion of pin 3
+	assign OUT_JA2 = txd;  // Tx on pin 2
+	assign OUT_JA3 = ~txen; // txen is the inversion of pin 3
 	assign OUT_JA4 = 1'b1; // This pin should always be high
 
 	// Debugging connections
@@ -57,10 +57,8 @@ module nexys4DDR (
 
 
 	// internal signals
-	logic txdata, txen;
+	logic txd, txen;
 	logic cardet; // These are internal signals that can be used
-
-	logic looking; // signal to connect the looking pulse
 
 	dispctl U_SEG_CTL (.clk, .reset, .d7(SW[7:4]), .d6(SW[3:0]), .d5(4'b0), 
 					.d4(4'b0), .d3(4'h0), .d2(4'h0), .d1(4'b0), 
@@ -71,7 +69,12 @@ module nexys4DDR (
 	receiver_side U_RX_SIDE (.clk, .reset, .rxd, .SW, .UART_RXD_OUT, .cardet);
 
 
+	transmitter_side U_TX_SIDE (.clk, .reset, .UART_TXD_IN, .cardet, .txen, .txd);
+
 	assign LED16_G = cardet;
 
+	assign LED16_R = 1'b0;
+	assign LED17_R = txen;
+	assign LED17_G = txd;
                                             
 endmodule // nexys4DDR

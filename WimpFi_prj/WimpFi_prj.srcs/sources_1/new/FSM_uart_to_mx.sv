@@ -51,6 +51,7 @@ module FSM_uart_to_mx(
 	begin
 		save_byte = 0;
 		send = 0;
+		next = IDLE;
 
 		case(state)
 		IDLE:

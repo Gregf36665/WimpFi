@@ -39,7 +39,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	manchester_tx #(.BIT_RATE(BIT_RATE)) U_TX_MX (.clk, .send, .reset, .data, 
 													.rdy, .txen, .txd);
 
-	p_fifo #(.DEPTH(255)) U_BUFFER (.clk, .rst(~reset), .clr(), .din(xdata), .we(xwr), .re,
+	p_fifo #(.DEPTH(255)) U_BUFFER (.clk, .rst(~reset), .clr(1'b0), .din(xdata), .we(xwr), .re,
 									.full(), .empty, .dout(fifo_data));
 
 	FSM_fifo_to_send U_FSM_TX (.clk, .reset, .xsnd, .empty, .rts, .cts,

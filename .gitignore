@@ -16,6 +16,8 @@
 WimpFi_prj/WimpFi_prj.cache/*
 WimpFi_prj/WimpFi_prj.sim/*
 WimpFi_prj/WimpFi_prj.ip_user_files/*
+WimpFi_prj/WimpFi_prj.hw/*
+WimpFi_prj/WimpFi_prj.runs/*
 
 # Ignore swp files
 *.swp

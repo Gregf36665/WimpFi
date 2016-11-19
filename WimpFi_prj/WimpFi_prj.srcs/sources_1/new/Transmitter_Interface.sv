@@ -39,7 +39,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	manchester_tx #(.BIT_RATE(BIT_RATE)) U_TX_MX (.clk, .send, .reset, .data, 
 													.rdy, .txen, .txd);
 
-	p_fifo #(.DEPTH(255)) U_BUFFER (.clk, .rst(reset), .clr(), .din(xdata), .we(xwr), .re,
+	p_fifo #(.DEPTH(255)) U_BUFFER (.clk, .rst(~reset), .clr(), .din(xdata), .we(xwr), .re,
 									.full(), .empty, .dout(fifo_data));
 
 	FSM_fifo_to_send U_FSM_TX (.clk, .reset, .xsnd, .empty, .rts, .cts,
@@ -48,5 +48,6 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 
 	assign data = use_fsm ? fsm_data : fifo_data;
 	assign cts = 1'b1; // todo implement rts/cts
+	assign xerrcnt = 0; // todo implement crc checking
 
 endmodule

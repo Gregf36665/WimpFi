@@ -48,7 +48,8 @@ module FSM_fifo_to_send(
 		LOAD_PREAMBLE2 = 4'h6,
 		SEND_PREAMBLE2 = 4'h7,
 		LOAD_SFD = 4'h8,
-		SEND_SFD = 4'h9
+		SEND_SFD = 4'h9,
+		CHECK_EMPTY = 4'hA
 
 	} states;
 
@@ -63,6 +64,7 @@ module FSM_fifo_to_send(
 		send = 0;
 		read_data = 0;
 		xrdy = 0;
+		data = 0;
 		next = IDLE;
 		case(state)
 		IDLE:
@@ -74,13 +76,36 @@ module FSM_fifo_to_send(
 		TIMING_CHECK:
 			begin
 				rts = 1;
+				// Verify cts signal
 				next = cts ? LOAD_PREAMBLE1 : TIMING_CHECK;
 			end
 		LOAD_PREAMBLE1:
+			// Wait till we are ready
+			next = rdy ? SEND_PREAMBLE1 : LOAD_PREAMBLE1;
+		SEND_PREAMBLE1:
 			begin
+				send = 1;
 				data = PREAMBLE;
 				use_fsm = 1;
-				next = rdy ? SEND_PREAMBLE1 : LOAD_PREAMBLE1;
+				// Wait until ready falls before advancing
+				next = rdy ? SEND_PREAMBLE1 : LOAD_PREAMBLE2;
+			end
+		LOAD_PREAMBLE2:
+			next = rdy ? SEND_PREAMBLE2 : LOAD_PREAMBLE2;
+		SEND_PREAMBLE2:
+			begin
+				send = 1;
+				data = PREAMBLE;
+				use_fsm = 1;
+				next = LOAD_SFD;
+			end
+		LOAD_SFD:
+			next = rdy ? SEND_SFD : LOAD_SFD;
+		SEND_SFD:
+			begin
+				data = SFD;
+				use_fsm = 1;
+				next = STAND_BY;
 			end
 		STAND_BY:
 			next = rdy ? SEND : STAND_BY;
@@ -88,8 +113,10 @@ module FSM_fifo_to_send(
 			begin
 				send = 1;
 				read_data = 1;
-				next = empty ? IDLE : STAND_BY;
+				next = CHECK_EMPTY;
 			end		
+		CHECK_EMPTY:
+			next = empty ? IDLE : STAND_BY;
 		endcase
 			
 	end

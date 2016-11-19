@@ -22,7 +22,7 @@
 
 module nexys4DDR (
           input logic         CLK100MHZ,
-		  input logic [15:0]  SW,
+		  input logic [7:0]   SW,
 		  input logic 	      BTNC,
 		  input logic 	      BTND,
 		  output logic [6:0]  SEGS,
@@ -46,38 +46,32 @@ module nexys4DDR (
 	assign reset = BTNC; // GSR
 
 	// PMOD connections
-	assign rxdata = IN_JA1; // Rx on pin 1
-	assign OUT_JA2 = txdata;  // Tx on pin 2
-	assign OUT_JA3 = ~txen; // txen is the inversion of pin 3
+	assign rxd = IN_JA1; // Rx on pin 1
+//	assign OUT_JA2 = txdata;  // Tx on pin 2
+//	assign OUT_JA3 = ~txen; // txen is the inversion of pin 3
 	assign OUT_JA4 = 1'b1; // This pin should always be high
 
 	// Debugging connections
 	assign OUT_JB1 = IN_JA1; // the rx line
-	assign OUT_JB2 = looking;
 	assign OUT_JB3 = cardet;
-	assign OUT_JB4 = error;
 
 
-	//Button connections
-	assign enb = BTND;
-
-	// Length selection
-	logic [5:0] length;
-	assign length = SW[5:0]; // The 6 switches to the right
 	// internal signals
 	logic txdata, txen;
-	logic cardet, error; // These are internal signals that can be used
+	logic cardet; // These are internal signals that can be used
 
 	logic looking; // signal to connect the looking pulse
 
-	ReceiverTestUnit U_RX_UNIT (.clk, .reset, .rxdata, .SEGS, .AN, .DP,
-								.cardet, .error, .UART_RXD_OUT,
-								.LED16_R, .LED16_G, .LED17_R, .LED17_G,
-								.looking);
+	dispctl U_SEG_CTL (.clk, .reset, .d7(SW[7:4]), .d6(SW[3:0]), .d5(4'b0), 
+					.d4(4'b0), .d3(4'h0), .d2(4'h0), .d1(4'b0), 
+					.d0(4'b0), .dp7(1'b0), .dp6(1'b0), .dp5(1'b0), 
+					.dp4(1'b0), .dp3(1'b0), .dp2(1'b0), .dp1(1'b0), .dp0(1'b0), 
+					.seg(SEGS), .dp(DP), .an(AN)); 
 
-	TransmitterTestUnit U_TX_UNIT (.clk, .reset, .enb, .length,
-									.txen, .txdata);
+	receiver_side U_RX_SIDE (.clk, .reset, .rxd, .SW, .UART_RXD_OUT, .cardet);
 
+
+	assign LED16_G = cardet;
 
                                             
 endmodule // nexys4DDR

@@ -29,14 +29,6 @@ module clkenb(input logic clk, reset, output logic enb);
 
    logic [DIVBITS-1:0] q;
    
-   generate
-   if (DIVFREQ > CLKFREQ)
-   		// the %m displays the instance name in the error message
-   		$error("Invalid div_freq greater than clk_freq\nError in %m\n");
-		// Well apparently sv hates validating parameters
-	endgenerate
-	// whitespace...
-   
    always @(posedge clk)
    begin
      if (reset)

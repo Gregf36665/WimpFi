@@ -28,7 +28,6 @@ module transmitter_side(
 	output logic txen, txd
     );
 
-	
 	// Internal connections
 	logic xsnd, xwr, ferr, UART_ready, xrdy;
 	logic [7:0] data;
@@ -44,5 +43,7 @@ module transmitter_side(
 
 	receiver U_UART_RX (.clk, .reset, .rxd(UART_TXD_IN), .ferr, .ready(UART_ready),
 						.data);
+	
+
 
 endmodule

@@ -33,11 +33,14 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
     output logic [7:0] xerrcnt
     );
 
+	localparam CUTOUT_DURATION = 511; // How many bit periods before watch dog shutdown
+
 	// Internal connections
 	logic [7:0] data, fsm_data, fifo_data; // connection from FIFO to data
+	logic mx_txen;
 	logic empty, re, rdy, send, rts, use_fsm;
 	manchester_tx #(.BIT_RATE(BIT_RATE)) U_TX_MX (.clk, .send, .reset, .data, 
-													.rdy, .txen, .txd);
+													.rdy, .txen(mx_txen), .txd);
 
 	p_fifo #(.DEPTH(255)) U_BUFFER (.clk, .rst(~reset), .clr(1'b0), .din(xdata), .we(xwr), .re,
 									.full(), .empty, .dout(fifo_data));
@@ -46,8 +49,20 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 								.rdy, .send, .read_data(re), .xrdy, .data(fsm_data), 
 								.use_fsm);
 
+	// Watchdog timer to prevent continious transmissions
+	logic wd_enb, problem, safety_cutout;
+
+	// Start counting if txen is high
+	counter_parm #(.W($clog2(CUTOUT_DURATION)),.CARRY_VAL(CUTOUT_DURATION))
+				U_WATCHDOG_TIMER (.clk, .reset(reset | ~txen), .enb(wd_enb), .q(), .carry(problem));
+
+	clkenb #(.DIVFREQ(BIT_RATE)) U_WATCHDOG_ENB (.clk, .reset, .enb(wd_enb));
+
+	f_error U_WATCHDOG_LATCH (.clk, .reset, .set_ferr(problem), .clr_ferr(1'b0), .ferr(safety_cutout));
+
 	assign data = use_fsm ? fsm_data : fifo_data;
 	assign cts = 1'b1; // todo implement rts/cts
 	assign xerrcnt = 0; // todo implement crc checking
+	assign txen = safety_cutout ? 1'b0 : mx_txen; // shutdown if there is a problem
 
 endmodule

@@ -28,7 +28,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
     input logic xsnd,
     input logic xwr,
     input logic [7:0] xdata,
-    output logic cardet,
+    input logic cardet,
     output logic xrdy,
     output logic [7:0] xerrcnt
     );

@@ -31,7 +31,7 @@ module Backoff_module(
 	// Frequency of bits
 	parameter BIT_RATE = 50_000;
 	// How many bit periods for each option
-	parameter DIFS_COUNT = 800;
+	parameter DIFS_COUNT = 80;
 	parameter SIFS_COUNT = 40;
 	parameter SLOT_TIME = 8;
 

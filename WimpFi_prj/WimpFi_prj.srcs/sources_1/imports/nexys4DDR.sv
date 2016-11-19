@@ -56,7 +56,7 @@ module nexys4DDR (
 	assign OUT_JB1 = IN_JA1; // the rx line
 	assign OUT_JB2 = xrdy;
 	assign OUT_JB3 = cardet;
-	assign OUT_JB4 = xsnd;
+	assign OUT_JB4 = txen;
 
 
 	// internal signals
@@ -74,9 +74,9 @@ module nexys4DDR (
 
 	transmitter_side U_TX_SIDE (.clk, .reset, .UART_TXD_IN, .cardet, .txen, .txd, .xrdy, .xsnd);
 
-	assign LED16_G = cardet;
 
-	assign LED16_R = 1'b0;
+	assign LED16_G = cardet;
+	assign LED16_R = txen;
 	assign LED17_R = ~xrdy;
 	assign LED17_G = 1'b0;
                                             

@@ -30,8 +30,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
     input logic [7:0] xdata,
     input logic cardet,
     output logic xrdy,
-    output logic [7:0] xerrcnt,
-	output rts, cts // debugging signals
+    output logic [7:0] xerrcnt
     );
 
 	localparam CUTOUT_DURATION = 511; // How many bit periods before watch dog shutdown

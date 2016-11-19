@@ -30,7 +30,8 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
     input logic [7:0] xdata,
     input logic cardet,
     output logic xrdy,
-    output logic [7:0] xerrcnt
+    output logic [7:0] xerrcnt,
+	output rts, cts // debugging signals
     );
 
 	localparam CUTOUT_DURATION = 511; // How many bit periods before watch dog shutdown
@@ -38,7 +39,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	// Internal connections
 	logic [7:0] data, fsm_data, fifo_data; // connection from FIFO to data
 	logic mx_txen;
-	logic empty, re, rdy, send, rts, use_fsm;
+	logic empty, re, rdy, send, rts, cts, use_fsm;
 	manchester_tx #(.BIT_RATE(BIT_RATE)) U_TX_MX (.clk, .send, .reset, .data, 
 													.rdy, .txen(mx_txen), .txd);
 
@@ -48,6 +49,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	FSM_fifo_to_send U_FSM_TX (.clk, .reset, .xsnd, .empty, .rts, .cts,
 								.rdy, .send, .read_data(re), .xrdy, .data(fsm_data), 
 								.use_fsm);
+
 
 	// Watchdog timer to prevent continious transmissions
 	logic wd_enb, problem, safety_cutout;
@@ -60,8 +62,11 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 
 	f_error U_WATCHDOG_LATCH (.clk, .reset, .set_ferr(problem), .clr_ferr(1'b0), .ferr(safety_cutout));
 
+	// Add a backoff module to deal with traffic 
+	Backoff_module U_BACKOFF_MODULE (.clk, .reset, .cardet, .rts, .cts);
+
+	
 	assign data = use_fsm ? fsm_data : fifo_data;
-	assign cts = 1'b1; // todo implement rts/cts
 	assign xerrcnt = 0; // todo implement crc checking
 	assign txen = safety_cutout ? 1'b0 : mx_txen; // shutdown if there is a problem
 

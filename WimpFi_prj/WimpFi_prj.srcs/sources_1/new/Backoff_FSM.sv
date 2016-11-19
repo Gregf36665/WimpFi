@@ -30,7 +30,7 @@ module Backoff_FSM(
 	input logic slots_done,
     output logic cts,
     output logic roll,
-	output logic enb_slot_counter,
+	output logic enb_slots_counter,
 	output logic enb_difs_counter,
 	output logic enb_sifs_counter,
 	output logic reset_counters
@@ -53,7 +53,7 @@ module Backoff_FSM(
 	begin
 		cts = 0;
 		roll = 0;
-		enb_slot_counter = 0;
+		enb_slots_counter = 0;
 		enb_difs_counter = 0;
 		enb_sifs_counter = 0;
 		reset_counters = 0;
@@ -68,7 +68,7 @@ module Backoff_FSM(
 
 			NETWORK_BUSY:
 			begin
-				next = difs_timeout ? NETWORK_BUSY : CONTENTION;
+				next = difs_timeout ? NETWORK_BUSY : ROLL;
 				enb_difs_counter = 1;
 			end
 			
@@ -76,12 +76,13 @@ module Backoff_FSM(
 			begin
 				roll = 1;
 				next = CONTENTION;
+				reset_counters = 1;
 			end
 			CONTENTION:
 			begin
 				if(slots_done) next = cardet ? NETWORK_BUSY : CTS;
-				else next = IDLE;
-				enb_slot_counter = 1;
+				else next = CONTENTION;
+				enb_slots_counter = 1;
 			end
 			CTS:
 			begin

@@ -27,6 +27,7 @@ module Type0_TX_MX_RX_UART_test();
 	logic reset = 1;
 	logic cardet = 0;
 	logic txen, txd; // outputs
+	logic rts, cts;
 
 	// Wires for UART transmitter
 	logic send = 0;
@@ -50,12 +51,31 @@ module Type0_TX_MX_RX_UART_test();
 		@(negedge rdy) send = 0;
 	endtask
 
+	task traffic;
+		cardet = 1;
+		#100;
+		data = 8'h55; // Data
+		send = 1;
+		@(negedge rdy) send = 0;
+		data = 8'h04; // Send command
+		@(posedge rdy) send = 1;
+		@(negedge rdy) send = 0;
+		fork : ready_timeout
+			@(posedge txen) disable ready_timeout;
+			#20_000_000 disable ready_timeout;
+		join
+		cardet = 0;
+		@(posedge txen);
+		@(negedge txen);
+	endtask
+
 	initial 
 	begin
 		#100;
 		reset = 0;
 		#100;
-		send_one_byte;
+		//send_one_byte;
+		traffic;
 
 	end
 endmodule

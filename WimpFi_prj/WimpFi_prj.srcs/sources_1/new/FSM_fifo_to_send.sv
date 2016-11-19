@@ -49,7 +49,8 @@ module FSM_fifo_to_send(
 		SEND_PREAMBLE2 = 4'h7,
 		LOAD_SFD = 4'h8,
 		SEND_SFD = 4'h9,
-		CHECK_EMPTY = 4'hA
+		CHECK_EMPTY = 4'hA,
+		GET_NEXT_BYTE = 4'hB
 
 	} states;
 
@@ -97,7 +98,7 @@ module FSM_fifo_to_send(
 				send = 1;
 				data = PREAMBLE;
 				use_fsm = 1;
-				next = LOAD_SFD;
+				next = rdy ? SEND_PREAMBLE2 : LOAD_SFD;
 			end
 		LOAD_SFD:
 			next = rdy ? SEND_SFD : LOAD_SFD;
@@ -105,16 +106,21 @@ module FSM_fifo_to_send(
 			begin
 				data = SFD;
 				use_fsm = 1;
-				next = STAND_BY;
+				send = 1;
+				next = rdy ? SEND_SFD : STAND_BY;
 			end
 		STAND_BY:
 			next = rdy ? SEND : STAND_BY;
 		SEND:
 			begin
 				send = 1;
-				read_data = 1;
-				next = CHECK_EMPTY;
+				next = rdy ? SEND : GET_NEXT_BYTE;
 			end		
+		GET_NEXT_BYTE:
+			begin
+				read_data = 1;
+				next = CHECK_EMPTY; 
+			end
 		CHECK_EMPTY:
 			next = empty ? IDLE : STAND_BY;
 		endcase

@@ -44,7 +44,7 @@ module receiver #(parameter BAUD_RATE = 9600)(
     counter_parm #(.W(3), .CARRY_VAL(4'd7)) U_BIT_COUNTER  		(.clk, .enb(store_bit), .reset(bit_counter_rst), .q(bit_count), .carry());
     counter_parm #(.W(4), .CARRY_VAL(4'd9)) U_FERR_COUNTER 		(.clk, .enb(ferr_count_inc), .reset(ferr_counter_rst), .q(ferr_delay_count), .carry());
     delay_timer  #(.BAUD_RATE(BAUD_RATE)) 	U_DELAY_TIMER  		(.clk, .delay_timer_rst, .half_timer, .full_timer);
-    clkenb #(.DIVFREQ(BAUD_RATE*16)) 		U_START_PULSER 		(.clk, .enb(start_check), .reset, .baud());
+    clkenb #(.DIVFREQ(BAUD_RATE*16)) 		U_START_PULSER 		(.clk, .enb(start_check), .reset);
     rxd_synchroniser 						U_RXD_SYNCHRONISER 	(.clk, .rxd(rxd), .rxd_synced(rxd_synced));
     f_error									U_F_ERROR			(.clk, .reset, .set_ferr(set_ferr), .clr_ferr(clr_ferr), .ferr(ferr));
     

@@ -25,7 +25,7 @@ module delay_timer #(parameter BAUD_RATE = 9600)(
 		output logic half_timer, full_timer
     );
     
-    clkenb #(.DIVFREQ(BAUD_RATE*2)) U_HALF (.clk, .enb(half_timer), .reset(delay_timer_rst), .baud());
-    clkenb #(.DIVFREQ(BAUD_RATE)) 	U_FULL (.clk, .enb(full_timer), .reset(delay_timer_rst), .baud());
+    clkenb #(.DIVFREQ(BAUD_RATE*2)) U_HALF (.clk, .enb(half_timer), .reset(delay_timer_rst));
+    clkenb #(.DIVFREQ(BAUD_RATE)) 	U_FULL (.clk, .enb(full_timer), .reset(delay_timer_rst));
     
 endmodule

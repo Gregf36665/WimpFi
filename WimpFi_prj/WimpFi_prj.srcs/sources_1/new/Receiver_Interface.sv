@@ -51,8 +51,8 @@ module Receiver_Interface #(parameter BIT_RATE = 50_000) (
 									.force_write, .inc_rerr, .crc, .frame_type, .reset_crc);
 	
 	// Active low reset
-	p_fifo #(.DEPTH(256)) U_FIFO (.clk, .rst(~reset), .clr(clear_fifo), .din(data_rx), 
-								.we, .re(rrd), .full(), .empty, .dout(rdata), .pop(pop_fifo));
+	p_fifo #(.DEPTH(256)) U_FIFO (.clk, .rst(~reset), .clr(clear_fifo), .din(data_rx), .rp_val(0),
+								.set_rp(0), .we, .re(rrd), .full(), .empty, .dout(rdata), .pop(pop_fifo));
 
 
 	// Add in HW to check packet type

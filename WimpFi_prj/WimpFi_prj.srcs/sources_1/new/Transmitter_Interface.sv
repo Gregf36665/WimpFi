@@ -51,7 +51,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	logic [POINTER_WIDTH:0] rp, rp_val;
 	logic set_rp;
 	p_fifo #(.DEPTH(DEPTH)) U_BUFFER (.clk, .rst(~reset), .clr(1'b0), .din(xdata), .we(xwr), .re,
-									.full(), .empty, .dout(fifo_data), .rp, .rp_val, .set_rp);
+									.full(), .empty, .dout(fifo_data), .rp, .rp_val, .set_rp, .pop(0));
 
 	logic good_ack, exceed_retry, retry_send;
 	FSM_fifo_to_send U_FSM_TX (.clk, .reset, .xsnd, .empty, .rts, .cts,
@@ -93,10 +93,10 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 
 
 	// Create a module to timeout after no ack
-	logic [7:0] tx_addr, rx_addr;
+	logic [7:0] tx_addr;
 
 	FSM_ack_timeout U_FSM_ACK_TIMEOUT (.clk, .reset, .frame_type, .xsnd, .ack(got_ack), .ack_timeout,
-										.tx_addr, .rx_addr, .start_ack_timeout, 
+										.tx_addr, .rx_addr(rxaddr), .start_ack_timeout, 
 										.retry, .good_ack, .exceed_retry);
 
 	FSM_get_dest_addr U_GET_DEST_ADDR (.clk, .reset, .data(xdata), .byte_count, .addr(tx_addr));

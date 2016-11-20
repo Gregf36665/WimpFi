@@ -50,6 +50,17 @@ module Receiver_Interface #(parameter BIT_RATE = 50_000) (
 								.we, .re(rrd), .full(), .empty, .dout(rdata));
 
 
+	// Add in HW to check packet type
+	logic [7:0] byte_count;
+	logic [2:0] frame_type;
+	counter_parm #(.W(8)) U_FRAME_TYPE_COUNTER (.clk, .reset(reset | empty), .enb(write_rx),
+																	.q(byte_count));
+
+	FSM_Frame_type U_FSM_FRAME_ID (.clk, .reset, .byte_count(byte_count+1), .xsnd(empty), .din(data_rx), .frame_type);
+
+
+
+
 	// Assign wires to the top level
 	assign we = (write_rx & write_enb) | force_write; // Make sure the address matches first 
 	//or the FSM wants to write something out

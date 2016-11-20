@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Type1_RX_MX_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Type1_RX_MX" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="426969629fs"></ZoomEndTime>
+      <Cursor1Time time="188525000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="25" />
+   <wvobject fp_name="/Type1_RX_MX/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/rrd" type="logic">
+      <obj_property name="ElementShortName">rrd</obj_property>
+      <obj_property name="ObjectShortName">rrd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/mac" type="array">
+      <obj_property name="ElementShortName">mac[7:0]</obj_property>
+      <obj_property name="ObjectShortName">mac[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/xdata" type="array">
+      <obj_property name="ElementShortName">xdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">xdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/xerrcnt" type="array">
+      <obj_property name="ElementShortName">xerrcnt[7:0]</obj_property>
+      <obj_property name="ObjectShortName">xerrcnt[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/rdata" type="array">
+      <obj_property name="ElementShortName">rdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/rerrcnt" type="array">
+      <obj_property name="ElementShortName">rerrcnt[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rerrcnt[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/cardet" type="logic">
+      <obj_property name="ElementShortName">cardet</obj_property>
+      <obj_property name="ObjectShortName">cardet</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/txd" type="logic">
+      <obj_property name="ElementShortName">txd</obj_property>
+      <obj_property name="ObjectShortName">txd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/txen" type="logic">
+      <obj_property name="ElementShortName">txen</obj_property>
+      <obj_property name="ObjectShortName">txen</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/xsnd" type="logic">
+      <obj_property name="ElementShortName">xsnd</obj_property>
+      <obj_property name="ObjectShortName">xsnd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/xwr" type="logic">
+      <obj_property name="ElementShortName">xwr</obj_property>
+      <obj_property name="ObjectShortName">xwr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/xrdy" type="logic">
+      <obj_property name="ElementShortName">xrdy</obj_property>
+      <obj_property name="ObjectShortName">xrdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/rrdy" type="logic">
+      <obj_property name="ElementShortName">rrdy</obj_property>
+      <obj_property name="ObjectShortName">rrdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/rxd" type="logic">
+      <obj_property name="ElementShortName">rxd</obj_property>
+      <obj_property name="ObjectShortName">rxd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/U_TX/U_TX_MX/U_TX/saved_data" type="array">
+      <obj_property name="ElementShortName">saved_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">saved_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/U_TX/U_BUFFER/mem" type="array">
+      <obj_property name="ElementShortName">mem[0:254][7:0]</obj_property>
+      <obj_property name="ObjectShortName">mem[0:254][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/DUV/U_FSM_FRAME_ID/state" type="array">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/DUV/U_FSM_FRAME_ID/din" type="array">
+      <obj_property name="ElementShortName">din[7:0]</obj_property>
+      <obj_property name="ObjectShortName">din[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/DUV/frame_type" type="array">
+      <obj_property name="ElementShortName">frame_type[2:0]</obj_property>
+      <obj_property name="ObjectShortName">frame_type[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/DUV/U_FRAME_TYPE_COUNTER/q" type="array">
+      <obj_property name="ElementShortName">q[7:0]</obj_property>
+      <obj_property name="ObjectShortName">q[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/DUV/U_FSM_FRAME_ID/byte_count" type="array">
+      <obj_property name="ElementShortName">byte_count[7:0]</obj_property>
+      <obj_property name="ObjectShortName">byte_count[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/U_TX/U_CRC_GEN/crc" type="array">
+      <obj_property name="ElementShortName">crc[1:8]</obj_property>
+      <obj_property name="ObjectShortName">crc[1:8]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type1_RX_MX/U_TX/U_FCS_FSM/state" type="array">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+   </wvobject>
+</wave_config>

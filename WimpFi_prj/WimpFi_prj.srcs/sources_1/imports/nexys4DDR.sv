@@ -62,14 +62,15 @@ module nexys4DDR (
 	// internal signals
 	logic txd, txen;
 	logic cardet; // These are internal signals that can be used
+	logic [7:0] rerrcnt;
 
-	dispctl U_SEG_CTL (.clk, .reset, .d7(SW[7:4]), .d6(SW[3:0]), .d5(4'b0), 
-					.d4(4'b0), .d3(4'h0), .d2(4'h0), .d1(4'b0), 
+	dispctl U_SEG_CTL (.clk, .reset, .d7(SW[7:4]), .d6(SW[3:0]), .d5(rerrcnt[7:4]), 
+					.d4(rerrcnt[3:0]), .d3(4'h0), .d2(4'h0), .d1(4'b0), 
 					.d0(4'b0), .dp7(1'b0), .dp6(1'b0), .dp5(1'b0), 
 					.dp4(1'b0), .dp3(1'b0), .dp2(1'b0), .dp1(1'b0), .dp0(1'b0), 
 					.seg(SEGS), .dp(DP), .an(AN)); 
 
-	receiver_side U_RX_SIDE (.clk, .reset, .rxd, .SW, .UART_RXD_OUT, .cardet);
+	receiver_side U_RX_SIDE (.clk, .reset, .rxd, .SW, .UART_RXD_OUT, .cardet, .rerrcnt);
 
 
 	transmitter_side U_TX_SIDE (.clk, .reset, .UART_TXD_IN, .cardet, .txen, .txd, .xrdy, .xsnd);

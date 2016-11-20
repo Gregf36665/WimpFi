@@ -26,7 +26,8 @@ module receiver_side(
 	input logic rxd,
 	input logic [7:0] SW,
 	output logic UART_RXD_OUT,
-	output logic cardet
+	output logic cardet,
+	output logic [7:0] rerrcnt
 	);
 
 	// Internal connections
@@ -35,7 +36,7 @@ module receiver_side(
 
 	// RX interface
 	Receiver_Interface U_RX_INTERFACE (.clk, .reset, .rrd, .rrdy, .mac(SW),
-										.rdata(data), .rerrcnt(), .cardet, .rxd);
+										.rdata(data), .rerrcnt, .cardet, .rxd);
 
 	// FSM to take data out of the receiver
 	FSM_rx_mx_to_tx_uart U_EXTRACTOR_FSM (.clk, .reset, .rrdy, .rdy, .rrd, .send);

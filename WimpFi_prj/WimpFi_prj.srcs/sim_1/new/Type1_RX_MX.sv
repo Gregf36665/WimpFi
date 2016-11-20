@@ -19,6 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+import check_p::*;
 
 module Type1_RX_MX(
     );
@@ -41,30 +42,82 @@ module Type1_RX_MX(
 	Transmitter_Interface U_TX (.*);
 	Receiver_Interface DUV (.*);
 
+	task send_byte(logic [7:0] data);
+		// Send data
+		@(negedge clk)
+			xwr = 1;
+			xdata = data;
+		@(posedge clk)
+			#1 xwr = 0;
+		repeat(10) @(posedge clk);
+	endtask
+
 	task send_empty_T1;
+		// Send 2a
 		@(negedge clk)
 			xwr = 1;
 			xdata = 8'h2a;
 		@(posedge clk)
-			xwr = 0;
+			#1 xwr = 0;
 		repeat(10) @(posedge clk);
-			xwr = 1;
-			#1 xdata = 8'h55;
+		// Send 55
+		@(negedge clk);
+			#1 xwr = 1;
+			xdata = 8'h55;
 		@(posedge clk)
 			#1 xwr = 0;
-		@(posedge clk)
 		repeat(10) @(posedge clk);
+		// Send 31
+		@(negedge clk);
 			xwr = 1;
 			#1 xdata = 8'h31;
+		@(posedge clk)
+			#1 xwr = 0;
+		repeat(10) @(posedge clk);
+		// Send all bytes
+		xsnd = 1;
+		@(posedge txen)
+			#1 xsnd = 0;
+		@(negedge txen);
+
+	endtask
+
+
+	task send_empty_T1_good_CRC;
+		// Send 2a
+		@(negedge clk)
+			xwr = 1;
+			xdata = 8'h2a;
+		@(posedge clk)
+			#1 xwr = 0;
+		repeat(10) @(posedge clk);
+		// Send 55
+		@(negedge clk);
+			#1 xwr = 1;
+			xdata = 8'h55;
+		@(posedge clk)
+			#1 xwr = 0;
+		repeat(10) @(posedge clk);
+		// Send 31
+		@(negedge clk);
+			xwr = 1;
+			#1 xdata = 8'h31;
+		@(posedge clk)
+			#1 xwr = 0;
+		repeat(10) @(posedge clk);
+		// Send 96
+		@(negedge clk);
+			xwr = 1;
+			#1 xdata = 8'h96;
 		@(posedge clk)
 			#1 xwr = 0;
 		repeat(10) @(posedge clk);
 		xsnd = 1;
 		@(posedge txen)
 			#1 xsnd = 0;
+		@(negedge txen);
 
 	endtask
-
 
 	always
 		#5 clk = ~clk;
@@ -74,6 +127,9 @@ module Type1_RX_MX(
 		#100;
 		reset = 0;
 		send_empty_T1;
+		#500_000;
+		//send_empty_T1_good_CRC;
+		check_summary_stop;
 		
 	end
 	

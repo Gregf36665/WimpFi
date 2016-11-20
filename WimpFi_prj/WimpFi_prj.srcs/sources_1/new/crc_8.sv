@@ -25,7 +25,7 @@ module crc_8(
     input logic reset,
     input logic di,
 	input logic enb_crc,  
-    output logic [8:1] crc
+    output logic [1:8] crc
     );
 
 	assign crc0 = crc[8] ^ di;

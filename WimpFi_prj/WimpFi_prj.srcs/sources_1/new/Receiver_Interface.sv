@@ -45,7 +45,7 @@ module Receiver_Interface #(parameter BIT_RATE = 50_000) (
 	mx_rcvr #(.BIT_RATE(BIT_RATE)) U_RX_MX (.clk, .reset, .rxd, .cardet, .data(data_rx), .write(write_rx), .error,
 					.error1(), .error2(), .error3(), .looking(), .error_count());
 
-	FSM_Address_check U_FSM_ADDR (.clk, .reset, .write(write_rx), .error,
+	FSM_Address_check U_FSM_ADDR (.clk, .reset, .write(write_rx), .error, .src,
 									.cardet, .address(mac), .data(data_rx), .pop_fifo,
 									.write_enb, .clear_fifo, .empty, .data_available, 
 									.force_write, .inc_rerr, .crc, .frame_type, .reset_crc);
@@ -76,5 +76,10 @@ module Receiver_Interface #(parameter BIT_RATE = 50_000) (
 	assign we = (write_rx & write_enb) | force_write; // Make sure the address matches first 
 	//or the FSM wants to write something out
 	assign rrdy = data_available;
+
+
+	// These check the frametype and that the frame was good
+	assign got_ack = (frame_type == 3) & data_available;
+	assign send_ack = (frame_type == 2) & data_available;
 
 endmodule

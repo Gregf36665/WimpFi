@@ -37,7 +37,8 @@ module FSM_Address_check(
 	output logic data_available,
 	output logic inc_rerr,
 	output logic reset_crc,
-	output logic pop_fifo
+	output logic pop_fifo,
+	output logic [7:0] src
     );
 
 	localparam ALL_CALL = 8'h2a; // all call address = *
@@ -48,14 +49,20 @@ module FSM_Address_check(
 		NOT_US = 3'b010,
 		FLUSH = 3'b011,
 		DONE = 3'b100,
-		CHECK_CRC = 3'b101
+		CHECK_CRC = 3'b101,
+		STORE_SRC = 3'b110,
+		WAIT = 3'b111
 	} states;
 
 	states state, next;
 
+	logic store_src;
+
 	always_ff @(posedge clk)
 	begin
 		state <= reset ? IDLE : next;
+		if(reset) src <= 0;
+		else if(store_src) src <= data;
 	end
 
 	always_comb
@@ -69,6 +76,7 @@ module FSM_Address_check(
 		inc_rerr = 0;
 		reset_crc = 0;
 		pop_fifo = 0;
+		store_src = 0;
 
 		case(state)
 			IDLE: // Wait till data is coming in
@@ -76,22 +84,24 @@ module FSM_Address_check(
 				begin
 					if(data == address)
 					begin
-						next = STORE_DATA;
+						next = WAIT;
 						force_write = 1; // Save the dest address
 					end
 					else if(data == ALL_CALL) 
 					begin
-						next = STORE_DATA;
+						next = WAIT;
 						force_write = 1; // save the all call address
 					end
 					else next = NOT_US; // address didn't match us
 				end
+			WAIT:
+				next = write ? STORE_SRC : WAIT;
 			STORE_SRC:
 				begin
-					write_enb = 1;
+					force_write = 1;
+					store_src = 1;
 					if(error) next = FLUSH;
-					else if(cardet) next = STORE_DATA;
-					else next = (frame_type == 0) ? DONE : CHECK_CRC;
+					next = STORE_DATA;
 				end
 			STORE_DATA:
 				// If match on address start saving data

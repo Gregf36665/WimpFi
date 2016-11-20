@@ -37,6 +37,10 @@ module Type1_RX_MX(
 	logic xrdy;
 	logic rrdy;
 	assign rrd = rrdy; // If something can be read read it.
+	logic [7:0] src;
+	logic got_ack, send_ack;
+	logic [7:0] rxaddr;
+	assign rxaddr = src;
 
 
 	Transmitter_Interface U_TX (.*);

@@ -74,6 +74,10 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	FSM_Frame_type U_FSM_FRAME_ID (.clk, .reset, .byte_count, .xsnd, .din(xdata), .frame_type);
 
 	
+	// Generate a FCS
+	FSM_FCS U_FCS_FSM (.clk, .reset, .xwr, .din(xdata), .dout, .enb_crc);
+
+
 	assign data = use_fsm ? fsm_data : fifo_data;
 	assign xerrcnt = 0; // todo implement crc checking
 	assign txen = safety_cutout ? 1'b0 : mx_txen; // shutdown if there is a problem

@@ -39,7 +39,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	logic [7:0] data, fsm_data, fifo_data, fcs; // connection from FIFO to data
 	logic mx_txen;
 	logic [2:0] frame_type;
-	logic empty, re, rdy, send, rts, cts, use_fsm;
+	logic empty, re, rdy, send, rts, cts, use_fsm, reset_crc;
 	manchester_tx #(.BIT_RATE(BIT_RATE)) U_TX_MX (.clk, .send, .reset, .data, 
 													.rdy, .txen(mx_txen), .txd);
 
@@ -48,7 +48,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 
 	FSM_fifo_to_send U_FSM_TX (.clk, .reset, .xsnd, .empty, .rts, .cts,
 								.rdy, .send, .read_data(re), .xrdy, .data(fsm_data), 
-								.use_fsm, .frame_type, .fcs);
+								.use_fsm, .frame_type, .fcs, .reset_crc);
 
 
 	// Watchdog timer to prevent continious transmissions
@@ -78,11 +78,11 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	logic dout, enb_crc;
 	FSM_FCS U_FCS_FSM (.clk, .reset, .xwr, .din(xdata), .dout, .enb_crc);
 
-	crc_8 U_CRC_GEN (.clk, .reset, .di(dout), .enb_crc, .crc(fcs));
+	crc_8 U_CRC_GEN (.clk, .reset(reset | reset_crc), .di(dout), .enb_crc, .crc(fcs));
 
 
 	assign data = use_fsm ? fsm_data : fifo_data;
-	assign xerrcnt = 0; // todo implement crc checking
+	assign xerrcnt = 0; // todo implement ack
 	assign txen = safety_cutout ? 1'b0 : mx_txen; // shutdown if there is a problem
 
 endmodule

@@ -34,7 +34,8 @@ module FSM_fifo_to_send(
 	output logic [7:0] data,
 	output logic use_fsm,
 	input logic [2:0] frame_type,
-	input logic [7:0] fcs
+	input logic [7:0] fcs,
+	output logic reset_crc
     );
 
 	localparam PREAMBLE = 8'h55;
@@ -54,7 +55,8 @@ module FSM_fifo_to_send(
 		CHECK_EMPTY = 4'hA,
 		GET_NEXT_BYTE = 4'hB,
 		FCS = 4'hC,
-		SEND_FCS = 4'hD
+		SEND_FCS = 4'hD,
+		RESET_CRC = 4'hE
 
 	} states;
 
@@ -72,6 +74,7 @@ module FSM_fifo_to_send(
 		data = 0;
 		next = IDLE;
 		use_fsm = 0;
+		reset_crc = 0;
 		case(state)
 			IDLE:
 				begin
@@ -144,7 +147,12 @@ module FSM_fifo_to_send(
 					data = fcs;
 					send = 1;
 					use_fsm = 1;
-					next = rdy ? SEND_FCS : IDLE;
+					next = rdy ? SEND_FCS : RESET_CRC;
+				end
+			RESET_CRC:
+				begin
+					reset_crc = 1;
+					next = IDLE;
 				end
 		endcase
 			

@@ -98,6 +98,21 @@ module Type0_TX_MX_RX_UART_test();
 		data = 8'h04; // Send command
 		@(posedge rdy) send = 1;
 		@(negedge rdy) send = 0;
+		@(negedge txen); // wait for tx
+		#1_000_000;
+		// Send it again
+		data = 8'h2a; // All call
+		send = 1;
+		@(negedge rdy) send = 0;
+		data = 8'h55; // From
+		@(posedge rdy) send = 1;
+		@(negedge rdy) send = 0;
+		data = 8'h31; // type 1 
+		@(posedge rdy) send = 1;
+		@(negedge rdy) send = 0;
+		data = 8'h04; // Send command
+		@(posedge rdy) send = 1;
+		@(negedge rdy) send = 0;
 
 	endtask
 

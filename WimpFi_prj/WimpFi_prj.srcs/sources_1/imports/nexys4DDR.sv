@@ -58,15 +58,17 @@ module nexys4DDR (
 	assign OUT_JB3 = cardet;
 	assign OUT_JB4 = txen;
 
+	logic [3:0] debug;
+	logic [7:0] txaddr;
 
 	// internal signals
 	logic txd, txen, got_ack, send_ack;
 	logic cardet; // These are internal signals that can be used
 	logic [7:0] xerrcnt, rerrcnt, rxaddr;
 
-	dispctl U_SEG_CTL (.clk, .reset, .d7(SW[7:4]), .d6(SW[3:0]), .d5(rerrcnt[7:4]), 
-					.d4(rerrcnt[3:0]), .d3(rxaddr[7:4]), .d2(rxaddr[3:0]), .d1(xerrcnt[7:4]), 
-					.d0(xerrcnt[3:0]), .dp7(1'b0), .dp6(1'b0), .dp5(1'b0), 
+	dispctl U_SEG_CTL (.clk, .reset, .d7(SW[7:4]), .d6(SW[3:0]), .d5(debug), //rerrcnt[7:4]), 
+					.d4(rerrcnt[3:0]), .d3(rxaddr[7:4]), .d2(rxaddr[3:0]), .d1(txaddr[7:4]), 
+					.d0(txaddr[3:0]), .dp7(1'b0), .dp6(1'b0), .dp5(1'b0),  //xerrcnt
 					.dp4(1'b0), .dp3(1'b0), .dp2(1'b0), .dp1(1'b0), .dp0(1'b0), 
 					.seg(SEGS), .dp(DP), .an(AN)); 
 
@@ -75,7 +77,7 @@ module nexys4DDR (
 
 
 	transmitter_side U_TX_SIDE (.clk, .reset, .UART_TXD_IN, .cardet, .txen, .txd, .xrdy, .xsnd,
-								.xerrcnt, .rxaddr, .got_ack, .send_ack);
+								.xerrcnt, .rxaddr, .got_ack, .send_ack, .debug, .txaddr);
 
 
 	assign LED16_G = cardet;

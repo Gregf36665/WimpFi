@@ -26,7 +26,7 @@ module Type2_TX(
 
 	logic clk = 0;
 	logic reset = 1;
-	logic [7:0] mac  = 8'hd3, xdata, rxaddr = 8'h55;
+	logic [7:0] mac  = 8'h6E, xdata, rxaddr = 8'h55;
 	logic [7:0] xerrcnt, rdata, rerrcnt, src;
 	logic cardet;
 	logic txd;
@@ -57,7 +57,7 @@ module Type2_TX(
 		// Send 2a
 		@(negedge clk)
 			xwr = 1;
-			xdata = 8'h2a;
+			xdata = 8'h6E;
 		@(posedge clk)
 			#1 xwr = 0;
 		repeat(10) @(posedge clk);
@@ -79,7 +79,10 @@ module Type2_TX(
 		xsnd = 1;
 		@(posedge txen)
 			#1 xsnd = 0;
-		@(negedge txen);
+		@(posedge send_ack);
+			#800_000 ack_for_tx = 1;
+		@(posedge clk);
+		@(negedge clk) ack_for_tx = 0;
 
 	endtask
 
@@ -101,7 +104,7 @@ module Type2_TX(
 		// Send 31
 		@(negedge clk);
 			xwr = 1;
-			#1 xdata = 8'h32;
+			#1 xdata = 8'h31;
 		@(posedge clk)
 			#1 xwr = 0;
 		repeat(10) @(posedge clk);
@@ -115,9 +118,6 @@ module Type2_TX(
 		xsnd = 1;
 		@(posedge txen)
 			#1 xsnd = 0;
-		#28_000 ack_for_tx = 1;
-		@(posedge clk);
-		@(negedge clk) ack_for_tx = 0;
 
 	endtask
 

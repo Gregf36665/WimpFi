@@ -33,10 +33,12 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
     output logic [7:0] xerrcnt,
 	input logic [7:0] rxaddr,
 	input logic got_ack,
-	input logic send_ack
+	input logic send_ack,
+	output logic [3:0] debug,
+	output logic [7:0] txaddr
     );
 
-	localparam CUTOUT_DURATION = 511; // How many bit periods before watch dog shutdown
+	localparam CUTOUT_DURATION = 511; // How many bit periods before watchdog shutdown
 
 	// Internal connections
 	logic [7:0] data, fsm_data, fifo_data, fcs; // connection from FIFO to data
@@ -57,7 +59,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	FSM_fifo_to_send U_FSM_TX (.clk, .reset, .xsnd, .empty, .rts, .cts,
 								.rdy, .send, .read_data(re), .xrdy, .data(fsm_data), 
 								.use_fsm, .frame_type, .fcs, .reset_crc, .good_ack, .exceed_retry,
-								.retry_send);
+								.retry_send, .debug);
 
 
 	// Watchdog timer to prevent continious transmissions
@@ -94,10 +96,11 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 
 	// Create a module to timeout after no ack
 	logic [7:0] tx_addr;
+	assign txaddr = tx_addr;
 
 	FSM_ack_timeout U_FSM_ACK_TIMEOUT (.clk, .reset, .frame_type, .xsnd, .ack(got_ack), .ack_timeout,
 										.tx_addr, .rx_addr(rxaddr), .start_ack_timeout, 
-										.retry, .good_ack, .exceed_retry);
+										.retry, .good_ack(), .exceed_retry);
 
 	FSM_get_dest_addr U_GET_DEST_ADDR (.clk, .reset, .data(xdata), .byte_count, .addr(tx_addr));
 
@@ -107,5 +110,6 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 
 	assign data = use_fsm ? fsm_data : fifo_data;
 	assign txen = safety_cutout ? 1'b0 : mx_txen; // shutdown if there is a problem
+	assign good_ack = (tx_addr == rxaddr) ? got_ack : 1'b0;
 
 endmodule

@@ -38,7 +38,8 @@ module FSM_fifo_to_send(
 	output logic reset_crc,
 	input logic good_ack,
 	input logic exceed_retry,
-	input logic retry_send
+	input logic retry_send,
+	output logic [3:0] debug
     );
 
 	localparam PREAMBLE = 8'h55;
@@ -65,6 +66,8 @@ module FSM_fifo_to_send(
 	} states;
 
 	states state, next;
+
+	assign debug = state;
 
 	always_ff @(posedge clk)
 		state <= reset ? IDLE : next;

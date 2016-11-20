@@ -33,7 +33,7 @@ module crc_8_test();
 	crc_8 DUV (.*);
 
 	logic xwr = 0;
-	logic [7:0] din = 8'h50;
+	logic [7:0] din;
 	FSM_FCS U_TX (.*);
 
 	always
@@ -42,11 +42,25 @@ module crc_8_test();
 	initial
 	begin
 		#100 reset = 0;
+		din = 8'h2A;
 		xwr = 1;
 		@(posedge clk) #1 xwr = 0;
 		repeat (8) @(posedge clk);
-		
-
+		#100;
+		din = 8'h6E;
+		xwr = 1;
+		@(posedge clk) #1 xwr = 0;
+		repeat (8) @(posedge clk);
+		#100;
+		din = 8'h31;
+		xwr = 1;
+		@(posedge clk) #1 xwr = 0;
+		repeat (8) @(posedge clk);
+		#100;
+		din = 8'h98;
+		xwr = 1;
+		@(posedge clk) #1 xwr = 0;
+		repeat (8) @(posedge clk);
 	end
 
 endmodule

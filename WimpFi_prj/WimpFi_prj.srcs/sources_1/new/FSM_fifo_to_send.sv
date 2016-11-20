@@ -133,7 +133,7 @@ module FSM_fifo_to_send(
 			CHECK_EMPTY:
 				begin
 				if (empty)
-					next = (frame_type == 0) ? IDLE : FCS;
+					next = IDLE; //(frame_type == 0) ? IDLE : FCS;
 				else
 					next = STAND_BY;
 				end

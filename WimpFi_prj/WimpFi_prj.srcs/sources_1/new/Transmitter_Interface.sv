@@ -75,6 +75,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 
 	
 	// Generate a FCS
+	logic dout, enb_crc;
 	FSM_FCS U_FCS_FSM (.clk, .reset, .xwr, .din(xdata), .dout, .enb_crc);
 
 

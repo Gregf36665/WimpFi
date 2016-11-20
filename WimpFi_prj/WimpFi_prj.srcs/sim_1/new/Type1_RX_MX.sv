@@ -123,6 +123,78 @@ module Type1_RX_MX(
 
 	endtask
 
+	task send_type2;
+		// Send 2a
+		@(negedge clk)
+			xwr = 1;
+			xdata = 8'h2a;
+		@(posedge clk)
+			#1 xwr = 0;
+		repeat(10) @(posedge clk);
+		// Send 55
+		@(negedge clk);
+			#1 xwr = 1;
+			xdata = 8'h55;
+		@(posedge clk)
+			#1 xwr = 0;
+		repeat(10) @(posedge clk);
+		// Send 32
+		@(negedge clk);
+			xwr = 1;
+			#1 xdata = 8'h32;
+		@(posedge clk)
+			#1 xwr = 0;
+		repeat(10) @(posedge clk);
+		// Send 96
+		@(negedge clk);
+			xwr = 1;
+			#1 xdata = 8'h96;
+		@(posedge clk)
+			#1 xwr = 0;
+		repeat(10) @(posedge clk);
+		xsnd = 1;
+		@(posedge txen)
+			#1 xsnd = 0;
+		@(negedge txen);
+
+	endtask
+
+	task send_type3;
+		// Send 2a
+		@(negedge clk)
+			xwr = 1;
+			xdata = 8'h2a;
+		@(posedge clk)
+			#1 xwr = 0;
+		repeat(10) @(posedge clk);
+		// Send 55
+		@(negedge clk);
+			#1 xwr = 1;
+			xdata = 8'h55;
+		@(posedge clk)
+			#1 xwr = 0;
+		repeat(10) @(posedge clk);
+		// Send 33
+		@(negedge clk);
+			xwr = 1;
+			#1 xdata = 8'h33;
+		@(posedge clk)
+			#1 xwr = 0;
+		repeat(10) @(posedge clk);
+		// Send 96
+		@(negedge clk);
+			xwr = 1;
+			#1 xdata = 8'h96;
+		@(posedge clk)
+			#1 xwr = 0;
+		repeat(10) @(posedge clk);
+		xsnd = 1;
+		@(posedge txen)
+			#1 xsnd = 0;
+		@(negedge txen);
+
+	endtask
+
 	always
 		#5 clk = ~clk;
 
@@ -130,9 +202,10 @@ module Type1_RX_MX(
 	begin
 		#100;
 		reset = 0;
-		send_empty_T1;
+		send_type3;
+		//send_empty_T1;
 		#500_000;
-		send_empty_T1_good_CRC;
+		//send_empty_T1_good_CRC;
 		check_summary_stop;
 		
 	end

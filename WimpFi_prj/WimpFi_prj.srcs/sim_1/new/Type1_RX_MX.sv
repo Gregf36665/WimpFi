@@ -47,13 +47,13 @@ module Type1_RX_MX(
 			xdata = 8'h2a;
 		@(posedge clk)
 			xwr = 0;
-		repeat(10) @(posedge clk)
+		repeat(10) @(posedge clk);
 			xwr = 1;
 			#1 xdata = 8'h55;
 		@(posedge clk)
 			#1 xwr = 0;
 		@(posedge clk)
-		repeat(10) @(posedge clk)
+		repeat(10) @(posedge clk);
 			xwr = 1;
 			#1 xdata = 8'h31;
 		@(posedge clk)

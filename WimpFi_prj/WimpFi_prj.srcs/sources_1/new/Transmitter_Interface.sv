@@ -36,8 +36,9 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	localparam CUTOUT_DURATION = 511; // How many bit periods before watch dog shutdown
 
 	// Internal connections
-	logic [7:0] data, fsm_data, fifo_data; // connection from FIFO to data
+	logic [7:0] data, fsm_data, fifo_data, fcs; // connection from FIFO to data
 	logic mx_txen;
+	logic [2:0] frame_type;
 	logic empty, re, rdy, send, rts, cts, use_fsm;
 	manchester_tx #(.BIT_RATE(BIT_RATE)) U_TX_MX (.clk, .send, .reset, .data, 
 													.rdy, .txen(mx_txen), .txd);
@@ -47,7 +48,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 
 	FSM_fifo_to_send U_FSM_TX (.clk, .reset, .xsnd, .empty, .rts, .cts,
 								.rdy, .send, .read_data(re), .xrdy, .data(fsm_data), 
-								.use_fsm);
+								.use_fsm, .frame_type, .fcs);
 
 
 	// Watchdog timer to prevent continious transmissions
@@ -64,9 +65,18 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	// Add a backoff module to deal with traffic 
 	Backoff_module U_BACKOFF_MODULE (.clk, .reset, .cardet, .rts, .cts);
 
+	// Count which byte is selected
+	// TO FROM TYPE
+	logic [7:0] byte_count;
+	counter_parm #(.W(8)) U_FRAME_TYPE_COUNTER (.clk, .reset(reset | xsnd), .enb(xwr),
+																	.q(byte_count));
+
+	FSM_Frame_type U_FSM_FRAME_ID (.clk, .reset, .byte_count, .xsnd, .din(xdata), .frame_type);
+
 	
 	assign data = use_fsm ? fsm_data : fifo_data;
 	assign xerrcnt = 0; // todo implement crc checking
 	assign txen = safety_cutout ? 1'b0 : mx_txen; // shutdown if there is a problem
 
+	assign fcs = 8'h24;
 endmodule

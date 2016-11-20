@@ -69,13 +69,47 @@ module Type0_TX_MX_RX_UART_test();
 		@(negedge txen);
 	endtask
 
+	task send_type_0;
+		data = 8'h2a; // All call
+		send = 1;
+		@(negedge rdy) send = 0;
+		data = 8'h55; // From
+		@(posedge rdy) send = 1;
+		@(negedge rdy) send = 0;
+		data = 8'h30; // type 0 
+		@(posedge rdy) send = 1;
+		@(negedge rdy) send = 0;
+		data = 8'h04; // Send command
+		@(posedge rdy) send = 1;
+		@(negedge rdy) send = 0;
+
+	endtask
+
+	task send_type_1;
+		data = 8'h2a; // All call
+		send = 1;
+		@(negedge rdy) send = 0;
+		data = 8'h55; // From
+		@(posedge rdy) send = 1;
+		@(negedge rdy) send = 0;
+		data = 8'h31; // type 1 
+		@(posedge rdy) send = 1;
+		@(negedge rdy) send = 0;
+		data = 8'h04; // Send command
+		@(posedge rdy) send = 1;
+		@(negedge rdy) send = 0;
+
+	endtask
+
 	initial 
 	begin
 		#100;
 		reset = 0;
 		#100;
 		//send_one_byte;
-		traffic;
+		//traffic;
+		//send_type_0;
+		send_type_1;
 
 	end
 endmodule

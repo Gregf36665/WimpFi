@@ -32,7 +32,9 @@ module FSM_fifo_to_send(
     output logic read_data,
 	output logic xrdy,
 	output logic [7:0] data,
-	output logic use_fsm
+	output logic use_fsm,
+	input logic [2:0] frame_type,
+	input logic [7:0] fcs
     );
 
 	localparam PREAMBLE = 8'h55;
@@ -50,7 +52,9 @@ module FSM_fifo_to_send(
 		LOAD_SFD = 4'h8,
 		SEND_SFD = 4'h9,
 		CHECK_EMPTY = 4'hA,
-		GET_NEXT_BYTE = 4'hB
+		GET_NEXT_BYTE = 4'hB,
+		FCS = 4'hC,
+		SEND_FCS = 4'hD
 
 	} states;
 
@@ -93,7 +97,11 @@ module FSM_fifo_to_send(
 					next = rdy ? SEND_PREAMBLE1 : LOAD_PREAMBLE2;
 				end
 			LOAD_PREAMBLE2:
+			begin
+				data = PREAMBLE;
+				use_fsm = 1;
 				next = rdy ? SEND_PREAMBLE2 : LOAD_PREAMBLE2;
+			end
 			SEND_PREAMBLE2:
 				begin
 					send = 1;
@@ -123,7 +131,21 @@ module FSM_fifo_to_send(
 					next = CHECK_EMPTY; 
 				end
 			CHECK_EMPTY:
-				next = empty ? IDLE : STAND_BY;
+				begin
+				if (empty)
+					next = (frame_type == 0) ? IDLE : FCS;
+				else
+					next = STAND_BY;
+				end
+			FCS:
+				next = rdy ? SEND_FCS : FCS;
+			SEND_FCS:
+				begin
+					data = fcs;
+					send = 1;
+					use_fsm = 1;
+					next = rdy ? SEND_FCS : IDLE;
+				end
 		endcase
 			
 	end

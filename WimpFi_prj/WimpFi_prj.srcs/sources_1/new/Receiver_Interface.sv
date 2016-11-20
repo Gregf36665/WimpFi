@@ -29,7 +29,10 @@ module Receiver_Interface #(parameter BIT_RATE = 50_000) (
     output [7:0] rdata,
     output [7:0] rerrcnt,
     output cardet,
-    input rxd
+    input rxd,
+	output logic [7:0] src,
+	output logic got_ack,
+	output logic send_ack
     );
 
 

@@ -32,7 +32,8 @@ module FSM_FCS(
 	typedef enum logic [2:0] {
 		IDLE = 3'h0,
 		STORE_DATA = 3'h1,
-		CRC_DATA = 3'h2
+		CRC_DATA = 3'h2,
+		WAIT = 3'h3
 	} states;
 
 	states state, next;
@@ -52,8 +53,8 @@ module FSM_FCS(
 		begin
 			state <= next;
 			count <= enb_crc ? count + 1 : 0;
-			if(xwr) next_data <= din;
-			else if(enb_crc) next_data <= {1'b0, next_data[7:1]};
+			if(enb_crc) next_data <= {1'b0, next_data[7:1]};
+			else if(xwr) next_data <= din;
 		end
 
 
@@ -69,9 +70,12 @@ module FSM_FCS(
 			CRC_DATA:
 			begin
 				enb_crc = 1;
-				if (count == 7) next = IDLE;
+				if (count == 7) next = WAIT;
 				else next = CRC_DATA;
 			end
+			WAIT:
+				// Ensure that data only gets clocked once
+				next = xwr ? WAIT : IDLE;
 
 		endcase
 

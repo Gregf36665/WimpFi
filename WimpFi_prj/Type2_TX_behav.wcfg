@@ -12,10 +12,10 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="84600000000001fs"></ZoomEndTime>
-      <Cursor1Time time="35001000000000fs"></Cursor1Time>
+      <ZoomEndTime time="39850000000001fs"></ZoomEndTime>
+      <Cursor1Time time="943792540000fs"></Cursor1Time>
    </zoom_setting>
-   <WVObjectSize size="27" />
+   <WVObjectSize size="41" />
    <wvobject fp_name="/Type2_TX/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -123,5 +123,61 @@
    <wvobject fp_name="/Type2_TX/U_TX/U_FSM_TX/state" type="array">
       <obj_property name="ElementShortName">state[3:0]</obj_property>
       <obj_property name="ObjectShortName">state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/U_RETRY/state" type="array">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/U_BUFFER/mem" type="array">
+      <obj_property name="ElementShortName">mem[0:254][7:0]</obj_property>
+      <obj_property name="ObjectShortName">mem[0:254][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/U_BUFFER/rp" type="array">
+      <obj_property name="ElementShortName">rp[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rp[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/DUV/U_RX_MX/data" type="array">
+      <obj_property name="ElementShortName">data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/fifo_data" type="array">
+      <obj_property name="ElementShortName">fifo_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">fifo_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/re" type="logic">
+      <obj_property name="ElementShortName">re</obj_property>
+      <obj_property name="ObjectShortName">re</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/U_FCS_FSM/state" type="array">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/U_FCS_FSM/next_data" type="array">
+      <obj_property name="ElementShortName">next_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">next_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/U_CRC_GEN/crc" type="array">
+      <obj_property name="ElementShortName">crc[1:8]</obj_property>
+      <obj_property name="ObjectShortName">crc[1:8]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/U_CRC_GEN/di" type="logic">
+      <obj_property name="ElementShortName">di</obj_property>
+      <obj_property name="ObjectShortName">di</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/U_FCS_FSM/dout" type="logic">
+      <obj_property name="ElementShortName">dout</obj_property>
+      <obj_property name="ObjectShortName">dout</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/send" type="logic">
+      <obj_property name="ElementShortName">send</obj_property>
+      <obj_property name="ObjectShortName">send</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/use_fsm" type="logic">
+      <obj_property name="ElementShortName">use_fsm</obj_property>
+      <obj_property name="ObjectShortName">use_fsm</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/U_FCS_FSM/enb_crc" type="logic">
+      <obj_property name="ElementShortName">enb_crc</obj_property>
+      <obj_property name="ObjectShortName">enb_crc</obj_property>
    </wvobject>
 </wave_config>

@@ -54,7 +54,9 @@ module FSM_Address_check(
 	states state, next;
 
 	always_ff @(posedge clk)
+	begin
 		state <= reset ? IDLE : next;
+	end
 
 	always_comb
 	begin
@@ -83,6 +85,13 @@ module FSM_Address_check(
 						force_write = 1; // save the all call address
 					end
 					else next = NOT_US; // address didn't match us
+				end
+			STORE_SRC:
+				begin
+					write_enb = 1;
+					if(error) next = FLUSH;
+					else if(cardet) next = STORE_DATA;
+					else next = (frame_type == 0) ? DONE : CHECK_CRC;
 				end
 			STORE_DATA:
 				// If match on address start saving data

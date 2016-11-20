@@ -100,7 +100,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 
 	FSM_ack_timeout U_FSM_ACK_TIMEOUT (.clk, .reset, .frame_type, .xsnd, .ack(got_ack), .ack_timeout,
 										.tx_addr, .rx_addr(rxaddr), .start_ack_timeout, 
-										.retry, .good_ack(), .exceed_retry);
+										.retry, .good_ack, .exceed_retry);
 
 	FSM_get_dest_addr U_GET_DEST_ADDR (.clk, .reset, .data(xdata), .byte_count, .addr(tx_addr));
 
@@ -110,6 +110,5 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 
 	assign data = use_fsm ? fsm_data : fifo_data;
 	assign txen = safety_cutout ? 1'b0 : mx_txen; // shutdown if there is a problem
-	assign good_ack = (tx_addr == rxaddr) ? got_ack : 1'b0;
 
 endmodule

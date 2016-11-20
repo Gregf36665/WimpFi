@@ -84,8 +84,13 @@ module FSM_ack_timeout(
 			end
 			CHECK_ADDR:
 			begin
-				if (tx_addr == rx_addr) good_ack = 1;
-				next = IDLE;
+				if (tx_addr == rx_addr) 
+				begin
+					good_ack = 1;
+					next = IDLE;
+				end
+				else next = START_COUNTING;
+				start_ack_timeout = 1; // Keep counting incase it is a false ack
 			end
 			EXCEED_RETRY:
 			begin

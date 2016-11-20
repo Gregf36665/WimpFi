@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Type2_TX_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Type2_TX" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="82400000000001fs"></ZoomEndTime>
+      <Cursor1Time time="35000000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="26" />
+   <wvobject fp_name="/Type2_TX/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/mac" type="array">
+      <obj_property name="ElementShortName">mac[7:0]</obj_property>
+      <obj_property name="ObjectShortName">mac[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/xdata" type="array">
+      <obj_property name="ElementShortName">xdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">xdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/rxaddr" type="array">
+      <obj_property name="ElementShortName">rxaddr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rxaddr[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/xerrcnt" type="array">
+      <obj_property name="ElementShortName">xerrcnt[7:0]</obj_property>
+      <obj_property name="ObjectShortName">xerrcnt[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/rdata" type="array">
+      <obj_property name="ElementShortName">rdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/rerrcnt" type="array">
+      <obj_property name="ElementShortName">rerrcnt[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rerrcnt[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/cardet" type="logic">
+      <obj_property name="ElementShortName">cardet</obj_property>
+      <obj_property name="ObjectShortName">cardet</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/txd" type="logic">
+      <obj_property name="ElementShortName">txd</obj_property>
+      <obj_property name="ObjectShortName">txd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/txen" type="logic">
+      <obj_property name="ElementShortName">txen</obj_property>
+      <obj_property name="ObjectShortName">txen</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/xsnd" type="logic">
+      <obj_property name="ElementShortName">xsnd</obj_property>
+      <obj_property name="ObjectShortName">xsnd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/xwr" type="logic">
+      <obj_property name="ElementShortName">xwr</obj_property>
+      <obj_property name="ObjectShortName">xwr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/xrdy" type="logic">
+      <obj_property name="ElementShortName">xrdy</obj_property>
+      <obj_property name="ObjectShortName">xrdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/rrdy" type="logic">
+      <obj_property name="ElementShortName">rrdy</obj_property>
+      <obj_property name="ObjectShortName">rrdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/got_ack" type="logic">
+      <obj_property name="ElementShortName">got_ack</obj_property>
+      <obj_property name="ObjectShortName">got_ack</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/send_ack" type="logic">
+      <obj_property name="ElementShortName">send_ack</obj_property>
+      <obj_property name="ObjectShortName">send_ack</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/rxd" type="logic">
+      <obj_property name="ElementShortName">rxd</obj_property>
+      <obj_property name="ObjectShortName">rxd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/rrd" type="logic">
+      <obj_property name="ElementShortName">rrd</obj_property>
+      <obj_property name="ObjectShortName">rrd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/U_FSM_ACK_TIMEOUT/state" type="array">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/U_BACKOFF_MODULE/U_ACK_TIMER/carry" type="logic">
+      <obj_property name="ElementShortName">carry</obj_property>
+      <obj_property name="ObjectShortName">carry</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/U_BACKOFF_MODULE/U_ACK_TIMER/q" type="array">
+      <obj_property name="ElementShortName">q[8:0]</obj_property>
+      <obj_property name="ObjectShortName">q[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/U_FSM_ACK_TIMEOUT/ack_timeout" type="logic">
+      <obj_property name="ElementShortName">ack_timeout</obj_property>
+      <obj_property name="ObjectShortName">ack_timeout</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/U_FSM_ACK_TIMEOUT/retry_counter" type="array">
+      <obj_property name="ElementShortName">retry_counter[3:0]</obj_property>
+      <obj_property name="ObjectShortName">retry_counter[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/U_FSM_ACK_TIMEOUT/exceed_retry" type="logic">
+      <obj_property name="ElementShortName">exceed_retry</obj_property>
+      <obj_property name="ObjectShortName">exceed_retry</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/U_FSM_ACK_TIMEOUT/retry" type="logic">
+      <obj_property name="ElementShortName">retry</obj_property>
+      <obj_property name="ObjectShortName">retry</obj_property>
+   </wvobject>
+</wave_config>

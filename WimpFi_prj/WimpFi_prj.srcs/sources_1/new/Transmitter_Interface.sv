@@ -30,7 +30,10 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
     input logic [7:0] xdata,
     input logic cardet,
     output logic xrdy,
-    output logic [7:0] xerrcnt
+    output logic [7:0] xerrcnt,
+	input logic [7:0] rxaddr,
+	input logic got_ack,
+	input logic send_ack
     );
 
 	localparam CUTOUT_DURATION = 511; // How many bit periods before watch dog shutdown
@@ -63,7 +66,9 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	f_error U_WATCHDOG_LATCH (.clk, .reset, .set_ferr(problem), .clr_ferr(1'b0), .ferr(safety_cutout));
 
 	// Add a backoff module to deal with traffic 
-	Backoff_module U_BACKOFF_MODULE (.clk, .reset, .cardet, .rts, .cts);
+	logic start_ack_timeout, ack_timeout, retry;
+	Backoff_module U_BACKOFF_MODULE (.clk, .reset, .cardet, .rts, .cts, .rts_ack(),
+									.start_ack_timeout, .ack_timeout, .retry);
 
 	// Count which byte is selected
 	// TO FROM TYPE
@@ -81,8 +86,20 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	crc_8 U_CRC_GEN (.clk, .reset(reset | reset_crc), .di(dout), .enb_crc, .crc(fcs));
 
 
+	// Create a module to timeout after no ack
+	logic [7:0] tx_addr, rx_addr;
+
+	logic exceed_retry;
+	logic good_ack;
+	FSM_ack_timeout U_FSM_ACK_TIMEOUT (.clk, .reset, .frame_type, .xsnd, .ack(got_ack), .ack_timeout,
+										.tx_addr, .rx_addr, .start_ack_timeout, 
+										.retry, .good_ack, .exceed_retry);
+
+	FSM_get_dest_addr U_GET_DEST_ADDR (.clk, .reset, .data(xdata), .byte_count, .addr(tx_addr));
+
+	counter_parm #(.W(8)) U_NAK_COUNT (.clk, .reset, .enb(exceed_retry), .q(xerrcnt));
+
 	assign data = use_fsm ? fsm_data : fifo_data;
-	assign xerrcnt = 0; // todo implement ack
 	assign txen = safety_cutout ? 1'b0 : mx_txen; // shutdown if there is a problem
 
 endmodule

@@ -25,7 +25,11 @@ module Backoff_module(
     input logic reset,
     input logic cardet,
     input logic rts,
-    output logic cts
+    input logic rts_ack,
+    output logic cts,
+	input logic start_ack_timeout,
+	output logic ack_timeout,
+	input logic retry
     );
 
 	// Frequency of bits
@@ -34,6 +38,7 @@ module Backoff_module(
 	parameter DIFS_COUNT = 80;
 	parameter SIFS_COUNT = 40;
 	parameter SLOT_TIME = 8;
+	parameter ACK_COUNT = 256;
 
 	// Internal wires
 	logic [5:0] current_slots_count;
@@ -63,6 +68,10 @@ module Backoff_module(
 	counter_parm #(.W($clog2(SLOT_TIME)), .CARRY_VAL(SLOT_TIME-1)) U_SLOTS_TIMER
 					(.clk, .reset(reset | reset_counters), .enb(enb & enb_slots_counter),
 					.carry(inc_slots), .q());
+
+	counter_parm #(.W($clog2(ACK_COUNT + 1)), .CARRY_VAL(ACK_COUNT)) U_ACK_TIMER
+					(.clk, .reset(reset | retry | ~start_ack_timeout), 
+					.enb(enb & start_ack_timeout), .carry(ack_timeout), .q());
 
 	// Count how many slots have passed
 	counter_parm #(.W(6)) U_SLOTS_COUNTER

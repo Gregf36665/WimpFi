@@ -35,7 +35,10 @@ module FSM_fifo_to_send(
 	output logic use_fsm,
 	input logic [2:0] frame_type,
 	input logic [7:0] fcs,
-	output logic reset_crc
+	output logic reset_crc,
+	input logic good_ack,
+	input logic exceed_retry,
+	input logic retry_send
     );
 
 	localparam PREAMBLE = 8'h55;
@@ -56,7 +59,8 @@ module FSM_fifo_to_send(
 		GET_NEXT_BYTE = 4'hB,
 		FCS = 4'hC,
 		SEND_FCS = 4'hD,
-		RESET_CRC = 4'hE
+		RESET_CRC = 4'hE,
+		WAIT_FOR_ACK = 4'hF
 
 	} states;
 
@@ -152,8 +156,11 @@ module FSM_fifo_to_send(
 			RESET_CRC:
 				begin
 					reset_crc = 1;
-					next = IDLE;
+					next = (frame_type == 2) ? WAIT_FOR_ACK : IDLE;
 				end
+			WAIT_FOR_ACK:
+				if(retry_send) next = TIMING_CHECK;
+				else next = (good_ack | exceed_retry) ? IDLE : WAIT_FOR_ACK;
 		endcase
 			
 	end

@@ -38,7 +38,6 @@ module FSM_FCS(
 	states state, next;
 
 	logic [7:0] next_data;
-	logic store_data;
 	logic [2:0] count; 
 	assign dout = next_data[0];
 
@@ -53,7 +52,7 @@ module FSM_FCS(
 		begin
 			state <= next;
 			count <= enb_crc ? count + 1 : 0;
-			if(store_data) next_data <= din;
+			if(xwr) next_data <= din;
 			else if(enb_crc) next_data <= {1'b0, next_data[7:1]};
 		end
 
@@ -61,16 +60,12 @@ module FSM_FCS(
 	always_comb
 	begin
 		enb_crc = 0;
-		store_data = 0;
 		next = IDLE;
 		case(state)
 			IDLE:
 				next = xwr ? STORE_DATA : IDLE;
 			STORE_DATA:
-			begin
-				store_data = 1;
 				next = CRC_DATA;
-			end
 			CRC_DATA:
 			begin
 				enb_crc = 1;

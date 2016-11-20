@@ -25,7 +25,8 @@ module transmitter_side(
     input logic reset,
 	input logic UART_TXD_IN,
 	input logic cardet,
-	output logic txen, txd, xrdy, xsnd
+	output logic txen, txd, xrdy, xsnd,
+	output logic [7:0] xerrcnt
     );
 
 	// Internal connections
@@ -35,7 +36,7 @@ module transmitter_side(
 	// Attach the transmitter interface
 	Transmitter_Interface U_TX_INTERFACE (.clk, .reset, .txen, .txd,
 							.xsnd, .xwr, .xdata(data), .cardet,
-							.xrdy, .xerrcnt());
+							.xrdy, .xerrcnt);
 
 	FSM_uart_to_mx U_EXTRACTOR_FSM (.clk, .reset, .UART_ready, .MX_ready(xrdy),
 									.ferr, .data_in(data), . save_byte(xwr),

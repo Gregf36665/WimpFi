@@ -37,7 +37,7 @@ module Type2_TX(
 	logic xrdy;
 	logic rrdy;
 	assign rrd = rrdy; // If something can be read read it.
-	logic got_ack, send_ack;
+	logic got_ack = 0, send_ack = 0;
 
 
 	Transmitter_Interface U_TX (.*);

@@ -12,10 +12,10 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="82400000000001fs"></ZoomEndTime>
-      <Cursor1Time time="35000000000000fs"></Cursor1Time>
+      <ZoomEndTime time="84600000000001fs"></ZoomEndTime>
+      <Cursor1Time time="35001000000000fs"></Cursor1Time>
    </zoom_setting>
-   <WVObjectSize size="26" />
+   <WVObjectSize size="27" />
    <wvobject fp_name="/Type2_TX/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -119,5 +119,9 @@
    <wvobject fp_name="/Type2_TX/U_TX/U_FSM_ACK_TIMEOUT/retry" type="logic">
       <obj_property name="ElementShortName">retry</obj_property>
       <obj_property name="ObjectShortName">retry</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Type2_TX/U_TX/U_FSM_TX/state" type="array">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
    </wvobject>
 </wave_config>

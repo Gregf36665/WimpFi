@@ -67,6 +67,7 @@ module FSM_ack_timeout(
 		next = IDLE;
 		retry_counter_reset = 0;
 		exceed_retry = 0;
+		good_ack = 0;
 		case(state)
 			IDLE:
 			begin

@@ -45,13 +45,19 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	logic empty, re, rdy, send, rts, cts, use_fsm, reset_crc;
 	manchester_tx #(.BIT_RATE(BIT_RATE)) U_TX_MX (.clk, .send, .reset, .data, 
 													.rdy, .txen(mx_txen), .txd);
+	
+	localparam DEPTH = 255;
+	localparam POINTER_WIDTH = $clog2(DEPTH)-1;
+	logic [POINTER_WIDTH:0] rp, rp_val;
+	logic set_rp;
+	p_fifo #(.DEPTH(DEPTH)) U_BUFFER (.clk, .rst(~reset), .clr(1'b0), .din(xdata), .we(xwr), .re,
+									.full(), .empty, .dout(fifo_data), .rp, .rp_val, .set_rp);
 
-	p_fifo #(.DEPTH(255)) U_BUFFER (.clk, .rst(~reset), .clr(1'b0), .din(xdata), .we(xwr), .re,
-									.full(), .empty, .dout(fifo_data));
-
+	logic good_ack, exceed_retry, retry_send;
 	FSM_fifo_to_send U_FSM_TX (.clk, .reset, .xsnd, .empty, .rts, .cts,
 								.rdy, .send, .read_data(re), .xrdy, .data(fsm_data), 
-								.use_fsm, .frame_type, .fcs, .reset_crc);
+								.use_fsm, .frame_type, .fcs, .reset_crc, .good_ack, .exceed_retry,
+								.retry_send);
 
 
 	// Watchdog timer to prevent continious transmissions
@@ -81,7 +87,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	
 	// Generate a FCS
 	logic dout, enb_crc;
-	FSM_FCS U_FCS_FSM (.clk, .reset, .xwr, .din(xdata), .dout, .enb_crc);
+	FSM_FCS U_FCS_FSM (.clk, .reset, .xwr(send & ~use_fsm), .din(fifo_data), .dout, .enb_crc);
 
 	crc_8 U_CRC_GEN (.clk, .reset(reset | reset_crc), .di(dout), .enb_crc, .crc(fcs));
 
@@ -89,14 +95,14 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	// Create a module to timeout after no ack
 	logic [7:0] tx_addr, rx_addr;
 
-	logic exceed_retry;
-	logic good_ack;
 	FSM_ack_timeout U_FSM_ACK_TIMEOUT (.clk, .reset, .frame_type, .xsnd, .ack(got_ack), .ack_timeout,
 										.tx_addr, .rx_addr, .start_ack_timeout, 
 										.retry, .good_ack, .exceed_retry);
 
 	FSM_get_dest_addr U_GET_DEST_ADDR (.clk, .reset, .data(xdata), .byte_count, .addr(tx_addr));
 
+	FSM_retry #(.W(POINTER_WIDTH)) U_RETRY (.clk, .reset, .frame_type, .good_ack, .curr_rp(rp), 
+											.set_rp, .rp_val, .retry, .xsnd(retry_send));
 	counter_parm #(.W(8)) U_NAK_COUNT (.clk, .reset, .enb(exceed_retry), .q(xerrcnt));
 
 	assign data = use_fsm ? fsm_data : fifo_data;

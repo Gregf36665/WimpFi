@@ -25,14 +25,48 @@ module FSM_get_dest_addr(
     input logic reset,
     input logic [7:0] data,
     input logic [7:0] byte_count,
-    output logic [7:0] addr
+    output logic [7:0] addr,
+	input logic xsnd
     );
 
 	logic [7:0] next_addr;
-	assign next_addr = data;
+	logic store_addr;
 
+	typedef enum logic [1:0]{
+		IDLE = 2'h0,
+		STORE_DATA = 2'h1,
+		WAIT_FOR_SEND = 2'h2
+	} states;
+
+	states state, next;
 	always_ff @(posedge clk)
-		if (reset) addr <= 8'h0;
-		else if(byte_count == 1) addr <= next_addr;
+			if (reset) 
+			begin
+				addr <= 8'h0;
+				state <= IDLE;
+			end
+			else
+			begin
+				if(store_addr) addr <= data;
+				state <= next;
+			end
+			
 
+	always_comb
+	begin
+		store_addr = 0;
+		next = IDLE;
+		case(state)
+			IDLE:
+				next = (byte_count == 1) ? STORE_DATA : IDLE;
+			STORE_DATA:
+				begin
+					store_addr = 1;
+					next = WAIT_FOR_SEND;
+				end
+			WAIT_FOR_SEND:
+				next = xsnd ? IDLE : WAIT_FOR_SEND;
+	
+		endcase
+	end
 endmodule

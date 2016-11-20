@@ -102,7 +102,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 										.tx_addr, .rx_addr(rxaddr), .start_ack_timeout, 
 										.retry, .good_ack, .exceed_retry);
 
-	FSM_get_dest_addr U_GET_DEST_ADDR (.clk, .reset, .data(xdata), .byte_count, .addr(tx_addr));
+	FSM_get_dest_addr U_GET_DEST_ADDR (.clk, .reset, .data(xdata), .byte_count, .addr(tx_addr), .xsnd);
 
 	FSM_retry #(.W(POINTER_WIDTH)) U_RETRY (.clk, .reset, .frame_type, .good_ack, .curr_rp(rp), 
 											.set_rp, .rp_val, .retry, .xsnd(retry_send));

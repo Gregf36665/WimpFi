@@ -28,6 +28,12 @@ module Type0_TX_MX_RX_UART_test();
 	logic cardet = 0;
 	logic txen, txd; // outputs
 	logic xrdy, xsnd;
+	logic [7:0] xerrcnt;
+	logic rxaddr;
+	logic got_ack, send_ack;
+	logic [3:0] debug;
+	logic [7:0] txaddr;
+
 
 	// Wires for UART transmitter
 	logic send = 0;

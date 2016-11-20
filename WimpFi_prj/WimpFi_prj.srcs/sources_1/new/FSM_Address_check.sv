@@ -36,7 +36,8 @@ module FSM_Address_check(
 	output logic clear_fifo,
 	output logic data_available,
 	output logic inc_rerr,
-	output logic reset_crc
+	output logic reset_crc,
+	output logic pop_fifo
     );
 
 	localparam ALL_CALL = 8'h2a; // all call address = *
@@ -65,6 +66,7 @@ module FSM_Address_check(
 		force_write = 0;
 		inc_rerr = 0;
 		reset_crc = 0;
+		pop_fifo = 0;
 
 		case(state)
 			IDLE: // Wait till data is coming in
@@ -101,7 +103,11 @@ module FSM_Address_check(
 				// If it is not our address wait till cardet drops
 				next = cardet ? NOT_US : IDLE;
 			CHECK_CRC:
-				if(crc == 0) next = DONE;
+				if(crc == 0) 
+				begin
+					next = DONE;
+					pop_fifo = 1;
+				end
 				else 
 				begin
 					inc_rerr = 1;

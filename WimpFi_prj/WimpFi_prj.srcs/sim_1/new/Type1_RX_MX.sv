@@ -26,7 +26,6 @@ module Type1_RX_MX(
 
 	logic clk = 0;
 	logic reset = 1;
-	logic rrd = 0;
 	logic [7:0] mac  = 8'h55, xdata;
 	logic [7:0] xerrcnt, rdata, rerrcnt;
 	logic cardet;
@@ -37,6 +36,7 @@ module Type1_RX_MX(
 	logic xwr = 0;
 	logic xrdy;
 	logic rrdy;
+	assign rrd = rrdy; // If something can be read read it.
 
 
 	Transmitter_Interface U_TX (.*);
@@ -128,7 +128,7 @@ module Type1_RX_MX(
 		reset = 0;
 		send_empty_T1;
 		#500_000;
-		//send_empty_T1_good_CRC;
+		send_empty_T1_good_CRC;
 		check_summary_stop;
 		
 	end

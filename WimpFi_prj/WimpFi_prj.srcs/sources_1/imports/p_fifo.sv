@@ -63,13 +63,13 @@
 module p_fifo #(parameter DEPTH=4)
 			(input logic clk, rst, clr, 
 			 input logic [7:0] din,
-			 input logic we, re, 
+			 input logic we, re, pop,
 			 output logic full, empty,
 			 output logic [7:0] dout);
 
 	localparam POINTER_WIDTH = $clog2(DEPTH) - 1; // get the required width of the pointers
 
-	logic [POINTER_WIDTH:0] wp, rp, wp_p1, rp_p1; // set up the read and write pointers
+	logic [POINTER_WIDTH:0] wp, rp, wp_p1, rp_p1, wp_m1; // set up the read and write pointers
 
 	logic [7:0] mem [0:DEPTH-1]; // the memory for the FIFO
 
@@ -93,9 +93,12 @@ module p_fifo #(parameter DEPTH=4)
 					wp <= #1 wp_p1;
 				if(re && !empty)
 					rp <= #1 rp_p1;
+				if(pop && !empty)
+					wp <= #1 wp_m1;
 			end
 
 	assign wp_p1 = wp + 1;
+	assign wp_m1 = wp - 1;
 
 	assign rp_p1 = rp + 1;
 

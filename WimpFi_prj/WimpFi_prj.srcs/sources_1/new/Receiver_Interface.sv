@@ -34,7 +34,7 @@ module Receiver_Interface #(parameter BIT_RATE = 50_000) (
 
 
 	// Create appropriate connections 
-	logic write_enb, error, empty, data_available, force_write, reset_crc;
+	logic write_enb, error, empty, data_available, force_write, reset_crc, pop_fifo;
 	logic [7:0] data_rx, crc;
 	logic [2:0] frame_type;
 
@@ -43,13 +43,13 @@ module Receiver_Interface #(parameter BIT_RATE = 50_000) (
 					.error1(), .error2(), .error3(), .looking(), .error_count());
 
 	FSM_Address_check U_FSM_ADDR (.clk, .reset, .write(write_rx), .error,
-									.cardet, .address(mac), .data(data_rx),
+									.cardet, .address(mac), .data(data_rx), .pop_fifo,
 									.write_enb, .clear_fifo, .empty, .data_available, 
 									.force_write, .inc_rerr, .crc, .frame_type, .reset_crc);
 	
 	// Active low reset
 	p_fifo #(.DEPTH(256)) U_FIFO (.clk, .rst(~reset), .clr(clear_fifo), .din(data_rx), 
-								.we, .re(rrd), .full(), .empty, .dout(rdata));
+								.we, .re(rrd), .full(), .empty, .dout(rdata), .pop(pop_fifo));
 
 
 	// Add in HW to check packet type

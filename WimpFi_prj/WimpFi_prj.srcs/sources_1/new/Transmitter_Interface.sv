@@ -78,10 +78,11 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	logic dout, enb_crc;
 	FSM_FCS U_FCS_FSM (.clk, .reset, .xwr, .din(xdata), .dout, .enb_crc);
 
+	crc_8 U_CRC_GEN (.clk, .reset, .di(dout), .enb_crc, .crc(fcs));
+
 
 	assign data = use_fsm ? fsm_data : fifo_data;
 	assign xerrcnt = 0; // todo implement crc checking
 	assign txen = safety_cutout ? 1'b0 : mx_txen; // shutdown if there is a problem
 
-	assign fcs = 8'h24;
 endmodule

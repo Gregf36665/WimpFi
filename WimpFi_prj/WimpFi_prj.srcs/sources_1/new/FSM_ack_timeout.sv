@@ -100,7 +100,4 @@ module FSM_ack_timeout(
 		endcase
 	end
 
-
-
-
 endmodule

@@ -156,6 +156,9 @@ module Type1_RX_MX(
 		@(posedge txen)
 			#1 xsnd = 0;
 		@(negedge txen);
+		#800 got_ack = 1;
+		@(negedge clk) got_ack = 0;
+		#1_000_000;
 
 	endtask
 
@@ -202,7 +205,7 @@ module Type1_RX_MX(
 	begin
 		#100;
 		reset = 0;
-		send_type3;
+		repeat(11) send_type2;
 		//send_empty_T1;
 		#500_000;
 		//send_empty_T1_good_CRC;

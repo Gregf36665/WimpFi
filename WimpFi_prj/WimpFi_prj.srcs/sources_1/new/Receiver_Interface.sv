@@ -60,7 +60,7 @@ module Receiver_Interface #(parameter BIT_RATE = 50_000) (
 	counter_parm #(.W(8)) U_FRAME_TYPE_COUNTER (.clk, .reset(reset | empty), .enb(write_rx),
 																	.q(byte_count));
 
-	FSM_Frame_type U_FSM_FRAME_ID (.clk, .reset, .byte_count(byte_count+1), 
+	FSM_Frame_type U_FSM_FRAME_ID (.clk, .reset, .byte_count(byte_count+8'b1), 
 									.xsnd(empty), .din(data_rx), .frame_type);
 
 	// HW for CRC check

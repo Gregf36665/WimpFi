@@ -97,11 +97,14 @@ module backoff_sim();
 		rts = 1;
 		cardet = 1;
 		fork : pulse_cardet
-			repeat(100)
-				begin
-					#1_140_000 cardet = 0;
-					#200_000 cardet = 1;
-				end
+			begin
+				repeat(100)
+					begin
+						#200_000 cardet = 1;
+						#1_140_000 cardet = 0;
+					end
+				disable pulse_cardet;
+			end
 			@(posedge cts) disable pulse_cardet;
 		join
 		check("Verify cts low", cts, 1'b0);
@@ -110,7 +113,8 @@ module backoff_sim();
 			#10_400_000 disable cts_timeout;
 			@(posedge cts) disable cts_timeout;
 		join
-		check("Verify cts high", cts, 1'b0);
+		check("Verify cts high", cts, 1'b1);
+		rts = 0;
 		check_group_end;
 	endtask
 
@@ -125,7 +129,7 @@ module backoff_sim();
 		#100;
 		//one_traffic;
 		repeat_traffic;
-		#1_000_000;
+		//#1_000_000;
 		//glitchy_traffic;
 		#100;
 		check_summary_stop;

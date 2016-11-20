@@ -68,8 +68,9 @@ module Backoff_FSM(
 
 			NETWORK_BUSY:
 			begin
+				if(cardet) reset_counters = 1;
+				else enb_difs_counter = 1;
 				next = difs_timeout ? ROLL : NETWORK_BUSY;
-				enb_difs_counter = 1;
 			end
 			
 			ROLL:

@@ -40,7 +40,7 @@ module FSM_FCS(
 	logic [7:0] next_data;
 	logic store_data;
 	logic [2:0] count; 
-	assign dout = next_data[7];
+	assign dout = next_data[0];
 
 	always_ff @(posedge clk)
 	if(reset)
@@ -54,7 +54,7 @@ module FSM_FCS(
 			state <= next;
 			count <= enb_crc ? count + 1 : 0;
 			if(store_data) next_data <= din;
-			else if(enb_crc) next_data <= {next_data[6:0], 1'b0};
+			else if(enb_crc) next_data <= {1'b0, next_data[7:1]};
 		end
 
 

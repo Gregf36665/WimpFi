@@ -33,9 +33,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
     output logic [7:0] xerrcnt,
 	input logic [7:0] rxaddr,
 	input logic got_ack,
-	input logic send_ack,
-	output logic [3:0] debug,
-	output logic [7:0] txaddr
+	input logic send_ack
     );
 
 	localparam CUTOUT_DURATION = 511; // How many bit periods before watchdog shutdown
@@ -59,7 +57,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	FSM_fifo_to_send U_FSM_TX (.clk, .reset, .xsnd, .empty, .rts, .cts,
 								.rdy, .send, .read_data(re), .xrdy, .data(fsm_data), 
 								.use_fsm, .frame_type, .fcs, .reset_crc, .good_ack, .exceed_retry,
-								.retry_send, .debug);
+								.retry_send);
 
 
 	// Watchdog timer to prevent continious transmissions
@@ -96,7 +94,6 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 
 	// Create a module to timeout after no ack
 	logic [7:0] tx_addr;
-	assign txaddr = tx_addr;
 
 	FSM_ack_timeout U_FSM_ACK_TIMEOUT (.clk, .reset, .frame_type, .xsnd, .ack(got_ack), .ack_timeout,
 										.tx_addr, .rx_addr(rxaddr), .start_ack_timeout, 

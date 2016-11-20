@@ -29,7 +29,7 @@ module Type0_TX_MX_RX_UART_test();
 	logic txen, txd; // outputs
 	logic xrdy, xsnd;
 	logic [7:0] xerrcnt;
-	logic rxaddr;
+	logic [7:0] rxaddr;
 	logic got_ack, send_ack;
 	logic [3:0] debug;
 	logic [7:0] txaddr;

@@ -31,7 +31,7 @@ module Type3_test();
 	logic cardet = 0;
 	logic xrdy;
 	logic [7:0] xerrcnt;
-	logic [7:0] rxaddr = 8'h20;
+	logic [7:0] rxaddr = 8'h2a;
 	logic [7:0] mac_address = 8'h55;
 	logic got_ack = 0;
 	logic send_ack = 0;

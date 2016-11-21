@@ -53,11 +53,11 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	p_fifo #(.DEPTH(DEPTH)) U_BUFFER (.clk, .rst(~reset), .clr(1'b0), .din(xdata), .we(xwr), .re,
 									.full(), .empty, .dout(fifo_data), .rp, .rp_val, .set_rp, .pop(0));
 
-	logic good_ack, exceed_retry, retry_send;
+	logic good_ack, exceed_retry, retry_send, start_ack_timeout;
 	FSM_fifo_to_send U_FSM_TX (.clk, .reset, .xsnd, .empty, .rts, .cts,
 								.rdy, .send, .read_data(re), .xrdy, .data(fsm_data), 
 								.use_fsm, .frame_type, .fcs, .reset_crc, .good_ack, .exceed_retry,
-								.retry_send);
+								.retry_send, .start_ack_timeout);
 
 
 	// Watchdog timer to prevent continious transmissions
@@ -72,7 +72,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	f_error U_WATCHDOG_LATCH (.clk, .reset, .set_ferr(problem), .clr_ferr(1'b0), .ferr(safety_cutout));
 
 	// Add a backoff module to deal with traffic 
-	logic start_ack_timeout, ack_timeout, retry;
+	logic ack_timeout, retry;
 	Backoff_module U_BACKOFF_MODULE (.clk, .reset, .cardet, .rts, .cts, .rts_ack(),
 									.start_ack_timeout, .ack_timeout, .retry);
 
@@ -96,7 +96,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	logic [7:0] tx_addr;
 
 	FSM_ack_timeout U_FSM_ACK_TIMEOUT (.clk, .reset, .frame_type, .xsnd, .ack(got_ack), .ack_timeout,
-										.tx_addr, .rx_addr(rxaddr), .start_ack_timeout, 
+										.tx_addr, .rx_addr(rxaddr), .start_ack_timeout(), 
 										.retry, .good_ack, .exceed_retry);
 
 	FSM_get_dest_addr U_GET_DEST_ADDR (.clk, .reset, .data(xdata), .byte_count, .addr(tx_addr), .xsnd);

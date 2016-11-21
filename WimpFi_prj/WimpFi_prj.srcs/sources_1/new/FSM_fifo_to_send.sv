@@ -39,7 +39,8 @@ module FSM_fifo_to_send(
 	input logic good_ack,
 	input logic exceed_retry,
 	input logic retry_send,
-	output logic [3:0] debug
+	output logic [3:0] debug,
+	output logic start_ack_timeout
     );
 
 	localparam PREAMBLE = 8'h55;
@@ -82,6 +83,7 @@ module FSM_fifo_to_send(
 		next = IDLE;
 		use_fsm = 0;
 		reset_crc = 0;
+		start_ack_timeout = 0;
 		case(state)
 			IDLE:
 				begin
@@ -162,8 +164,11 @@ module FSM_fifo_to_send(
 					next = (frame_type == 2) ? WAIT_FOR_ACK : IDLE;
 				end
 			WAIT_FOR_ACK:
+			begin
+				start_ack_timeout = 1;
 				if(retry_send) next = TIMING_CHECK;
 				else next = (good_ack | exceed_retry) ? IDLE : WAIT_FOR_ACK;
+			end
 		endcase
 			
 	end

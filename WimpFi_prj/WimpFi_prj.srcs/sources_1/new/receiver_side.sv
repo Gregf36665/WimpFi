@@ -28,12 +28,13 @@ module receiver_side(
 	output logic UART_RXD_OUT,
 	output logic cardet,
 	output logic [7:0] rerrcnt, src,
-	output logic got_ack, send_ack
+	output logic got_ack, send_ack,
+	output rrdy
 	);
 
 	// Internal connections
 	logic [7:0] data; // data connection
-	logic rrd, rrdy, send, rdy;
+	logic rrd, send, rdy;
 
 	// RX interface
 	Receiver_Interface U_RX_INTERFACE (.clk, .reset, .rrd, .rrdy, .mac(SW),

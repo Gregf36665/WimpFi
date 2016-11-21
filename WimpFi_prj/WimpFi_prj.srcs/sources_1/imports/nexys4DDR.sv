@@ -37,7 +37,8 @@ module nexys4DDR (
 		  output logic		  LED16_R, LED16_G,
 		  output logic		  LED17_R, LED17_G,
 		  output logic		  OUT_JB1, OUT_JB2,
-							  OUT_JB3, OUT_JB4
+							  OUT_JB3, OUT_JB4,
+							  OUT_JB5, OUT_JB6	
             );
 
 
@@ -52,11 +53,13 @@ module nexys4DDR (
 	assign OUT_JA4 = 1'b1; // This pin should always be high
 
 	// Debugging connections
-	logic xrdy, xsnd;
+	logic xrdy, xsnd, rrdy;
 	assign OUT_JB1 = IN_JA1; // the rx line
 	assign OUT_JB2 = xrdy;
 	assign OUT_JB3 = cardet;
 	assign OUT_JB4 = txen;
+	assign OUT_JB5 = send_ack;
+	assign OUT_JB6 = rrdy;
 
 	logic [3:0] debug;
 	logic [7:0] txaddr;
@@ -73,7 +76,7 @@ module nexys4DDR (
 					.seg(SEGS), .dp(DP), .an(AN)); 
 
 	receiver_side U_RX_SIDE (.clk, .reset, .rxd, .SW, .UART_RXD_OUT, .cardet, .rerrcnt,
-							.src(rxaddr), .got_ack, .send_ack);
+							.src(rxaddr), .got_ack, .send_ack, .rrdy);
 
 
 	transmitter_side U_TX_SIDE (.clk, .reset, .UART_TXD_IN, .cardet, .txen, .txd, .xrdy, .xsnd,

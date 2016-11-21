@@ -29,7 +29,8 @@ module FSM_retry #(parameter W=4) (
     input logic [W:0] curr_rp,
     output logic set_rp,
     output logic [W:0] rp_val,
-    output logic xsnd
+    output logic xsnd,
+	input logic exceed_retry
     );
 
 	typedef enum logic [3:0]{
@@ -70,7 +71,7 @@ module FSM_retry #(parameter W=4) (
 					next = WAIT;
 				end		
 			WAIT:
-				if(good_ack) next = IDLE;
+				if(good_ack | exceed_retry) next = IDLE;
 				else if(retry) next = RETRY;
 				else next = WAIT;
 			RETRY:

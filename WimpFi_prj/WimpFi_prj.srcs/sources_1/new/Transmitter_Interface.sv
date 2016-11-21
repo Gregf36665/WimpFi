@@ -106,7 +106,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	FSM_get_dest_addr U_GET_DEST_ADDR (.clk, .reset, .data(xdata), .byte_count, .addr(tx_addr), .xsnd);
 
 	FSM_retry #(.W(POINTER_WIDTH)) U_RETRY (.clk, .reset, .frame_type, .good_ack, .curr_rp(rp), 
-											.set_rp, .rp_val, .retry, .xsnd(retry_send));
+											.set_rp, .rp_val, .retry, .xsnd(retry_send), .exceed_retry);
 	counter_parm #(.W(8)) U_NAK_COUNT (.clk, .reset, .enb(exceed_retry), .q(xerrcnt));
 
 	// Send an ack when asked to

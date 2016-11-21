@@ -27,6 +27,7 @@ module Type2_TX(
 	logic clk = 0;
 	logic reset = 1;
 	logic [7:0] mac  = 8'h6E, xdata, rxaddr = 8'h55;
+	logic [7:0] mac_address = 8'h55;
 	logic [7:0] xerrcnt, rdata, rerrcnt, src;
 	logic cardet;
 	logic txd;
@@ -40,7 +41,7 @@ module Type2_TX(
 	logic ack_for_tx = 0;
 	logic send_ack;
 
-	Transmitter_Interface U_TX (.got_ack(ack_for_tx), .*);
+	Transmitter_Interface U_TX (.got_ack(ack_for_tx), .send_ack(), .*);
 	Receiver_Interface DUV (.got_ack(), .*);
 
 	task send_byte(logic [7:0] data);
@@ -121,6 +122,35 @@ module Type2_TX(
 
 	endtask
 
+	task send_empty_T2_NAK;
+		// Send 2a
+		@(negedge clk)
+			xwr = 1;
+			xdata = 8'h6E;
+		@(posedge clk)
+			#1 xwr = 0;
+		repeat(10) @(posedge clk);
+		// Send 55
+		@(negedge clk);
+			#1 xwr = 1;
+			xdata = 8'h55;
+		@(posedge clk)
+			#1 xwr = 0;
+		repeat(10) @(posedge clk);
+		// Send 31
+		@(negedge clk);
+			xwr = 1;
+			#1 xdata = 8'h32;
+		@(posedge clk)
+			#1 xwr = 0;
+		repeat(10) @(posedge clk);
+		// Send all bytes
+		xsnd = 1;
+		@(posedge txen)
+			#1 xsnd = 0;
+
+	endtask
+
 	always
 		#5 clk = ~clk;
 
@@ -128,7 +158,7 @@ module Type2_TX(
 	begin
 		#100;
 		reset = 0;
-		send_empty_T2;
+		send_empty_T2_NAK;
 		#500_000;
 		//send_empty_T1_good_CRC;
 	end

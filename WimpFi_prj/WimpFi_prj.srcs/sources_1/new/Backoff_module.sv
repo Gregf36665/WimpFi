@@ -51,7 +51,7 @@ module Backoff_module(
 	Backoff_FSM U_FSM (.clk, .reset, .rts, .cardet, .cts, .roll,
 						.difs_timeout, .sifs_timeout, .slots_done,
 						.enb_slots_counter, .enb_difs_counter,
-						.enb_sifs_counter, .reset_counters);
+						.enb_sifs_counter, .reset_counters, .rts_ack);
 
 	// Add the bit period timer
 	clkenb #(.DIVFREQ(BIT_RATE)) U_BIT_RATE_CLOCK (.clk, .reset, .enb);

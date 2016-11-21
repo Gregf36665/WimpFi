@@ -77,7 +77,7 @@ module nexys4DDR (
 
 
 	transmitter_side U_TX_SIDE (.clk, .reset, .UART_TXD_IN, .cardet, .txen, .txd, .xrdy, .xsnd,
-								.xerrcnt, .rxaddr, .got_ack, .send_ack);
+								.xerrcnt, .rxaddr, .got_ack, .send_ack, .mac_address(SW));
 
 
 	assign LED16_G = cardet;

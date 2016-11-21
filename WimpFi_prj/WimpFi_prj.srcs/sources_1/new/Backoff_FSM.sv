@@ -28,6 +28,7 @@ module Backoff_FSM(
 	input logic difs_timeout,
 	input logic sifs_timeout,
 	input logic slots_done,
+	input logic rts_ack,
     output logic cts,
     output logic roll,
 	output logic enb_slots_counter,
@@ -41,7 +42,8 @@ module Backoff_FSM(
 		CTS = 4'h3,
 		NETWORK_BUSY = 4'h4,
 		ROLL = 4'h6,
-		CONTENTION = 4'h5
+		CONTENTION = 4'h5,
+		SIFS_TIMEOUT = 4'h7
 	} states;
 
 	states state, next;
@@ -63,6 +65,7 @@ module Backoff_FSM(
 			IDLE:
 			begin
 				if (rts) next = cardet ? NETWORK_BUSY : CTS;
+				else if (rts_ack) next = SIFS_TIMEOUT;
 				reset_counters = 1;
 			end
 
@@ -90,6 +93,11 @@ module Backoff_FSM(
 				cts = 1;
 				next = IDLE;
 			end
+			SIFS_TIMEOUT:
+				begin
+					next = sifs_timeout ? CTS : SIFS_TIMEOUT;
+					enb_sifs_counter = 1;
+				end
 				
 		endcase
 

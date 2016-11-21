@@ -35,6 +35,7 @@ module Receiver_Interface #(parameter BIT_RATE = 50_000) (
 	output logic send_ack
     );
 
+	parameter ALL_CALL = 8'h2a;
 
 	// Create appropriate connections 
 	logic write_enb, error, empty, data_available, force_write, reset_crc, pop_fifo;
@@ -80,6 +81,6 @@ module Receiver_Interface #(parameter BIT_RATE = 50_000) (
 
 	// These check the frametype and that the frame was good
 	assign got_ack = (frame_type == 3) & data_available;
-	assign send_ack = (frame_type == 2) & data_available;
+	assign send_ack = (frame_type == 2) & data_available & (src != ALL_CALL); // don't ack all call
 
 endmodule

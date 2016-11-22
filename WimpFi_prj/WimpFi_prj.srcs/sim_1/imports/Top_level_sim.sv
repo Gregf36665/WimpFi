@@ -124,12 +124,24 @@ module Top_level_sim();
 		send_byte_MX(8'hB6); // CRC
 	endtask
 		
+	task get_type_2_all_call;
+		// Preamble
+		send_byte_MX(8'h55);
+		send_byte_MX(8'h55);
+		send_byte_MX(8'hD0);
+		send_byte_MX(8'h2a); // All call
+		send_byte_MX(8'h24); // From $
+		send_byte_MX(8'h32); // Type 2
+		send_byte_MX(8'h06); // CRC
+	endtask
 
 	initial
 		begin
 			#100 BTNC = 0;
+			get_type_2_all_call;
+			#5_000_000;
 			get_type_2;
-			#10_000_000;
+			#5_000_000;
 			//send_type_0;
 			//#1_500_000;
 			//send_type_1;

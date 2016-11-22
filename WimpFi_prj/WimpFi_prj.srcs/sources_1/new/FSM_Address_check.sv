@@ -38,7 +38,7 @@ module FSM_Address_check(
 	output logic inc_rerr,
 	output logic reset_crc,
 	output logic pop_fifo,
-	output logic [7:0] src
+	output logic [7:0] src, dest
     );
 
 	localparam ALL_CALL = 8'h2a; // all call address = *
@@ -56,13 +56,14 @@ module FSM_Address_check(
 
 	states state, next;
 
-	logic store_src;
+	logic store_src, store_dest;
 
 	always_ff @(posedge clk)
 	begin
 		state <= reset ? IDLE : next;
 		if(reset) src <= 0;
 		else if(store_src) src <= data;
+		else if(store_dest) dest <= data;
 	end
 
 	always_comb
@@ -77,11 +78,13 @@ module FSM_Address_check(
 		reset_crc = 0;
 		pop_fifo = 0;
 		store_src = 0;
+		store_dest = 0;
 
 		case(state)
 			IDLE: // Wait till data is coming in
 				if(write) // saw a good byte
 				begin
+					store_dest = 1;
 					if(data == address)
 					begin
 						next = WAIT;

@@ -39,14 +39,14 @@ module Receiver_Interface #(parameter BIT_RATE = 50_000) (
 
 	// Create appropriate connections 
 	logic write_enb, error, empty, data_available, force_write, reset_crc, pop_fifo;
-	logic [7:0] data_rx, crc;
+	logic [7:0] data_rx, crc, dest;
 	logic [2:0] frame_type;
 
 	// Create the modules to attach together
 	mx_rcvr #(.BIT_RATE(BIT_RATE)) U_RX_MX (.clk, .reset, .rxd, .cardet, .data(data_rx), .write(write_rx), .error,
 					.error1(), .error2(), .error3(), .looking(), .error_count());
 
-	FSM_Address_check U_FSM_ADDR (.clk, .reset, .write(write_rx), .error, .src,
+	FSM_Address_check U_FSM_ADDR (.clk, .reset, .write(write_rx), .error, .src, .dest,
 									.cardet, .address(mac), .data(data_rx), .pop_fifo,
 									.write_enb, .clear_fifo, .empty, .data_available, 
 									.force_write, .inc_rerr, .crc, .frame_type, .reset_crc);
@@ -81,6 +81,6 @@ module Receiver_Interface #(parameter BIT_RATE = 50_000) (
 
 	// These check the frametype and that the frame was good
 	assign got_ack = (frame_type == 3) & data_available;
-	assign send_ack = (frame_type == 2) & data_available & (src != ALL_CALL); // don't ack all call
+	assign send_ack = (frame_type == 2) & data_available & (dest != ALL_CALL); // don't ack all call
 
 endmodule

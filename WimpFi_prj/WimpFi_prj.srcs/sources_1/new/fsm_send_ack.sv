@@ -39,7 +39,8 @@ module fsm_send_ack(
 		LOAD_DEST = 4'h2,
 		LOAD_SRC  = 4'h3,
 		LOAD_TYPE = 4'h4,
-		SEND = 4'h5
+		SEND = 4'h5,
+		SENT = 4'h6
 		
 	} states;
 
@@ -85,8 +86,12 @@ module fsm_send_ack(
 		SEND:
 			begin
 				send = 1;
-				next = rdy ? SEND : IDLE;
+				// Wait for tx to start sending	
+				next = rdy ? SEND : SENT;
 			end
+		SENT:
+			// Wait for send_ack to fall
+			next = send_ack ? SENT : IDLE;
 		endcase
 	end
 

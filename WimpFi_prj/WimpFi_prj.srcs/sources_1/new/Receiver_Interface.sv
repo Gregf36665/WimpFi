@@ -35,7 +35,7 @@ module Receiver_Interface #(parameter BIT_RATE = 50_000) (
 	output logic send_ack
     );
 
-	parameter ALL_CALL = 8'h2a;
+	localparam ALL_CALL = 8'h2a;
 
 	// Create appropriate connections 
 	logic write_enb, error, empty, data_available, force_write, reset_crc, pop_fifo;

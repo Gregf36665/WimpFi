@@ -135,19 +135,37 @@ module Top_level_sim();
 		send_byte_MX(8'h06); // CRC
 	endtask
 
+	task get_type_1;
+		send_byte_MX(8'h55);
+		send_byte_MX(8'h55);
+		send_byte_MX(8'hD0);
+		send_byte_MX(8'h55); // To U
+		send_byte_MX(8'h24); // From $
+		send_byte_MX(8'h31); // Type 1
+		send_byte_MX(8'h54); //CRC
+	endtask
+
 	initial
 		begin
 			#100 BTNC = 0;
-			get_type_2_all_call;
-			#5_000_000;
-			get_type_2;
-			#5_000_000;
-			//send_type_0;
-			//#1_500_000;
-			//send_type_1;
-			//#1_500_000;
-			//send_type_2;
-			//#1_500_000;
+			//get_type_2_all_call;
+			//#5_000_000;
+			//repeat(10)
+			//begin
+			//	get_type_2;
+			//	#5_000_000;
+			//end
+			//repeat(10)
+			//begin
+			//	get_type_1;
+			//	#5_000_000;
+			//end
+			send_type_0;
+			#10_500_000;
+			send_type_1;
+			#10_500_000;
+			send_type_2;
+			#10_500_000;
 
 			$finish;
 		end

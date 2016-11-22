@@ -43,7 +43,8 @@ module Backoff_FSM(
 		NETWORK_BUSY = 4'h4,
 		ROLL = 4'h6,
 		CONTENTION = 4'h5,
-		SIFS_TIMEOUT = 4'h7
+		SIFS_TIMEOUT = 4'h7,
+		FIRST_WAIT = 4'h8
 	} states;
 
 	states state, next;
@@ -64,9 +65,22 @@ module Backoff_FSM(
 		case(state)
 			IDLE:
 			begin
-				if (rts) next = cardet ? NETWORK_BUSY : CTS;
+				if (rts) next = cardet ? NETWORK_BUSY : FIRST_WAIT; // Always wait one DIFS
 				else if (rts_ack) next = SIFS_TIMEOUT;
 				reset_counters = 1;
+			end
+			FIRST_WAIT:
+			begin
+				if(cardet)
+				begin
+					reset_counters = 1;
+					next = NETWORK_BUSY;
+				end
+				else
+				begin
+					next = difs_timeout ? CTS : FIRST_WAIT;
+					enb_difs_counter = 1;
+				end
 			end
 
 			NETWORK_BUSY:

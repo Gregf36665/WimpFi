@@ -28,3 +28,8 @@ WimpFi_prj/WimpFi_prj.runs/*
 # Ignore log files
 *.log
 
+# Allow visio file
+!*.vsdx
+# Ignore tmp files
+~$$*
+

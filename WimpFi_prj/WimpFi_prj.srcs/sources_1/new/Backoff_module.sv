@@ -38,7 +38,8 @@ module Backoff_module(
 	parameter DIFS_COUNT = 80;
 	parameter SIFS_COUNT = 40;
 	parameter SLOT_TIME = 8;
-	parameter ACK_COUNT = 256 - DIFS_COUNT; // DIFS is included in the count
+	// FCS isn't included in the bit period, this requires an extra 8
+	parameter ACK_COUNT = 256 - DIFS_COUNT + 8; // DIFS is included in the count
 
 	// Internal wires
 	logic [5:0] current_slots_count;
@@ -69,7 +70,7 @@ module Backoff_module(
 					(.clk, .reset(reset | reset_counters), .enb(enb & enb_slots_counter),
 					.carry(inc_slots), .q());
 
-	counter_parm #(.W($clog2(ACK_COUNT)), .CARRY_VAL(ACK_COUNT - 1)) U_ACK_TIMER
+	counter_parm #(.W($clog2(ACK_COUNT + 1)), .CARRY_VAL(ACK_COUNT)) U_ACK_TIMER
 					(.clk, .reset(reset | retry | ~start_ack_timeout), 
 					.enb(enb & start_ack_timeout), .carry(ack_timeout), .q());
 

@@ -38,7 +38,7 @@ module Backoff_module(
 	parameter DIFS_COUNT = 80;
 	parameter SIFS_COUNT = 40;
 	parameter SLOT_TIME = 8;
-	parameter ACK_COUNT = 256;
+	parameter ACK_COUNT = 256 - DIFS_COUNT; // DIFS is included in the count
 
 	// Internal wires
 	logic [5:0] current_slots_count;

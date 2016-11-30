@@ -35,7 +35,7 @@ module FSM_ack_timeout(
 	output logic exceed_retry
     );
 
-	localparam RETRY_COUNT = 5;
+	localparam RETRY_COUNT = 4;
 
 	typedef enum logic[3:0]{
 		IDLE = 4'h0,

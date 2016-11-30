@@ -57,19 +57,19 @@ module Backoff_module(
 	clkenb #(.DIVFREQ(BIT_RATE)) U_BIT_RATE_CLOCK (.clk, .reset, .enb);
 						
 	// Add the timeout counters
-	counter_parm #(.W($clog2(DIFS_COUNT + 1)), .CARRY_VAL(DIFS_COUNT)) U_DIFS_TIMER
+	counter_parm #(.W($clog2(DIFS_COUNT)), .CARRY_VAL(DIFS_COUNT - 1)) U_DIFS_TIMER
 					(.clk, .reset(reset | reset_counters), .enb(enb & enb_difs_counter),
 					.carry(difs_timeout), .q());
 
-	counter_parm #(.W($clog2(SIFS_COUNT + 1)), .CARRY_VAL(SIFS_COUNT)) U_SIFS_TIMER
+	counter_parm #(.W($clog2(SIFS_COUNT)), .CARRY_VAL(SIFS_COUNT - 1)) U_SIFS_TIMER
 					(.clk, .reset(reset | reset_counters), .enb(enb & enb_sifs_counter),
 					.carry(sifs_timeout), .q());
 
-	counter_parm #(.W($clog2(SLOT_TIME)), .CARRY_VAL(SLOT_TIME-1)) U_SLOTS_TIMER
+	counter_parm #(.W($clog2(SLOT_TIME)), .CARRY_VAL(SLOT_TIME - 1)) U_SLOTS_TIMER
 					(.clk, .reset(reset | reset_counters), .enb(enb & enb_slots_counter),
 					.carry(inc_slots), .q());
 
-	counter_parm #(.W($clog2(ACK_COUNT + 1)), .CARRY_VAL(ACK_COUNT)) U_ACK_TIMER
+	counter_parm #(.W($clog2(ACK_COUNT)), .CARRY_VAL(ACK_COUNT - 1)) U_ACK_TIMER
 					(.clk, .reset(reset | retry | ~start_ack_timeout), 
 					.enb(enb & start_ack_timeout), .carry(ack_timeout), .q());
 

@@ -33,3 +33,5 @@ WimpFi_prj/WimpFi_prj.runs/*
 # Ignore tmp files
 ~$$*
 
+#Ignore .jou files
+*.jou

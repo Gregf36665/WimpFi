@@ -23,7 +23,7 @@ def main():
         for i in range(5000):
             print(toHex(val),end=" ") # Seperate by space
             val = LFSR(val)
-        print() # newline
+        #print() # newline
         
 
 main()

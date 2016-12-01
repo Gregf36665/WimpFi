@@ -30,6 +30,12 @@ module backoff_sim();
 	logic rts = 0;
 	logic cts;
 
+	logic rts_ack = 0;
+	logic start_ack_timeout = 0;
+
+	logic ack_timeout;
+	logic retry;
+
 	// Add DUV
 	Backoff_module DUV (.*);
 	always

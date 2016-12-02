@@ -15,8 +15,8 @@ for(i in 1:nSims){ #for each simulated experiment
  
 #now plot the histogram
 hist(p, main="Histogram of p-values compared to uniform distribution", xlab=("Observed p-value"))
-hist(max_val, main="Histogram of max values from LFSR", xlab=("Max value"))
-hist(min_val, main="Histogram of min values from LFSR", xlab=("Min value"))
-hist(mean_val, main="Histogram of mean values from LFSR", xlab=("Mean value"))
+hist(max_val, main="Histogram of max values from LFSR", xlab=("Max value"),breaks = c(60,61,62,63,64,65,66,67,68))
+hist(min_val, main="Histogram of min values from LFSR", xlab=("Min value"),breaks = c(-1,0,1,2,3,4))
+hist(mean_val, main="Histogram of mean values from LFSR", xlab=("Mean value"),breaks = c(31,31.5,32,32.5,33,33.5))
 
-t.test(mean_val);
+t.test(mean_val, mu=32);

@@ -56,7 +56,7 @@ module nexys4DDR (
 	logic xrdy, xsnd, rrdy;
 	assign OUT_JB1 = IN_JA1; // the rx line
 	assign OUT_JB2 = xrdy;
-	assign OUT_JB3 = cardet;
+	assign OUT_JB3 = cardet | BTND;
 	assign OUT_JB4 = txen;
 	assign OUT_JB5 = send_ack;
 	assign OUT_JB6 = rrdy;
@@ -79,11 +79,11 @@ module nexys4DDR (
 							.src(rxaddr), .got_ack, .send_ack, .rrdy);
 
 
-	transmitter_side U_TX_SIDE (.clk, .reset, .UART_TXD_IN, .cardet, .txen, .txd, .xrdy, .xsnd,
+	transmitter_side U_TX_SIDE (.clk, .reset, .UART_TXD_IN, .cardet(cardet | BTND), .txen, .txd, .xrdy, .xsnd,
 								.xerrcnt, .rxaddr, .got_ack, .send_ack, .mac_address(SW));
 
 
-	assign LED16_G = cardet;
+	assign LED16_G = cardet | BTND;
 	assign LED16_R = txen;
 	assign LED17_R = ~xrdy;
 	assign LED17_G = 1'b0;

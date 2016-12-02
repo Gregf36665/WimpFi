@@ -98,11 +98,14 @@ module mx_rcvr #(parameter BIT_RATE = 50_000)(
 	localparam ERROR_THRESHOLD = 0;
 
 
+	logic [8:0] sfd_corr;
+	peak_detector #(.W(8)) U_PEAK_DETECT (.clk, .reset, .enb(sfd_look_for_peak), .data(sfd_corr), .peak(sfd_match));
+
 	// HTHRESH set to fall after 1 wrong bit + 2 samples
 	correlator #(.LEN(128), .PATTERN(PREAMBLE_PATTERN), .HTHRESH(111), .LTHRESH(14)) U_PREAMBLE_CORR 
 		(.clk, .reset, .enb(sample_slow), .d_in(rxd_sync), .h_out(preamble_match), .csum(), .l_out());
 	correlator #(.LEN(256), .PATTERN(SFD_PATTERN), .HTHRESH(220), .LTHRESH(14)) U_SFD_CORR 
-		(.clk, .reset, .enb(sample_slow), .d_in(rxd_sync), .h_out(sfd_match), .csum(), .l_out());
+		(.clk, .reset, .enb(sample_slow), .d_in(rxd_sync), .h_out(sfd_look_for_peak), .csum(sfd_corr), .l_out());
 	correlator #(.LEN(64), .PATTERN(ONE_PATTERN), .HTHRESH(MAX_TRIGGER), .LTHRESH(MIN_TRIGGER)) U_ONE_N_ZERO_CORR
 		(.clk, .reset, .enb(sample), .d_in(rxd_sync), .h_out(match_one), 
 		.l_out(match_zero), .csum(zero_one_strength));

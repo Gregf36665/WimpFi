@@ -33,6 +33,8 @@ module Type0_RX_test(
 	logic rrdy;
 	logic [7:0] rdata, rerrcnt;
 	logic cardet;
+	logic [7:0] src;
+	logic got_ack, send_ack;
 
 	// Connections for the tx
 	logic [5:0] length = 7;

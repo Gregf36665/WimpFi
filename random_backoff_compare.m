@@ -10,7 +10,8 @@ timing = [7842, 7282, 6922, 4162, 2282, 7842, 9162, 9362, 5522,...
         2882, 2242, 1882, 1722, 9362, 5482, 3642, 2602, 2082, 9482, 8002,...
         4842, 3282, 2402, 9642, 5682, 11240, 6442, 4042, 10400, 8442,...
         7562, 7042, 4322, 10520, 6082, 3842, 2722, 9842, 8202, 7442,...
-        4482, 3122, 9962, 5802, 3682, 10200, 5962, 9122, 7842];
+        4482, 3122, 9962, 5802, 3682, 10200, 5962, 9122, 7842, 9599,...
+        5579,11140,6299 ];
 
 max_time = max(timing);
 tmp = size(timing);
@@ -22,7 +23,9 @@ variance = 1/k*(predicted_max_time-k)*(predicted_max_time+1)/(k+2);
 
 std_dev = sqrt(variance);
 
-max_time_95percentSure = predicted_max_time + 2*std_dev;
+sigma = sqrt((k-1)*(max_time-1)*(max_time-k+1)/(k-3)/(k-2)^2);
+
+max_time_95percentSure = predicted_max_time + 2*sigma;
 mean_timing = mean(timing);
 error_percent = std_dev/sqrt(k);
 

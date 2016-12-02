@@ -99,7 +99,7 @@ module Backoff_FSM(
 			CONTENTION:
 			begin
 				if(slots_done) next = cardet ? NETWORK_BUSY : CTS;
-				else next = cardet ? NETWORK_BUSY : CONTENTION;
+				else next = CONTENTION;
 				enb_slots_counter = 1;
 			end
 			CTS:

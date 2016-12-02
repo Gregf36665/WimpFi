@@ -38,7 +38,8 @@ module Backoff_module(
 	parameter DIFS_COUNT = 80;
 	parameter SIFS_COUNT = 40;
 	parameter SLOT_TIME = 8;
-	parameter ACK_COUNT = 256;
+	// FCS isn't included in the bit period, this requires an extra 8
+	parameter ACK_COUNT = 256 - DIFS_COUNT + 8; // DIFS is included in the count
 
 	// Internal wires
 	logic [5:0] current_slots_count;
@@ -57,15 +58,15 @@ module Backoff_module(
 	clkenb #(.DIVFREQ(BIT_RATE)) U_BIT_RATE_CLOCK (.clk, .reset, .enb);
 						
 	// Add the timeout counters
-	counter_parm #(.W($clog2(DIFS_COUNT + 1)), .CARRY_VAL(DIFS_COUNT)) U_DIFS_TIMER
+	counter_parm #(.W($clog2(DIFS_COUNT)), .CARRY_VAL(DIFS_COUNT - 1)) U_DIFS_TIMER
 					(.clk, .reset(reset | reset_counters), .enb(enb & enb_difs_counter),
 					.carry(difs_timeout), .q());
 
-	counter_parm #(.W($clog2(SIFS_COUNT + 1)), .CARRY_VAL(SIFS_COUNT)) U_SIFS_TIMER
+	counter_parm #(.W($clog2(SIFS_COUNT)), .CARRY_VAL(SIFS_COUNT - 1)) U_SIFS_TIMER
 					(.clk, .reset(reset | reset_counters), .enb(enb & enb_sifs_counter),
 					.carry(sifs_timeout), .q());
 
-	counter_parm #(.W($clog2(SLOT_TIME)), .CARRY_VAL(SLOT_TIME-1)) U_SLOTS_TIMER
+	counter_parm #(.W($clog2(SLOT_TIME)), .CARRY_VAL(SLOT_TIME - 1)) U_SLOTS_TIMER
 					(.clk, .reset(reset | reset_counters), .enb(enb & enb_slots_counter),
 					.carry(inc_slots), .q());
 

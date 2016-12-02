@@ -160,10 +160,10 @@ module Top_level_sim();
 			//	get_type_1;
 			//	#5_000_000;
 			//end
-			send_type_0;
-			#10_500_000;
-			send_type_1;
-			#10_500_000;
+			//send_type_0;
+			//#10_500_000;
+			//send_type_1;
+			//#10_500_000;
 			send_type_2;
 			#10_500_000;
 

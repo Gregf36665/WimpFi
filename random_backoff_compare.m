@@ -29,10 +29,13 @@ max_time_95percentSure = predicted_max_time + 2*sigma;
 mean_timing = mean(timing);
 error_percent = std_dev/sqrt(k);
 
-fprintf('Max time: %4.0fus, Limit: 11840us\n', max_time_95percentSure)
+fprintf('Max time: %4.0fus, Limit: 11840us\n', max_time);
+fprintf('Standard Deviation: %8.4fus \n', std_dev)
+fprintf('Max time (95%% confidence): %4.0fus, Limit: 11840us\n',... 
+                                        max_time_95percentSure);
 fprintf('Mean time: %4.0fus, Expected: 6780us\n', mean_timing);
 fprintf('Error on mean: %5.2f%%, Target: 10%%\n', error_percent);
-fprintf('\n');
+
 
 % Max 11840
 % Min 1720

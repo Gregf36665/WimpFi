@@ -19,7 +19,7 @@ def toHex(val):
 
 def main():
     val = 6*[1] # 0x3F bitwise
-    for i in range(2000):
+    for i in range(1999):
         for i in range(5000):
             print(toHex(val),end=" ") # Seperate by space
             val = LFSR(val)

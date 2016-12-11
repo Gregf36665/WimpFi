@@ -1,0 +1,28 @@
+digraph G {
+	nodesep = 0.5;
+	label="fifo_to_send fsm"
+	labelloc="t";
+	
+
+	IDLE->IDLE [label="empty"];
+	IDLE->IDLE [label="!xsnd"];
+	IDLE->TIMING_CHECK [label="xsnd"];
+
+	TIMING_CHECK->LOAD_PREAMBLE1 [label="cts"];
+	TIMING_CHECK->TIMING_CHECK [label="!cts"];
+
+	LOAD_PREAMBLE1->SEND_PREAMBLE1 [label="rdy"];
+	LOAD_PREAMBLE1->LOAD_PREAMBLE1 [label="!rdy"];
+
+	SEND_PREAMBLE1->LOAD_PREAMBLE2 [label="!rdy"];
+	SEND_PREAMBLE1->SEND_PREAMBLE1 [label="rdy"];
+
+	LOAD_PREAMBLE2->SEND_PREAMBLE2 [label="rdy"];
+	LOAD_PREAMBLE2->LOAD_PREAMBLE2 [label="!rdy"];
+
+	SEND_PREAMBLE2->SEND_PREAMBLE2 [label="rdy"];
+	SEND_PREAMBLE2->LOAD_SFD [label="!rdy"];
+
+
+
+}

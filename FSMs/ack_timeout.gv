@@ -1,0 +1,22 @@
+digraph G {
+	nodesep = 0.5;
+	label="ack_timeout fsm"
+	labelloc="t";
+	
+
+	IDLE->START_COUNTING [label="frame_type==2 & xsnd"];
+	IDLE->IDLE [label="frame_type!=2"];
+
+	START_COUNTING->CHECK_ADDR [label="ack"];
+	START_COUNTING->EXCEED_RETRY [label="retry_counter==RETRY_COUNT"];
+	START_COUNTING -> START_COUNTING [label="!ack & !(retry_counter==RETRY_COUNT)"];
+
+	CHECK_ADDR->IDLE [label="tx_addr==rx_addr"];
+	CHECK_ADDR->START_COUNTING˜[label="tx_addr!=rx_addr"];
+
+	EXCEED_RETRY->IDLE [label="ack_timeout & !ack"];
+	EXCEED_RETRY->CHECK_ADDR [label="ack"];
+	EXCEED_RETRY->EXCEED_RETRY [label="!ack_timeout"];
+
+
+}

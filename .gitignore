@@ -35,3 +35,6 @@ WimpFi_prj/WimpFi_prj.runs/*
 
 #Ignore .jou files
 *.jou
+
+#Allow .gv files in FSM
+!FSMs/*.gv

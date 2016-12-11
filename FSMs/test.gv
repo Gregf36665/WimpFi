@@ -1,0 +1,7 @@
+digraph G {
+	nodesep = 0.5;
+	
+	IDLE -> NEXT [label="cardet"];
+	NEXT -> IDLE [label="!cardet"];
+
+}

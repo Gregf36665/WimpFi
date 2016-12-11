@@ -1,0 +1,24 @@
+digraph G {
+	nodesep = 0.5;
+	label="Frame_type fsm"
+	labelloc="t";
+	
+	IDLE->CHECK_FRAME_TYPE [label="byte_count==3"];
+
+	CHECK_FRAME_TYPE->TYPE_0 [label="din==0x30"]
+	CHECK_FRAME_TYPE->TYPE_1 [label="din==0x31"]
+	CHECK_FRAME_TYPE->TYPE_2 [label="din==0x32"]
+	CHECK_FRAME_TYPE->TYPE_3 [label="din==0x33"]
+	CHECK_FRAME_TYPE->UNKNOWN [label="default"];
+
+	TYPE_0 -> WAIT_FOR_SEND;
+	TYPE_1 -> WAIT_FOR_SEND;
+	TYPE_2 -> WAIT_FOR_SEND;
+	TYPE_3 -> WAIT_FOR_SEND;
+	UNKNOWN -> WAIT_FOR_SEND;
+
+	WAIT_FOR_SEND -> IDLE [label="xsnd"];
+	WAIT_FOR_SEND -> WAIT_FOR_SEND [label="!xsnd"];
+	
+
+}

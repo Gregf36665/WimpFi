@@ -1,0 +1,38 @@
+digraph G {
+	nodesep = 0.5;
+	label="Address_check";
+	labelloc="t";
+	
+	IDLE->WAIT [label="write & data==address"];
+	IDLE->WAIT [label="write & data==ALL_CALL"];
+	IDLE->NOT_US [label="write & data!=address | data!=ALL_CALL"];
+	IDLE -> IDLE [label="!write"];
+
+	WAIT-> STORE_SRC [label="write"];
+	WAIT-> WAIT [label="!write"];
+
+	STORE_SRC -> FLUSH [label="error"];
+	STORE_SRC -> STORE_DATA [label="!error"];
+
+	STORE_DATA->FLUSH [label="error"];
+	STORE_DATA->STORE_DATA [label="cardet"];
+	STORE_DATA->DONE [label="!cardet & frame_type==0"];
+	STORE_DATA->CHECK_CRC [label="!cardet & frame_type!=0"];
+
+	FLUSH -> IDLE;
+
+	NOT_US -> IDLE [label="!cardet"];
+	NOT_US -> NOT_US [label="cardet"];
+
+
+	CHECK_CRC -> DONE [label="crc==0"];
+	CHECK_CRC -> FLUSH [label="crc!=0"];
+
+
+	DONE -> DONE [label="!empty"];
+	DONE -> IDLE [label="empty"];
+
+
+
+
+}

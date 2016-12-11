@@ -1,0 +1,17 @@
+digraph G {
+	nodesep = 0.5;
+	label="fcs fsm"
+	labelloc="t";
+	
+	IDLE -> IDLE [label="!xwr"];
+	IDLE -> STORE_DATA [label="xwr"];
+
+	STORE_DATA -> CRC_DATA;
+
+	CRC_DATA -> WAIT [label="count==7"]
+	CRC_DATA -> CRC_DATA [label="count!=7"];
+
+	WAIT -> WAIT [label="xwr"];
+	WAIT -> IDLE [label="!xwr"];
+
+}

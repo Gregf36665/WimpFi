@@ -1,0 +1,18 @@
+digraph G {
+	nodesep = 0.5;
+	label="retry fsm"
+	labelloc="t";
+	
+
+	IDLE->IDLE [label="frame_type!=2"];
+	IDLE->WAIT [label="frame_type==2"];
+
+	WAIT-> IDLE [label="good_ack | exceed_retry"];
+	WAIT-> RETRY [label="retry"];
+
+	RETRY-> RESEND;
+
+	RESEND-> WAIT;
+
+
+}

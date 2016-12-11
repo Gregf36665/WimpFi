@@ -1,0 +1,22 @@
+digraph G {
+	nodesep = 0.5;
+	label="Rx_mx_to_tx_uart fsm"
+	labelloc="t";
+	
+	IDLE->DATA_TO_SEND [label="rrdy"];
+	IDLE->IDLE [label="!rrdy"];
+
+	DATA_TO_SEND->SEND_DATA [label="rdy"];
+	DATA_TO_SEND->DATA_TO_SEND [label="!rdy"];
+
+	SEND_DATA->GET_NEXT_DATA [label="rrdy"];
+	SEND_DATA->IDLE [label="!rrdy"];
+
+	GET_NEXT_DATA->PAUSE;
+
+	PAUSE->CHECK_EMPTY;
+
+	CHECK_EMPTY->DATA_TO_SEND [label="rrdy"];
+	CHECK_EMPTY->IDLE [label="!rrdy"];
+
+}

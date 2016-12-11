@@ -1,0 +1,13 @@
+digraph G {
+	nodesep = 0.5;
+	label="get_dest_addr fsm"
+	labelloc="t";
+	
+	IDLE->STORE_DATA [label="byte_count==1"];
+	IDLE->IDLE [label="byte_count!=1"];
+
+	STORE_DATA->WAIT_FOR_SEND;
+
+	WAIT_FOR_SEND->IDLE [label="xsnd"];
+	WAIT_FOR_SEND->WAIT_FOR_SEND [label="!xsnd"];
+}

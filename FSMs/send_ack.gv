@@ -1,0 +1,24 @@
+digraph G {
+	nodesep = 0.5;
+	label="send_ack fsm"
+	labelloc="t";
+	
+	IDLE->LOAD_DEST [label="send_ack"];
+	IDLE->IDLE [label="!send_ack"];
+
+	LOAD_DEST-> LOAD_SRC;
+
+	LOAD_SRC-> LOAD_TYPE;
+
+	LOAD_TYPE->RTS;
+
+	RTS->RTS [label="!cts"];
+	RTS->SEND [label="cts"];
+
+	SEND->SEND [label="rdy"];
+	SEND->SENT [label="!rdy"];
+
+	SENT->SENT [label="send_ack"];
+	SENT->IDLE [label="!send_ack"];
+
+}

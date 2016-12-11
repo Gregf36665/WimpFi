@@ -23,6 +23,38 @@ digraph G {
 	SEND_PREAMBLE2->SEND_PREAMBLE2 [label="rdy"];
 	SEND_PREAMBLE2->LOAD_SFD [label="!rdy"];
 
+	LOAD_SFD->LOAD_SFD [label="!rdy"];
+	LOAD_SFD->SEND_SFD [label="rdy"];
+
+	SEND_SFD->STAND_BY [label="!rdy"];
+	SEND_SFD->SEND_SFD [label="rdy"];
+
+	STAND_BY->SEND [label="rdy"];
+	STAND_BY->STAND_BY [label="!rdy"];
+
+	SEND->SEND [label=rdy];
+	SEND->GET_NEXT_BYTE [label="!rdy"];
+
+	GET_NEXT_BYTE->CHECK_EMPTY;
+	
+	CHECK_EMPTY->IDLE [label="empty & frame_type==0"];
+	CHECK_EMPTY->FCS [label="empty & frame_type!=0"];
+	CHECK_EMPTY->STAND_BY [label="!empty"];
+
+	FCS->SEND_FCS [label="rdy"];
+	FCS->FCS [label="!rdy"];
+
+	SEND_FCS->SEND_FCS [label="!rdy"];
+	SEND_FCS->RESET_CRC [label="rdy"];
+
+	RESET_CRC->WAIT_FOR_ACK [label="frame_type==2"];
+	RESET_CRC->IDLE [label="frame_type!=2"];
+
+	WAIT_FOR_ACK->TIMING_CHECK [label="retry_send"];
+	WAIT_FOR_ACK->IDLE [label="good_ack | exceed_retry"];
+	WAIT_FOR_ACK->WAIT_FOR_ACK [label="!good_ack & !exceed_retry"];
+
+
 
 
 }

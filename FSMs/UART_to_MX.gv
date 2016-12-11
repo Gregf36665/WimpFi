@@ -1,0 +1,20 @@
+digraph G {
+	nodesep = 0.5;
+	label="UART_to_MX fsm"
+	labelloc="t";
+	
+	IDLE->IDLE [label="UART_ready"];
+	IDLE->DATA_INCOMING [label="!UART_ready"];
+
+	DATA_INCOMING->IDLE [label="ferr"];
+	DATA_INCOMING->PARSE_DATA [label="!ferr & UART_ready"];
+	DATA_INCOMING->DATA_INCOMING [label="!ferr & !UART_ready"];
+
+	PARSE_DATA->SAVE_DATA [label="data_in!=SEND_CODE"];
+	PARSE_DATA->SEND [label="data_in==SEND_CODE"];
+
+	SEND->SEND [label="MX_ready"];
+	SEND->IDLE [label="!MX_ready"];
+
+	SAVE_DATA->IDLE;
+}

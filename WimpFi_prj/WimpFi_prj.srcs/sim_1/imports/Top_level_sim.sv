@@ -20,6 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+import check_p::*;
+
 module Top_level_sim();
 
 	// inputs
@@ -136,6 +138,7 @@ module Top_level_sim();
 	endtask
 
 	task get_type_1;
+		check_group_begin("rx2.1 Type1 to mac address");
 		send_byte_MX(8'h55);
 		send_byte_MX(8'h55);
 		send_byte_MX(8'hD0);
@@ -143,31 +146,52 @@ module Top_level_sim();
 		send_byte_MX(8'h24); // From $
 		send_byte_MX(8'h31); // Type 1
 		send_byte_MX(8'h54); //CRC
+		check("Error count does not increase", DUV.rerrcnt, 8'h00);
+		check_group_end;
+
+	endtask
+
+	task get_type_1_bad_crc;
+		check_group_begin("rx2.4 bad CRC");
+		send_byte_MX(8'h55);
+		send_byte_MX(8'h55);
+		send_byte_MX(8'hD0);
+		send_byte_MX(8'h55); // To U
+		send_byte_MX(8'h24); // From $
+		send_byte_MX(8'h31); // Type 1
+		send_byte_MX(8'h53); //CRC bad
+		@(negedge LED16_G);
+		repeat(3) @(posedge CLK100MHZ);
+		check("Error count increased", DUV.rerrcnt, 8'h01);
+		check_group_end();
+	endtask
+
+	task get_type_1_bad_mac;
+		check_group_begin("rx2.3 bad MAC");
+		send_byte_MX(8'h55);
+		send_byte_MX(8'h55);
+		send_byte_MX(8'hD0);
+		send_byte_MX(8'h56); // To V
+		send_byte_MX(8'h24); // From $
+		send_byte_MX(8'h31); // Type 1
+		send_byte_MX(8'h53); //CRC bad
+		@(negedge LED16_G);
+		repeat(3) @(posedge CLK100MHZ);
+		check("Error count maintained", DUV.rerrcnt, 8'h01);
+		check("No data transmitted", UART_RXD_OUT, 1'b1);
+		check_group_end();
 	endtask
 
 	initial
 		begin
 			#100 BTNC = 0;
-			//get_type_2_all_call;
-			//#5_000_000;
-			//repeat(10)
-			//begin
-			//	get_type_2;
-			//	#5_000_000;
-			//end
-			//repeat(10)
-			//begin
-			//	get_type_1;
-			//	#5_000_000;
-			//end
-			//send_type_0;
-			//#10_500_000;
-			//send_type_1;
-			//#10_500_000;
-			send_type_2;
-			#10_500_000;
-
-			$finish;
+			get_type_1;
+			#4_000_000;
+			get_type_1_bad_crc;
+			#4_000_000;
+			get_type_1_bad_mac;
+			check_summary_stop;
 		end
+
 
 endmodule

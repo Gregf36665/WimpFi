@@ -20,6 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+import check_p::*;
+
 module Type0_TX_MX_RX_UART_test();
 
 	// Wires for transmitter side
@@ -33,6 +35,7 @@ module Type0_TX_MX_RX_UART_test();
 	logic got_ack, send_ack;
 	logic [3:0] debug;
 	logic [7:0] txaddr;
+	logic [7:0] mac_address;
 
 
 	// Wires for UART transmitter
@@ -127,9 +130,9 @@ module Type0_TX_MX_RX_UART_test();
 		#100;
 		reset = 0;
 		#100;
-		//send_one_byte;
-		//traffic;
-		//send_type_0;
+		send_one_byte;
+		traffic;
+		send_type_0;
 		send_type_1;
 
 	end

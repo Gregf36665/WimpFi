@@ -41,6 +41,7 @@ module Type1_RX_MX(
 	logic got_ack, send_ack;
 	logic [7:0] rxaddr;
 	assign rxaddr = src;
+	logic [7:0] mac_address;
 
 
 	Transmitter_Interface U_TX (.*);
@@ -58,6 +59,7 @@ module Type1_RX_MX(
 
 	task send_empty_T1;
 		// Send 2a
+		check_group_begin("rx2.1 MAC type 1");
 		@(negedge clk)
 			xwr = 1;
 			xdata = 8'h2a;
@@ -82,10 +84,18 @@ module Type1_RX_MX(
 		xsnd = 1;
 		@(posedge txen)
 			#1 xsnd = 0;
-		@(negedge txen);
-
+		@(posedge rrdy);
+			check("Incomming message to from 2a", rdata, 8'h2a);
+		@(posedge clk);
+		@(posedge clk)
+			check("Incomming message to 55", rdata, 8'h55);
+		@(posedge clk)
+			check("Incomming message type 31", rdata, 8'h31);
+		@(posedge clk)
+			check("Incomming message crc 96", rdata, 8'h96);
+		
+		check_group_end;
 	endtask
-
 
 	task send_empty_T1_good_CRC;
 		// Send 2a
@@ -205,10 +215,6 @@ module Type1_RX_MX(
 	begin
 		#100;
 		reset = 0;
-		repeat(11) send_type2;
-		//send_empty_T1;
-		#500_000;
-		//send_empty_T1_good_CRC;
 		check_summary_stop;
 		
 	end

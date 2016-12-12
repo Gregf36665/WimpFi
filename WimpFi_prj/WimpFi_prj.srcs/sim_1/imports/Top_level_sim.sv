@@ -58,7 +58,7 @@ module Top_level_sim();
 
 	// Connect the MX rx
 	logic write, error;
-	logic [7:0] mx_data;
+	logic [7:0] mx_data_rx;
 
 	mx_rcvr DUV_RX_MX (.clk(CLK100MHZ), .reset(BTNC), .rxd(OUT_JA2), .cardet(), .data(mx_data_rx),
 					.write, .error, .error1(), .error2(), .error3(), .looking(), .error_count());
@@ -95,27 +95,90 @@ module Top_level_sim();
 	endtask
 
 	task send_type_0;
+		check_group_begin("Send type 0");
 		send_byte_UART(8'h2a);
 		send_byte_UART(8'h55);
 		send_byte_UART(8'h30);
 		send_byte_UART(8'h04);
+		@(posedge write)
+			check("Check dest", mx_data_rx,8'h2a);
+		@(posedge write)
+			check("Check src", mx_data_rx,8'h55);
+		@(posedge write)
+			check("Check type", mx_data_rx,8'h30);
+		check_group_end;
 	endtask
 
 	task send_type_1;
+		check_group_begin("Send type 1");
 		send_byte_UART(8'h2a);
 		send_byte_UART(8'h55);
 		send_byte_UART(8'h31);
 		send_byte_UART(8'h04);
+		@(posedge write)
+			check("Check dest", mx_data_rx,8'h2a);
+		@(posedge write)
+			check("Check src", mx_data_rx,8'h55);
+		@(posedge write)
+			check("Check type", mx_data_rx,8'h31);
+		@(posedge write)
+			check("Check crc", mx_data_rx,8'h96);
+		check_group_end;
 	endtask
 
-	task send_type_2;
+	task send_type_2_nak;
+		check_group_begin("Send type 2 nak");
 		send_byte_UART(8'h2a);
 		send_byte_UART(8'h55);
 		send_byte_UART(8'h32);
 		send_byte_UART(8'h04);
+		repeat(5) 
+		begin
+			@(posedge write)
+				check("Check dest", mx_data_rx,8'h2a);
+			@(posedge write)
+				check("Check src", mx_data_rx,8'h55);
+			@(posedge write)
+				check("Check type", mx_data_rx,8'h32);
+			@(posedge write)
+				check("Check crc", mx_data_rx,8'h74);
+		end
+		check_group_end;
+	endtask
+
+	task send_type_2_ack;
+		check_group_begin("Send type 2 ack");
+		send_byte_UART(8'h2a);
+		send_byte_UART(8'h55);
+		send_byte_UART(8'h32);
+		send_byte_UART(8'h04);
+		@(posedge write)
+			check("Check dest", mx_data_rx,8'h2a);
+		@(posedge write)
+			check("Check src", mx_data_rx,8'h55);
+		@(posedge write)
+			check("Check type", mx_data_rx,8'h32);
+		@(posedge write)
+			check("Check crc", mx_data_rx,8'h74);
+		#800_000;
+		send_byte_MX(8'h55);
+		send_byte_MX(8'h55);
+		send_byte_MX(8'hD0);
+		send_byte_MX(8'h55);
+		send_byte_MX(8'h2A);
+		send_byte_MX(8'h33);
+		send_byte_MX(8'h34);
+
+		fork : write_thread
+			#1_000_000 disable write_thread;
+			@(posedge write) disable write_thread;
+		join
+		check("No retry after ack", write, 1'b0);
+		check_group_end;
 	endtask
 
 	task get_type_2;
+		check_group_begin("Get type 2/Send type 3");
 		// Preamble
 		send_byte_MX(8'h55);
 		send_byte_MX(8'h55);
@@ -124,9 +187,19 @@ module Top_level_sim();
 		send_byte_MX(8'h24); // From $
 		send_byte_MX(8'h32); // Type 2
 		send_byte_MX(8'hB6); // CRC
+		@(posedge write)
+			check("Check dest", mx_data_rx,8'h24);
+		@(posedge write)
+			check("Check src", mx_data_rx,8'h55);
+		@(posedge write)
+			check("Check type", mx_data_rx,8'h33);
+		@(posedge write)
+			check("Check crc", mx_data_rx,8'hde);
+		check_group_end;
 	endtask
 		
 	task get_type_2_all_call;
+		check_group_begin("Get type 2 all call");
 		// Preamble
 		send_byte_MX(8'h55);
 		send_byte_MX(8'h55);
@@ -135,6 +208,13 @@ module Top_level_sim();
 		send_byte_MX(8'h24); // From $
 		send_byte_MX(8'h32); // Type 2
 		send_byte_MX(8'h06); // CRC
+		fork : write_thread
+			#1_000_000 disable write_thread;
+			@(posedge write) disable write_thread;
+		join
+
+		check("No ack for all call", write, 1'b0);
+		check_group_end;
 	endtask
 
 	task get_type_1;
@@ -185,12 +265,9 @@ module Top_level_sim();
 	initial
 		begin
 			#100 BTNC = 0;
-			get_type_1;
-			#4_000_000;
-			get_type_1_bad_crc;
-			#4_000_000;
-			get_type_1_bad_mac;
+			send_type_2_ack;
 			check_summary_stop;
+			$finish;
 		end
 
 

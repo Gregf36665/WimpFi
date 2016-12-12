@@ -37,7 +37,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	input logic send_ack
     );
 
-	localparam CUTOUT_DURATION = 511; // How many bit periods before watchdog shutdown
+	localparam CUTOUT_DURATION = 512 * 8; // How many bit periods before watchdog shutdown
 
 	// Internal connections
 	logic [7:0] data, fsm_data, fifo_data, fcs, ack_data_out; // connection from FIFO to data
@@ -68,7 +68,7 @@ module Transmitter_Interface #(parameter BIT_RATE = 50_000) (
 	logic wd_enb, problem, safety_cutout;
 
 	// Start counting if txen is high
-	counter_parm #(.W($clog2(CUTOUT_DURATION)),.CARRY_VAL(CUTOUT_DURATION))
+	counter_parm #(.W($clog2(CUTOUT_DURATION)),.CARRY_VAL(CUTOUT_DURATION -1))
 				U_WATCHDOG_TIMER (.clk, .reset(reset | ~txen), .enb(wd_enb), .q(), .carry(problem));
 
 	clkenb #(.DIVFREQ(BIT_RATE)) U_WATCHDOG_ENB (.clk, .reset, .enb(wd_enb));

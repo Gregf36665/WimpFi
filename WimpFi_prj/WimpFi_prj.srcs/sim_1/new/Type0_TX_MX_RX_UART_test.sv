@@ -130,10 +130,10 @@ module Type0_TX_MX_RX_UART_test();
 		#100;
 		reset = 0;
 		#100;
-		send_one_byte;
-		traffic;
-		send_type_0;
-		send_type_1;
+//		send_one_byte;
+//		traffic;
+//		send_type_0;
+//		send_type_1;
 
 	end
 endmodule

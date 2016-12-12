@@ -47,7 +47,7 @@ module backoff_sim();
 		rts = 1;
 		fork : cts_timeout
 			@(posedge cts) disable cts_timeout;
-			#1000 disable cts_timeout;
+			#5_000_000 disable cts_timeout;
 		join
 		rts = 0;
 		check("Verify cts received", cts, 1'b1);
@@ -131,12 +131,12 @@ module backoff_sim();
 		#100
 		reset = 0;
 		#100;
-		//no_traffic;
+		no_traffic;
 		#100;
-		//one_traffic;
-		repeat_traffic;
-		//#1_000_000;
-		//glitchy_traffic;
+		one_traffic;
+		//repeat_traffic;
+		#1_000_000;
+		glitchy_traffic;
 		#100;
 		check_summary_stop;
 	end

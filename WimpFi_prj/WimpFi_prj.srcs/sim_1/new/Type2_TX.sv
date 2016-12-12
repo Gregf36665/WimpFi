@@ -19,6 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+import check_p::*;
 
 module Type2_TX(
 
@@ -158,9 +159,9 @@ module Type2_TX(
 	begin
 		#100;
 		reset = 0;
+		send_empty_T2;
+		#30_000_000;
 		send_empty_T2_NAK;
-		#500_000;
-		//send_empty_T1_good_CRC;
 	end
 
 endmodule

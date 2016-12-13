@@ -1,0 +1,2119 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Mon Dec 12 19:44:58 2016
+# Process ID: 9868
+# Current directory: C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.runs/synth_1
+# Command line: vivado.exe -log nexys4DDR.vds -mode batch -messageDb vivado.pb -notrace -source nexys4DDR.tcl
+# Log file: C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.runs/synth_1/nexys4DDR.vds
+# Journal file: C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source nexys4DDR.tcl -notrace
+Command: synth_design -top nexys4DDR -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 9960 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 316.789 ; gain = 109.227
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'nexys4DDR' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/nexys4DDR.sv:23]
+INFO: [Synth 8-638] synthesizing module 'dispctl' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/dispctl.sv:24]
+INFO: [Synth 8-638] synthesizing module 'clkenb' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+	Parameter DIVFREQ bound to: 1000 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter DIVAMT bound to: 100000 - type: integer 
+	Parameter DIVBITS bound to: 17 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clkenb' (1#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+INFO: [Synth 8-638] synthesizing module 'counter_parm' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+	Parameter W bound to: 3 - type: integer 
+	Parameter CARRY_VAL bound to: 4'b1111 
+INFO: [Synth 8-256] done synthesizing module 'counter_parm' (2#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+INFO: [Synth 8-638] synthesizing module 'decoder_3_8_en' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/decoder_3_8_en.sv:2]
+INFO: [Synth 8-256] done synthesizing module 'decoder_3_8_en' (3#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/decoder_3_8_en.sv:2]
+INFO: [Synth 8-638] synthesizing module 'mux8_parm' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/mux8_parm.sv:2]
+	Parameter W bound to: 1 - type: integer 
+INFO: [Synth 8-226] default block is never used [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/mux8_parm.sv:9]
+INFO: [Synth 8-256] done synthesizing module 'mux8_parm' (4#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/mux8_parm.sv:2]
+INFO: [Synth 8-638] synthesizing module 'mux8_parm__parameterized0' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/mux8_parm.sv:2]
+	Parameter W bound to: 4 - type: integer 
+INFO: [Synth 8-226] default block is never used [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/mux8_parm.sv:9]
+INFO: [Synth 8-256] done synthesizing module 'mux8_parm__parameterized0' (4#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/mux8_parm.sv:2]
+INFO: [Synth 8-638] synthesizing module 'seven_seg' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/seven_seg.sv:18]
+	Parameter BLANK bound to: 7'b1111111 
+	Parameter ZERO bound to: 7'b1000000 
+	Parameter ONE bound to: 7'b1111001 
+	Parameter TWO bound to: 7'b0100100 
+	Parameter THREE bound to: 7'b0110000 
+	Parameter FOUR bound to: 7'b0011001 
+	Parameter FIVE bound to: 7'b0010010 
+	Parameter SIX bound to: 7'b0000010 
+	Parameter SEVEN bound to: 7'b1111000 
+	Parameter EIGHT bound to: 7'b0000000 
+	Parameter NINE bound to: 7'b0010000 
+	Parameter A bound to: 7'b0001000 
+	Parameter B bound to: 7'b0000011 
+	Parameter C bound to: 7'b1000110 
+	Parameter D bound to: 7'b0100001 
+	Parameter E bound to: 7'b0000110 
+	Parameter F bound to: 7'b0001110 
+INFO: [Synth 8-226] default block is never used [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/seven_seg.sv:43]
+INFO: [Synth 8-256] done synthesizing module 'seven_seg' (5#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/seven_seg.sv:18]
+INFO: [Synth 8-256] done synthesizing module 'dispctl' (6#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/dispctl.sv:24]
+INFO: [Synth 8-638] synthesizing module 'receiver_side' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/receiver_side.sv:23]
+INFO: [Synth 8-638] synthesizing module 'Receiver_Interface' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/Receiver_Interface.sv:23]
+	Parameter BIT_RATE bound to: 50000 - type: integer 
+	Parameter ALL_CALL bound to: 8'b00101010 
+INFO: [Synth 8-638] synthesizing module 'mx_rcvr' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/mx_rcvr.sv:28]
+	Parameter BIT_RATE bound to: 50000 - type: integer 
+	Parameter PREAMBLE_PATTERN bound to: 128'b11111111000000000000000011111111111111110000000000000000111111111111111100000000000000001111111111111111000000000000000011111111 
+	Parameter SFD_PATTERN bound to: 256'b1111111100000000000000001111111111111111000000000000000011111111111111110000000000000000111111111111111100000000000000001111111100000000111111110000000011111111000000001111111100000000111111111111111100000000000000001111111111111111000000001111111100000000 
+	Parameter ONE_PATTERN bound to: 64'b1111111111111111111111111111111100000000000000000000000000000000 
+	Parameter IDLE_PATTERN bound to: 64'b1111111111111111111111111111111111111111111111111111111111111111 
+	Parameter THRESHOLD bound to: 15 - type: integer 
+	Parameter MIN_TRIGGER bound to: 15 - type: integer 
+	Parameter MAX_TRIGGER bound to: 49 - type: integer 
+	Parameter IDLE_THRESHOLD bound to: 60 - type: integer 
+	Parameter ERROR_THRESHOLD bound to: 0 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'FSMs' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/FSMs.sv:22]
+INFO: [Synth 8-638] synthesizing module 'fsm_pll' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/fsm_pll.sv:24]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/fsm_pll.sv:110]
+INFO: [Synth 8-256] done synthesizing module 'fsm_pll' (7#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/fsm_pll.sv:24]
+INFO: [Synth 8-638] synthesizing module 'fsm_psfd' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/fsm_psfd.sv:25]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/fsm_psfd.sv:62]
+INFO: [Synth 8-256] done synthesizing module 'fsm_psfd' (8#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/fsm_psfd.sv:25]
+INFO: [Synth 8-638] synthesizing module 'fsm_data' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/fsm_data.sv:24]
+INFO: [Synth 8-256] done synthesizing module 'fsm_data' (9#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/fsm_data.sv:24]
+INFO: [Synth 8-638] synthesizing module 'one_bit_ff' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/one_bit_ff.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'one_bit_ff' (10#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/one_bit_ff.sv:23]
+INFO: [Synth 8-638] synthesizing module 'sync_input' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/sync_input.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'sync_input' (11#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/sync_input.sv:23]
+INFO: [Synth 8-638] synthesizing module 'accumulator' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/accumulator.sv:23]
+	Parameter GAIN bound to: 8 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'accumulator' (12#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/accumulator.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'FSMs' (13#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/FSMs.sv:22]
+INFO: [Synth 8-638] synthesizing module 'data_buffer' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/data_buffer.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'data_buffer' (14#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/data_buffer.sv:23]
+INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized0' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+	Parameter DIVFREQ bound to: 800000 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter DIVAMT bound to: 125 - type: integer 
+	Parameter DIVBITS bound to: 7 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized0' (14#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized1' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+	Parameter DIVFREQ bound to: 3200000 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter DIVAMT bound to: 31 - type: integer 
+	Parameter DIVBITS bound to: 5 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized1' (14#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+INFO: [Synth 8-638] synthesizing module 'counter' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter.sv:23]
+	Parameter MAX bound to: 7 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'counter' (15#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter.sv:23]
+INFO: [Synth 8-638] synthesizing module 'counter__parameterized0' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter.sv:23]
+	Parameter MAX bound to: 127 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'counter__parameterized0' (15#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter.sv:23]
+INFO: [Synth 8-638] synthesizing module 'counter__parameterized1' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter.sv:23]
+	Parameter MAX bound to: 63 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'counter__parameterized1' (15#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter.sv:23]
+INFO: [Synth 8-638] synthesizing module 'f_error' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/f_error.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'f_error' (16#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/f_error.sv:23]
+INFO: [Synth 8-638] synthesizing module 'peak_detector' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/peak_detector.sv:23]
+	Parameter W bound to: 8 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'peak_detector' (17#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/peak_detector.sv:23]
+WARNING: [Synth 8-689] width (9) of port connection 'data' does not match port width (8) of module 'peak_detector' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/mx_rcvr.sv:102]
+INFO: [Synth 8-638] synthesizing module 'correlator' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/correlator.sv:26]
+	Parameter LEN bound to: 128 - type: integer 
+	Parameter PATTERN bound to: 128'b11111111000000000000000011111111111111110000000000000000111111111111111100000000000000001111111111111111000000000000000011111111 
+	Parameter HTHRESH bound to: 111 - type: integer 
+	Parameter LTHRESH bound to: 14 - type: integer 
+	Parameter W bound to: 8 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'correlator' (18#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/correlator.sv:26]
+INFO: [Synth 8-638] synthesizing module 'correlator__parameterized0' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/correlator.sv:26]
+	Parameter LEN bound to: 256 - type: integer 
+	Parameter PATTERN bound to: 256'b1111111100000000000000001111111111111111000000000000000011111111111111110000000000000000111111111111111100000000000000001111111100000000111111110000000011111111000000001111111100000000111111111111111100000000000000001111111111111111000000001111111100000000 
+	Parameter HTHRESH bound to: 220 - type: integer 
+	Parameter LTHRESH bound to: 14 - type: integer 
+	Parameter W bound to: 9 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'correlator__parameterized0' (18#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/correlator.sv:26]
+INFO: [Synth 8-638] synthesizing module 'correlator__parameterized1' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/correlator.sv:26]
+	Parameter LEN bound to: 64 - type: integer 
+	Parameter PATTERN bound to: 64'b1111111111111111111111111111111100000000000000000000000000000000 
+	Parameter HTHRESH bound to: 49 - type: integer 
+	Parameter LTHRESH bound to: 15 - type: integer 
+	Parameter W bound to: 7 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'correlator__parameterized1' (18#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/correlator.sv:26]
+INFO: [Synth 8-638] synthesizing module 'correlator__parameterized2' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/correlator.sv:26]
+	Parameter LEN bound to: 64 - type: integer 
+	Parameter PATTERN bound to: 64'b1111111111111111111111111111111111111111111111111111111111111111 
+	Parameter HTHRESH bound to: 60 - type: integer 
+	Parameter LTHRESH bound to: 0 - type: integer 
+	Parameter W bound to: 7 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'correlator__parameterized2' (18#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/correlator.sv:26]
+INFO: [Synth 8-638] synthesizing module 'single_pulser' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/single_pulser.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'single_pulser' (19#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/single_pulser.sv:23]
+INFO: [Synth 8-638] synthesizing module 'counter__parameterized2' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter.sv:23]
+	Parameter MAX bound to: 255 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'counter__parameterized2' (19#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'mx_rcvr' (20#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/mx_rcvr.sv:28]
+INFO: [Synth 8-638] synthesizing module 'FSM_Address_check' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_Address_check.sv:23]
+	Parameter ALL_CALL bound to: 8'b00101010 
+INFO: [Synth 8-256] done synthesizing module 'FSM_Address_check' (21#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_Address_check.sv:23]
+INFO: [Synth 8-638] synthesizing module 'p_fifo' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/p_fifo.sv:63]
+	Parameter DEPTH bound to: 256 - type: integer 
+	Parameter POINTER_WIDTH bound to: 7 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'p_fifo' (22#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/p_fifo.sv:63]
+WARNING: [Synth 8-350] instance 'U_FIFO' of module 'p_fifo' requires 13 connections, but only 12 given [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/Receiver_Interface.sv:55]
+INFO: [Synth 8-638] synthesizing module 'counter_parm__parameterized0' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+	Parameter W bound to: 8 - type: integer 
+	Parameter CARRY_VAL bound to: 4'b1111 
+INFO: [Synth 8-256] done synthesizing module 'counter_parm__parameterized0' (22#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+WARNING: [Synth 8-350] instance 'U_FRAME_TYPE_COUNTER' of module 'counter_parm' requires 5 connections, but only 4 given [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/Receiver_Interface.sv:61]
+INFO: [Synth 8-638] synthesizing module 'FSM_Frame_type' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_Frame_type.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'FSM_Frame_type' (23#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_Frame_type.sv:23]
+INFO: [Synth 8-638] synthesizing module 'FSM_FCS' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_FCS.sv:23]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_FCS.sv:65]
+INFO: [Synth 8-256] done synthesizing module 'FSM_FCS' (24#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_FCS.sv:23]
+INFO: [Synth 8-638] synthesizing module 'crc_8' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/crc_8.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'crc_8' (25#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/crc_8.sv:23]
+INFO: [Synth 8-638] synthesizing module 'counter_parm__parameterized1' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+	Parameter W bound to: 8 - type: integer 
+	Parameter CARRY_VAL bound to: 4'b1111 
+INFO: [Synth 8-256] done synthesizing module 'counter_parm__parameterized1' (25#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+WARNING: [Synth 8-350] instance 'U_CRC_ERROR_COUNT' of module 'counter_parm' requires 5 connections, but only 4 given [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/Receiver_Interface.sv:73]
+INFO: [Synth 8-256] done synthesizing module 'Receiver_Interface' (26#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/Receiver_Interface.sv:23]
+INFO: [Synth 8-638] synthesizing module 'FSM_rx_mx_to_tx_uart' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_rx_mx_to_tx_uart.sv:23]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_rx_mx_to_tx_uart.sv:51]
+INFO: [Synth 8-256] done synthesizing module 'FSM_rx_mx_to_tx_uart' (27#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_rx_mx_to_tx_uart.sv:23]
+INFO: [Synth 8-638] synthesizing module 'transmitter' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/transmitter.sv:20]
+	Parameter BAUD_RATE bound to: 9600 - type: integer 
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/transmitter.sv:54]
+INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized2' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+	Parameter DIVFREQ bound to: 9600 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter DIVAMT bound to: 10416 - type: integer 
+	Parameter DIVBITS bound to: 14 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized2' (27#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+INFO: [Synth 8-638] synthesizing module 'reg_parm' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+	Parameter W bound to: 8 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'reg_parm' (28#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+INFO: [Synth 8-638] synthesizing module 'counter_parm__parameterized2' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+	Parameter W bound to: 4 - type: integer 
+	Parameter CARRY_VAL bound to: 4'b1000 
+INFO: [Synth 8-256] done synthesizing module 'counter_parm__parameterized2' (28#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+INFO: [Synth 8-256] done synthesizing module 'transmitter' (29#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/transmitter.sv:20]
+INFO: [Synth 8-256] done synthesizing module 'receiver_side' (30#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/receiver_side.sv:23]
+INFO: [Synth 8-638] synthesizing module 'transmitter_side' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/transmitter_side.sv:23]
+INFO: [Synth 8-638] synthesizing module 'Transmitter_Interface' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/Transmitter_Interface.sv:23]
+	Parameter BIT_RATE bound to: 50000 - type: integer 
+	Parameter CUTOUT_DURATION bound to: 4096 - type: integer 
+	Parameter DEPTH bound to: 255 - type: integer 
+	Parameter POINTER_WIDTH bound to: 7 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'manchester_tx' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/manchester_tx.sv:19]
+	Parameter EOF_WIDTH bound to: 2 - type: integer 
+	Parameter BIT_RATE bound to: 50000 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'transmitter_for_mx' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/transmitter_for_mx.sv:20]
+	Parameter EOF_WIDTH bound to: 2 - type: integer 
+	Parameter BIT_RATE bound to: 50000 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized3' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+	Parameter DIVFREQ bound to: 50000 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter DIVAMT bound to: 2000 - type: integer 
+	Parameter DIVBITS bound to: 11 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized3' (30#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+INFO: [Synth 8-638] synthesizing module 'counter_parm__parameterized3' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+	Parameter W bound to: 3 - type: integer 
+	Parameter CARRY_VAL bound to: 4'b0111 
+INFO: [Synth 8-256] done synthesizing module 'counter_parm__parameterized3' (30#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+INFO: [Synth 8-638] synthesizing module 'counter_parm__parameterized4' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+	Parameter W bound to: 2 - type: integer 
+	Parameter CARRY_VAL bound to: 2 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'counter_parm__parameterized4' (30#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+INFO: [Synth 8-638] synthesizing module 'clkenb_baud' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb_baud.sv:21]
+	Parameter DIVFREQ bound to: 100000 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter DIVAMT bound to: 1000 - type: integer 
+	Parameter DIVBITS bound to: 10 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clkenb_baud' (31#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb_baud.sv:21]
+INFO: [Synth 8-256] done synthesizing module 'transmitter_for_mx' (32#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/transmitter_for_mx.sv:20]
+INFO: [Synth 8-256] done synthesizing module 'manchester_tx' (33#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/manchester_tx.sv:19]
+INFO: [Synth 8-638] synthesizing module 'p_fifo__parameterized0' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/p_fifo.sv:63]
+	Parameter DEPTH bound to: 255 - type: integer 
+	Parameter POINTER_WIDTH bound to: 7 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'p_fifo__parameterized0' (33#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/p_fifo.sv:63]
+INFO: [Synth 8-638] synthesizing module 'FSM_fifo_to_send' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_fifo_to_send.sv:23]
+	Parameter PREAMBLE bound to: 8'b01010101 
+	Parameter SFD bound to: 8'b11010000 
+INFO: [Synth 8-256] done synthesizing module 'FSM_fifo_to_send' (34#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_fifo_to_send.sv:23]
+WARNING: [Synth 8-350] instance 'U_FSM_TX' of module 'FSM_fifo_to_send' requires 20 connections, but only 19 given [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/Transmitter_Interface.sv:61]
+INFO: [Synth 8-638] synthesizing module 'counter_parm__parameterized5' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+	Parameter W bound to: 12 - type: integer 
+	Parameter CARRY_VAL bound to: 4095 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'counter_parm__parameterized5' (34#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized4' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+	Parameter DIVFREQ bound to: 50000 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter DIVAMT bound to: 2000 - type: integer 
+	Parameter DIVBITS bound to: 11 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized4' (34#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+INFO: [Synth 8-638] synthesizing module 'Backoff_module' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/Backoff_module.sv:23]
+	Parameter BIT_RATE bound to: 50000 - type: integer 
+	Parameter DIFS_COUNT bound to: 80 - type: integer 
+	Parameter SIFS_COUNT bound to: 40 - type: integer 
+	Parameter SLOT_TIME bound to: 8 - type: integer 
+	Parameter ACK_COUNT bound to: 184 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'Backoff_FSM' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/Backoff_FSM.sv:23]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/Backoff_FSM.sv:65]
+INFO: [Synth 8-256] done synthesizing module 'Backoff_FSM' (35#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/Backoff_FSM.sv:23]
+INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized5' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+	Parameter DIVFREQ bound to: 50000 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter DIVAMT bound to: 2000 - type: integer 
+	Parameter DIVBITS bound to: 11 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized5' (35#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+INFO: [Synth 8-638] synthesizing module 'counter_parm__parameterized6' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+	Parameter W bound to: 7 - type: integer 
+	Parameter CARRY_VAL bound to: 79 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'counter_parm__parameterized6' (35#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+INFO: [Synth 8-638] synthesizing module 'counter_parm__parameterized7' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+	Parameter W bound to: 6 - type: integer 
+	Parameter CARRY_VAL bound to: 39 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'counter_parm__parameterized7' (35#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+INFO: [Synth 8-638] synthesizing module 'counter_parm__parameterized8' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+	Parameter W bound to: 3 - type: integer 
+	Parameter CARRY_VAL bound to: 7 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'counter_parm__parameterized8' (35#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+INFO: [Synth 8-638] synthesizing module 'counter_parm__parameterized9' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+	Parameter W bound to: 8 - type: integer 
+	Parameter CARRY_VAL bound to: 184 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'counter_parm__parameterized9' (35#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+INFO: [Synth 8-638] synthesizing module 'counter_parm__parameterized10' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+	Parameter W bound to: 6 - type: integer 
+	Parameter CARRY_VAL bound to: 4'b1111 
+INFO: [Synth 8-256] done synthesizing module 'counter_parm__parameterized10' (35#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+INFO: [Synth 8-638] synthesizing module 'random_generator' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/random_generator.sv:27]
+	Parameter SEED bound to: 6'b111111 
+INFO: [Synth 8-256] done synthesizing module 'random_generator' (36#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/random_generator.sv:27]
+INFO: [Synth 8-256] done synthesizing module 'Backoff_module' (37#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/Backoff_module.sv:23]
+INFO: [Synth 8-638] synthesizing module 'counter_parm__parameterized11' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+	Parameter W bound to: 8 - type: integer 
+	Parameter CARRY_VAL bound to: 4'b1111 
+INFO: [Synth 8-256] done synthesizing module 'counter_parm__parameterized11' (37#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+WARNING: [Synth 8-350] instance 'U_FRAME_TYPE_COUNTER' of module 'counter_parm' requires 5 connections, but only 4 given [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/Transmitter_Interface.sv:86]
+INFO: [Synth 8-638] synthesizing module 'FSM_ack_timeout' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_ack_timeout.sv:23]
+	Parameter RETRY_COUNT bound to: 4 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_ack_timeout.sv:71]
+INFO: [Synth 8-256] done synthesizing module 'FSM_ack_timeout' (38#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_ack_timeout.sv:23]
+INFO: [Synth 8-638] synthesizing module 'FSM_get_dest_addr' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_get_dest_addr.sv:23]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_get_dest_addr.sv:59]
+INFO: [Synth 8-256] done synthesizing module 'FSM_get_dest_addr' (39#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_get_dest_addr.sv:23]
+INFO: [Synth 8-638] synthesizing module 'FSM_retry' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_retry.sv:23]
+	Parameter W bound to: 7 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_retry.sv:66]
+INFO: [Synth 8-256] done synthesizing module 'FSM_retry' (40#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_retry.sv:23]
+INFO: [Synth 8-638] synthesizing module 'counter_parm__parameterized12' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+	Parameter W bound to: 8 - type: integer 
+	Parameter CARRY_VAL bound to: 4'b1111 
+INFO: [Synth 8-256] done synthesizing module 'counter_parm__parameterized12' (40#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+WARNING: [Synth 8-350] instance 'U_NAK_COUNT' of module 'counter_parm' requires 5 connections, but only 4 given [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/Transmitter_Interface.sv:110]
+INFO: [Synth 8-638] synthesizing module 'fsm_send_ack' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/fsm_send_ack.sv:23]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/fsm_send_ack.sv:60]
+INFO: [Synth 8-256] done synthesizing module 'fsm_send_ack' (41#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/fsm_send_ack.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'Transmitter_Interface' (42#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/Transmitter_Interface.sv:23]
+INFO: [Synth 8-638] synthesizing module 'FSM_uart_to_mx' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_uart_to_mx.sv:23]
+	Parameter SEND_CODE bound to: 8'b00000100 
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_uart_to_mx.sv:56]
+INFO: [Synth 8-256] done synthesizing module 'FSM_uart_to_mx' (43#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/FSM_uart_to_mx.sv:23]
+INFO: [Synth 8-638] synthesizing module 'receiver' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/receiver.sv:23]
+	Parameter BAUD_RATE bound to: 9600 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'fsm' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/fsm.sv:23]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/fsm.sv:74]
+INFO: [Synth 8-256] done synthesizing module 'fsm' (44#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/fsm.sv:23]
+INFO: [Synth 8-638] synthesizing module 'counter_parm__parameterized13' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+	Parameter W bound to: 3 - type: integer 
+	Parameter CARRY_VAL bound to: 4'b0111 
+INFO: [Synth 8-256] done synthesizing module 'counter_parm__parameterized13' (44#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+INFO: [Synth 8-638] synthesizing module 'counter_parm__parameterized14' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+	Parameter W bound to: 4 - type: integer 
+	Parameter CARRY_VAL bound to: 4'b1001 
+INFO: [Synth 8-256] done synthesizing module 'counter_parm__parameterized14' (44#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/counter_parm.sv:2]
+INFO: [Synth 8-638] synthesizing module 'delay_timer' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/delay_timer.sv:23]
+	Parameter BAUD_RATE bound to: 9600 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized6' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+	Parameter DIVFREQ bound to: 19200 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter DIVAMT bound to: 5208 - type: integer 
+	Parameter DIVBITS bound to: 13 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized6' (44#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized7' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+	Parameter DIVFREQ bound to: 9600 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter DIVAMT bound to: 10416 - type: integer 
+	Parameter DIVBITS bound to: 14 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized7' (44#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'delay_timer' (45#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/delay_timer.sv:23]
+INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized8' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+	Parameter DIVFREQ bound to: 153600 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter DIVAMT bound to: 651 - type: integer 
+	Parameter DIVBITS bound to: 10 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized8' (45#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/clkenb.sv:23]
+INFO: [Synth 8-638] synthesizing module 'rxd_synchroniser' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/rxd_synchroniser.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'rxd_synchroniser' (46#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/rxd_synchroniser.sv:23]
+INFO: [Synth 8-638] synthesizing module 'temp_data' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/temp_data.sv:23]
+INFO: [Synth 8-638] synthesizing module 'reg_parm__parameterized0' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+	Parameter W bound to: 1 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'reg_parm__parameterized0' (46#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+INFO: [Synth 8-638] synthesizing module 'reg_parm__parameterized1' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+	Parameter W bound to: 1 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'reg_parm__parameterized1' (46#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+INFO: [Synth 8-638] synthesizing module 'reg_parm__parameterized2' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+	Parameter W bound to: 1 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'reg_parm__parameterized2' (46#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+INFO: [Synth 8-638] synthesizing module 'reg_parm__parameterized3' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+	Parameter W bound to: 1 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'reg_parm__parameterized3' (46#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+INFO: [Synth 8-638] synthesizing module 'reg_parm__parameterized4' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+	Parameter W bound to: 1 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'reg_parm__parameterized4' (46#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+INFO: [Synth 8-638] synthesizing module 'reg_parm__parameterized5' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+	Parameter W bound to: 1 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'reg_parm__parameterized5' (46#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+INFO: [Synth 8-638] synthesizing module 'reg_parm__parameterized6' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+	Parameter W bound to: 1 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'reg_parm__parameterized6' (46#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+INFO: [Synth 8-638] synthesizing module 'reg_parm__parameterized7' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+	Parameter W bound to: 1 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'reg_parm__parameterized7' (46#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/reg_param.sv:2]
+INFO: [Synth 8-256] done synthesizing module 'temp_data' (47#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/temp_data.sv:23]
+INFO: [Synth 8-638] synthesizing module 'data' [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/data.sv:22]
+INFO: [Synth 8-256] done synthesizing module 'data' (48#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/data.sv:22]
+INFO: [Synth 8-256] done synthesizing module 'receiver' (49#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/receiver.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'transmitter_side' (50#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/new/transmitter_side.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'nexys4DDR' (51#1) [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/sources_1/imports/nexys4DDR.sv:23]
+WARNING: [Synth 8-3917] design nexys4DDR has port OUT_JA4 driven by constant 1
+WARNING: [Synth 8-3917] design nexys4DDR has port LED17_G driven by constant 0
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 369.578 ; gain = 162.016
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 369.578 ; gain = 162.016
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/constrs_1/imports/nexys4DDR.xdc]
+Finished Parsing XDC File [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/constrs_1/imports/nexys4DDR.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/flynng/Desktop/WimpFi/WimpFi_prj/WimpFi_prj.srcs/constrs_1/imports/nexys4DDR.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/nexys4DDR_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/nexys4DDR_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 676.441 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:25 . Memory (MB): peak = 676.441 ; gain = 468.879
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:25 . Memory (MB): peak = 676.441 ; gain = 468.879
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:25 . Memory (MB): peak = 676.441 ; gain = 468.879
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'fsm_pll'
+INFO: [Synth 8-5544] ROM "update_final_time" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "update_max_corr" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "update_min_corr" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "update_max_time" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "update_min_time" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sample_dec" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sample_inc" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "next" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'fsm_psfd'
+INFO: [Synth 8-5544] ROM "enable_pll" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "clr_ferr" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "slow_sample_reset" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "bit_count_reset" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "cardet" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'fsm_data'
+INFO: [Synth 8-5544] ROM "set_ferr3" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "set_ferr2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "set_ferr1" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "data_done" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "set_ferr" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "store_byte" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "store_bit" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "data_bit" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "next0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "next" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'FSM_Address_check'
+INFO: [Synth 8-5546] ROM "force_write" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "inc_rerr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pop_fifo" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "write_enb" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "clear_fifo" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "data_available" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "reset_crc" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "store_src" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "next" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "next" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'FSM_Frame_type'
+INFO: [Synth 8-5544] ROM "update_frame_check" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_frame_type" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "next0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "next" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'FSM_FCS'
+INFO: [Synth 8-5544] ROM "enb_crc" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'FSM_rx_mx_to_tx_uart'
+INFO: [Synth 8-5544] ROM "send" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "rrd" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'transmitter'
+INFO: [Synth 8-5544] ROM "clk_reset" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "counter_rst" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "lden" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "rdy" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'transmitter_for_mx'
+INFO: [Synth 8-5544] ROM "lden" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "clk_reset" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "eof_reset" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sending" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "rdy" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "idle" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'FSM_fifo_to_send'
+INFO: [Synth 8-5544] ROM "start_ack_timeout" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "reset_crc" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "use_fsm" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "xrdy" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "read_data" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "send" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "rts" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Common 17-14] Message 'Synth 8-5544' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Backoff_FSM'
+INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'FSM_ack_timeout'
+INFO: [Synth 8-5546] ROM "next0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'FSM_retry'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'fsm_send_ack'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'FSM_uart_to_mx'
+INFO: [Synth 8-5546] ROM "next0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'fsm'
+INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                             0000 |                             0000
+                    WAIT |                             0001 |                             0001
+             FIND_MINMAX |                             0010 |                             0010
+         UPDATE_TIME_MAX |                             0011 |                             0101
+         UPDATE_TIME_MIN |                             0100 |                             0110
+                 INC_DEC |                             0101 |                             1001
+              DEC_SAMPLE |                             0110 |                             1000
+              INC_SAMPLE |                             0111 |                             0111
+              UPDATE_MAX |                             1000 |                             0011
+              UPDATE_MIN |                             1001 |                             0100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'fsm_pll'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   RESET |                              000 |                              111
+                    IDLE |                              001 |                              000
+          PREAMBLE_MATCH |                              010 |                              001
+       RESET_SLOW_SAMPLE |                              011 |                              010
+               SFD_MAYBE |                              100 |                              011
+                STARTING |                              101 |                              100
+                   START |                              110 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'fsm_psfd'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                      00000000001 |                             0000
+           START_RECIEVE |                      00000000010 |                             0001
+                 LOOKING |                      00000000100 |                             0010
+               FOUND_ONE |                      00000001000 |                             0011
+              FOUND_ZERO |                      00000010000 |                             0100
+              STORE_DATA |                      00000100000 |                             0101
+               BYTE_DONE |                      00001000000 |                             0110
+           WAIT_FOR_NEXT |                      00010000000 |                             0111
+              EARLY_STOP |                      00100000000 |                             1010
+                   ERROR |                      01000000000 |                             1000
+                  MISSED |                      10000000000 |                             1001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'fsm_data'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+                    WAIT |                              001 |                              111
+               STORE_SRC |                              010 |                              110
+              STORE_DATA |                              011 |                              001
+               CHECK_CRC |                              100 |                              101
+                    DONE |                              101 |                              100
+                   FLUSH |                              110 |                              011
+                  NOT_US |                              111 |                              010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'FSM_Address_check'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                         00000001 |                              000
+        CHECK_FRAME_TYPE |                         00000010 |                              001
+                  TYPE_0 |                         00000100 |                              010
+                  TYPE_1 |                         00001000 |                              011
+                  TYPE_2 |                         00010000 |                              100
+                  TYPE_3 |                         00100000 |                              101
+                 UNKNOWN |                         01000000 |                              110
+           WAIT_FOR_SEND |                         10000000 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'FSM_Frame_type'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                              000
+              STORE_DATA |                               01 |                              001
+                CRC_DATA |                               10 |                              010
+                    WAIT |                               11 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'FSM_FCS'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+            DATA_TO_SEND |                              001 |                              001
+               SEND_DATA |                              010 |                              010
+           GET_NEXT_DATA |                              011 |                              011
+                   PAUSE |                              100 |                              100
+             CHECK_EMPTY |                              101 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'FSM_rx_mx_to_tx_uart'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+               SAVE_DATA |                              001 |                              110
+          STAND_BY_START |                              010 |                              100
+                   START |                              011 |                              001
+                    SEND |                              100 |                              010
+           STAND_BY_STOP |                              101 |                              101
+                    STOP |                              110 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'transmitter'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                             0000 |                             0000
+          STAND_BY_START |                             0001 |                             0001
+                  SEND_0 |                             0010 |                             0010
+                  SEND_1 |                             0011 |                             0011
+                  SEND_2 |                             0100 |                             0100
+                  SEND_3 |                             0101 |                             0101
+                  SEND_4 |                             0110 |                             0110
+                  SEND_5 |                             0111 |                             0111
+                  SEND_6 |                             1000 |                             1000
+                  SEND_7 |                             1001 |                             1001
+             SEND_0_LOAD |                             1010 |                             1011
+                     EOF |                             1011 |                             1010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'transmitter_for_mx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                             0000 |                             0000
+            TIMING_CHECK |                             0001 |                             0001
+          LOAD_PREAMBLE1 |                             0010 |                             0100
+          SEND_PREAMBLE1 |                             0011 |                             0101
+          LOAD_PREAMBLE2 |                             0100 |                             0110
+          SEND_PREAMBLE2 |                             0101 |                             0111
+                LOAD_SFD |                             0110 |                             1000
+                SEND_SFD |                             0111 |                             1001
+                STAND_BY |                             1000 |                             0010
+                    SEND |                             1001 |                             0011
+           GET_NEXT_BYTE |                             1010 |                             1011
+             CHECK_EMPTY |                             1011 |                             1010
+                     FCS |                             1100 |                             1100
+                SEND_FCS |                             1101 |                             1101
+               RESET_CRC |                             1110 |                             1110
+            WAIT_FOR_ACK |                             1111 |                             1111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'FSM_fifo_to_send'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                             0001
+              FIRST_WAIT |                              001 |                             1000
+            NETWORK_BUSY |                              010 |                             0100
+                    ROLL |                              011 |                             0110
+              CONTENTION |                              100 |                             0101
+            SIFS_TIMEOUT |                              101 |                             0111
+                     CTS |                              110 |                             0011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'Backoff_FSM'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                             0000
+          START_COUNTING |                               01 |                             0001
+            EXCEED_RETRY |                               10 |                             0110
+              CHECK_ADDR |                               11 |                             0010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'FSM_ack_timeout'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                             0000
+                    WAIT |                               01 |                             0010
+                   RETRY |                               10 |                             0001
+                  RESEND |                               11 |                             0011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'FSM_retry'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                             0000
+               LOAD_DEST |                              001 |                             0010
+                LOAD_SRC |                              010 |                             0011
+               LOAD_TYPE |                              011 |                             0100
+                     RTS |                              100 |                             0001
+                    SEND |                              101 |                             0101
+                    SENT |                              110 |                             0110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'fsm_send_ack'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                            00001 |                             0000
+           DATA_INCOMING |                            00010 |                             0001
+              PARSE_DATA |                            00100 |                             0010
+                    SEND |                            01000 |                             0100
+               SAVE_DATA |                            10000 |                             0011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'FSM_uart_to_mx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                             0000 |                             1000
+             START_MAYBE |                             0001 |                             0001
+              CLEAR_FLAG |                             0010 |                             1011
+             UPDATE_DATA |                             0011 |                             0010
+                    WAIT |                             0100 |                             0011
+               LAST_SAVE |                             0101 |                             1100
+                     EOF |                             0110 |                             0100
+               DATA_GOOD |                             0111 |                             0101
+                DATA_BAD |                             1000 |                             0110
+               STILL_BAD |                             1001 |                             0111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'fsm'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:29 . Memory (MB): peak = 676.441 ; gain = 468.879
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
+	   2 Input     14 Bit       Adders := 2     
+	   2 Input     13 Bit       Adders := 1     
+	   2 Input     11 Bit       Adders := 3     
+	   2 Input     10 Bit       Adders := 2     
+	  43 Input      9 Bit       Adders := 1     
+	  21 Input      8 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 13    
+	   3 Input      7 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 3     
+	  11 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 4     
+	   2 Input      5 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 9     
+	   2 Input      2 Bit       Adders := 1     
++---XORs : 
+	   2 Input    256 Bit         XORs := 1     
+	   2 Input    126 Bit         XORs := 1     
+	   2 Input     64 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 8     
++---Registers : 
+	              256 Bit    Registers := 1     
+	              128 Bit    Registers := 1     
+	               64 Bit    Registers := 2     
+	               17 Bit    Registers := 1     
+	               14 Bit    Registers := 2     
+	               13 Bit    Registers := 1     
+	               11 Bit    Registers := 3     
+	               10 Bit    Registers := 2     
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 23    
+	                7 Bit    Registers := 8     
+	                6 Bit    Registers := 8     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 10    
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 37    
++---RAMs : 
+	               2K Bit         RAMs := 1     
+	               1K Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     17 Bit        Muxes := 1     
+	   2 Input     14 Bit        Muxes := 2     
+	   2 Input     13 Bit        Muxes := 1     
+	  23 Input     11 Bit        Muxes := 1     
+	   2 Input     11 Bit        Muxes := 3     
+	   2 Input      8 Bit        Muxes := 14    
+	   8 Input      8 Bit        Muxes := 1     
+	  14 Input      8 Bit        Muxes := 2     
+	  16 Input      8 Bit        Muxes := 1     
+	   7 Input      8 Bit        Muxes := 1     
+	  16 Input      7 Bit        Muxes := 1     
+	  10 Input      7 Bit        Muxes := 2     
+	   2 Input      6 Bit        Muxes := 1     
+	  10 Input      6 Bit        Muxes := 4     
+	   2 Input      5 Bit        Muxes := 1     
+	  11 Input      5 Bit        Muxes := 1     
+	  19 Input      4 Bit        Muxes := 1     
+	   3 Input      4 Bit        Muxes := 4     
+	  25 Input      4 Bit        Muxes := 1     
+	  16 Input      4 Bit        Muxes := 1     
+	  34 Input      4 Bit        Muxes := 1     
+	  23 Input      4 Bit        Muxes := 1     
+	  16 Input      3 Bit        Muxes := 1     
+	  18 Input      3 Bit        Muxes := 2     
+	   8 Input      3 Bit        Muxes := 2     
+	  11 Input      3 Bit        Muxes := 1     
+	  14 Input      3 Bit        Muxes := 1     
+	  12 Input      3 Bit        Muxes := 1     
+	   8 Input      2 Bit        Muxes := 3     
+	  12 Input      2 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 49    
+	  10 Input      1 Bit        Muxes := 16    
+	   7 Input      1 Bit        Muxes := 19    
+	  11 Input      1 Bit        Muxes := 2     
+	   3 Input      1 Bit        Muxes := 1     
+	   8 Input      1 Bit        Muxes := 11    
+	   4 Input      1 Bit        Muxes := 11    
+	   6 Input      1 Bit        Muxes := 2     
+	  12 Input      1 Bit        Muxes := 7     
+	  16 Input      1 Bit        Muxes := 7     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module clkenb 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     17 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module counter_parm 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                3 Bit    Registers := 1     
+Module decoder_3_8_en 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 1     
+Module seven_seg 
+Detailed RTL Component Info : 
++---Muxes : 
+	  16 Input      7 Bit        Muxes := 1     
+Module fsm_pll 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	                7 Bit    Registers := 2     
+	                6 Bit    Registers := 4     
++---Muxes : 
+	  10 Input      7 Bit        Muxes := 2     
+	   2 Input      6 Bit        Muxes := 1     
+	  10 Input      6 Bit        Muxes := 4     
+	  19 Input      4 Bit        Muxes := 1     
+	  10 Input      1 Bit        Muxes := 7     
+Module fsm_psfd 
+Detailed RTL Component Info : 
++---Muxes : 
+	  16 Input      3 Bit        Muxes := 1     
+	   7 Input      1 Bit        Muxes := 5     
+Module fsm_data 
+Detailed RTL Component Info : 
++---Muxes : 
+	  23 Input     11 Bit        Muxes := 1     
+	  11 Input      1 Bit        Muxes := 2     
+Module one_bit_ff 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module sync_input 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module accumulator 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input      7 Bit       Adders := 1     
++---Registers : 
+	                7 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 3     
+Module data_buffer 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module clkenb__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Registers : 
+	                7 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module clkenb__parameterized1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      5 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module counter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                3 Bit    Registers := 1     
++---Muxes : 
+	   3 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module counter__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Registers : 
+	                7 Bit    Registers := 1     
++---Muxes : 
+	   3 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module counter__parameterized1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   3 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module f_error 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module peak_detector 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module correlator 
+Detailed RTL Component Info : 
++---Adders : 
+	  21 Input      8 Bit       Adders := 1     
++---XORs : 
+	   2 Input    126 Bit         XORs := 1     
++---Registers : 
+	              128 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+Module correlator__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	  43 Input      9 Bit       Adders := 1     
++---XORs : 
+	   2 Input    256 Bit         XORs := 1     
++---Registers : 
+	              256 Bit    Registers := 1     
+	                9 Bit    Registers := 1     
+Module correlator__parameterized1 
+Detailed RTL Component Info : 
++---Adders : 
+	  11 Input      7 Bit       Adders := 1     
++---XORs : 
+	   2 Input     64 Bit         XORs := 1     
++---Registers : 
+	               64 Bit    Registers := 1     
+	                7 Bit    Registers := 1     
+Module correlator__parameterized2 
+Detailed RTL Component Info : 
++---Adders : 
+	  11 Input      7 Bit       Adders := 1     
++---Registers : 
+	               64 Bit    Registers := 1     
+	                7 Bit    Registers := 1     
+Module single_pulser 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
+Module counter__parameterized2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   3 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module FSM_Address_check 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 2     
++---Muxes : 
+	  18 Input      3 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+	   8 Input      1 Bit        Muxes := 9     
+Module p_fifo 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 3     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---RAMs : 
+	               2K Bit         RAMs := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 6     
+Module counter_parm__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+Module FSM_Frame_type 
+Detailed RTL Component Info : 
++---Registers : 
+	                3 Bit    Registers := 1     
++---Muxes : 
+	  14 Input      8 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+	   8 Input      1 Bit        Muxes := 1     
+Module FSM_FCS 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   8 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+	   4 Input      1 Bit        Muxes := 1     
+Module crc_8 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
++---Registers : 
+	                8 Bit    Registers := 1     
+Module counter_parm__parameterized1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+Module Receiver_Interface 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
+Module FSM_rx_mx_to_tx_uart 
+Detailed RTL Component Info : 
++---Muxes : 
+	  11 Input      3 Bit        Muxes := 1     
+	   6 Input      1 Bit        Muxes := 2     
+Module clkenb__parameterized2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     14 Bit       Adders := 1     
++---Registers : 
+	               14 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     14 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module reg_parm 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+Module counter_parm__parameterized2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
+Module transmitter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Muxes : 
+	  14 Input      3 Bit        Muxes := 1     
+	   7 Input      1 Bit        Muxes := 5     
+Module clkenb__parameterized3 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 1     
++---Registers : 
+	               11 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     11 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module counter_parm__parameterized3 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                3 Bit    Registers := 1     
+Module counter_parm__parameterized4 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                2 Bit    Registers := 1     
+Module clkenb_baud 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module transmitter_for_mx 
+Detailed RTL Component Info : 
++---Muxes : 
+	  25 Input      4 Bit        Muxes := 1     
+	  12 Input      1 Bit        Muxes := 7     
+Module manchester_tx 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
+Module p_fifo__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 3     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---RAMs : 
+	               1K Bit         RAMs := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 6     
+Module FSM_fifo_to_send 
+Detailed RTL Component Info : 
++---Muxes : 
+	  16 Input      8 Bit        Muxes := 1     
+	  16 Input      4 Bit        Muxes := 1     
+	  34 Input      4 Bit        Muxes := 1     
+	  16 Input      1 Bit        Muxes := 7     
+Module clkenb__parameterized4 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 1     
++---Registers : 
+	               11 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     11 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module Backoff_FSM 
+Detailed RTL Component Info : 
++---Muxes : 
+	  18 Input      3 Bit        Muxes := 1     
+	   7 Input      1 Bit        Muxes := 6     
+Module clkenb__parameterized5 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 1     
++---Registers : 
+	               11 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     11 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module counter_parm__parameterized6 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Registers : 
+	                7 Bit    Registers := 1     
+Module counter_parm__parameterized7 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	                6 Bit    Registers := 1     
+Module counter_parm__parameterized8 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                3 Bit    Registers := 1     
+Module counter_parm__parameterized9 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+Module counter_parm__parameterized10 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	                6 Bit    Registers := 1     
+Module random_generator 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	                6 Bit    Registers := 1     
+Module counter_parm__parameterized11 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+Module FSM_ack_timeout 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                3 Bit    Registers := 1     
++---Muxes : 
+	  12 Input      2 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 5     
+Module FSM_get_dest_addr 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+Module FSM_retry 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   8 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 3     
+Module counter_parm__parameterized12 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+Module fsm_send_ack 
+Detailed RTL Component Info : 
++---Muxes : 
+	   7 Input      8 Bit        Muxes := 1     
+	  12 Input      3 Bit        Muxes := 1     
+	   7 Input      1 Bit        Muxes := 3     
+Module Transmitter_Interface 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 2     
+Module FSM_uart_to_mx 
+Detailed RTL Component Info : 
++---Muxes : 
+	  11 Input      5 Bit        Muxes := 1     
+Module fsm 
+Detailed RTL Component Info : 
++---Muxes : 
+	  23 Input      4 Bit        Muxes := 1     
+	  10 Input      1 Bit        Muxes := 9     
+Module counter_parm__parameterized13 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                3 Bit    Registers := 1     
+Module counter_parm__parameterized14 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
+Module clkenb__parameterized6 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     13 Bit       Adders := 1     
++---Registers : 
+	               13 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     13 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module clkenb__parameterized7 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     14 Bit       Adders := 1     
++---Registers : 
+	               14 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     14 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module clkenb__parameterized8 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module rxd_synchroniser 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module reg_parm__parameterized0 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module reg_parm__parameterized1 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module reg_parm__parameterized2 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module reg_parm__parameterized3 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module reg_parm__parameterized4 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module reg_parm__parameterized5 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module reg_parm__parameterized6 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module reg_parm__parameterized7 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module data 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:20 ; elapsed = 00:00:29 . Memory (MB): peak = 676.441 ; gain = 468.879
+---------------------------------------------------------------------------------
+Start Cross Boundary Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "U_SAMPLE/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_SLOW_SAMPLE/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_HALF/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_FULL/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_RX_MX/U_SLOW_SAMPLE/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_FSM_ADDR/inc_rerr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_FSM_ADDR/pop_fifo" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_UART_TX/U_CLKENB/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_SEG_CTL/U_CLKENB/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_TX_SIDE/U_TX_INTERFACE/U_TX_MX/U_TX/U_CLKENB/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_TX_SIDE/U_TX_INTERFACE/U_TX_MX/U_TX/U_BAUD_GEN/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_TX_SIDE/U_TX_INTERFACE/U_WATCHDOG_ENB/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_TX_SIDE/U_TX_INTERFACE/U_BACKOFF_MODULE/U_BIT_RATE_CLOCK/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_TX_SIDE/U_TX_INTERFACE/U_GET_DEST_ADDR/next0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_TX_SIDE/U_UART_RX/U_DELAY_TIMER/U_HALF/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_TX_SIDE/U_UART_RX/U_DELAY_TIMER/U_FULL/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_TX_SIDE/U_UART_RX/U_START_PULSER/enb" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3917] design nexys4DDR has port DP driven by constant 1
+WARNING: [Synth 8-3917] design nexys4DDR has port OUT_JA4 driven by constant 1
+WARNING: [Synth 8-3917] design nexys4DDR has port LED17_G driven by constant 0
+---------------------------------------------------------------------------------
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:33 . Memory (MB): peak = 676.441 ; gain = 468.879
+---------------------------------------------------------------------------------
+Finished Parallel Reinference  : Time (s): cpu = 00:00:23 ; elapsed = 00:00:33 . Memory (MB): peak = 676.441 ; gain = 468.879
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++-------------------+---------------------------------+---------------+----------------+
+|Module Name        | RTL Object                      | Depth x Width | Implemented As | 
++-------------------+---------------------------------+---------------+----------------+
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|correlator         | out                             | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_ONE_N_ZERO_CORR/out   | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_ONE_N_ZERO_CORR/out   | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_ONE_N_ZERO_CORR/out   | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_ONE_N_ZERO_CORR/out   | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_ONE_N_ZERO_CORR/out   | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_ONE_N_ZERO_CORR/out   | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_ONE_N_ZERO_CORR/out   | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_ONE_N_ZERO_CORR/out   | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_ONE_N_ZERO_CORR/out   | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_ONE_N_ZERO_CORR/out   | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_ONE_N_ZERO_CORR/out   | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_SFD_CORR/out          | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_PREAMBLE_CORR/out     | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_IDLE_N_ERROR_CORR/out | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_IDLE_N_ERROR_CORR/out | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_IDLE_N_ERROR_CORR/out | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_IDLE_N_ERROR_CORR/out | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_IDLE_N_ERROR_CORR/out | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_IDLE_N_ERROR_CORR/out | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_IDLE_N_ERROR_CORR/out | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_IDLE_N_ERROR_CORR/out | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_IDLE_N_ERROR_CORR/out | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_IDLE_N_ERROR_CORR/out | 64x3          | LUT            | 
+|Receiver_Interface | U_RX_MX/U_IDLE_N_ERROR_CORR/out | 64x3          | LUT            | 
++-------------------+---------------------------------+---------------+----------------+
+
+
+Distributed RAM: Preliminary Mapping  Report (see note below)
++------------+-------------------------------------------+-----------+----------------------+----------------------------+
+|Module Name | RTL Object                                | Inference | Size (Depth x Width) | Primitives                 | 
++------------+-------------------------------------------+-----------+----------------------+----------------------------+
+|nexys4DDR   | U_RX_SIDE/U_RX_INTERFACE/U_FIFO/mem_reg   | Implied   | 256 x 8              | RAM64X1D x 8  RAM64M x 8   | 
+|nexys4DDR   | U_TX_SIDE/U_TX_INTERFACE/U_BUFFER/mem_reg | Implied   | 256 x 8              | RAM64X1D x 8  RAM64M x 8   | 
++------------+-------------------------------------------+-----------+----------------------+----------------------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[0]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[0]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[1]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[1]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[0]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[0]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[1]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[1]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_FIFO/rp_reg_rep[0]' (FDCE) to 'U_RX_SIDE/U_RX_INTERFACE/U_FIFO/rp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_FIFO/rp_reg_rep[1]' (FDCE) to 'U_RX_SIDE/U_RX_INTERFACE/U_FIFO/rp_reg[1]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_FIFO/rp_reg_rep[2]' (FDCE) to 'U_RX_SIDE/U_RX_INTERFACE/U_FIFO/rp_reg[2]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_FIFO/rp_reg_rep[3]' (FDCE) to 'U_RX_SIDE/U_RX_INTERFACE/U_FIFO/rp_reg[3]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_FIFO/rp_reg_rep[4]' (FDCE) to 'U_RX_SIDE/U_RX_INTERFACE/U_FIFO/rp_reg[4]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_FIFO/rp_reg_rep[5]' (FDCE) to 'U_RX_SIDE/U_RX_INTERFACE/U_FIFO/rp_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_FIFO/rp_reg[6]' (FDCE) to 'U_RX_SIDE/U_RX_INTERFACE/U_FIFO/rp_reg_rep[6]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_FIFO/rp_reg[7]' (FDCE) to 'U_RX_SIDE/U_RX_INTERFACE/U_FIFO/rp_reg_rep[7]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[2]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[2]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[3]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[3]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[2]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[2]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[3]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[3]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[4]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[4]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[5]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[6]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[6]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[4]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[4]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[5]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[7]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[8]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[8]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[6]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[6]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[7]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[9]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[10]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[10]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[8]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[8]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[9]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[11]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[11]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[12]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[12]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[10]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[10]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[11]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[11]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[12]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[12]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[13]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[13]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[14]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[14]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[13]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[13]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[14]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[14]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[15]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[15]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[16]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[16]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[15]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[15]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[16]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[16]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[17]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[17]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[18]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[18]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[17]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[17]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[18]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[18]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[19]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[19]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[20]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[20]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[19]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[19]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[20]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[20]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[21]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[21]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[22]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[22]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[21]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[21]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[22]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[22]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[23]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[23]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[24]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[24]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[23]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[23]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[24]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[24]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[25]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[25]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[25]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[25]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[26]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[26]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[26]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[26]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[27]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[27]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[27]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[27]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[28]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[28]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[28]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[28]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[29]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[29]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[29]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[29]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[30]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[30]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[30]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[30]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[31]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[31]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[32]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[32]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[32]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[32]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[33]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[33]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[33]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[33]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[34]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[34]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[34]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[34]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[35]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[35]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[35]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[35]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[36]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[36]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[36]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[36]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[37]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[37]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[37]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[37]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[38]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[38]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[38]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[38]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[39]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[39]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[39]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[39]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[40]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[40]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[40]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[40]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[41]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[41]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[42]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[42]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[41]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[41]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[42]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[42]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[43]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[43]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[44]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[44]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[43]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[43]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[44]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[44]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[45]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[45]'
+INFO: [Synth 8-3886] merging instance 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[46]' (FDRE) to 'U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[46]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ERROR_PULSER/curr_reg) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ERROR_PULSER/last_reg) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[127]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[0]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[1]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[0]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[1]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[2]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[3]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[2]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[3]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[4]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[5]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[6]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[4]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[5]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[7]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[8]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[6]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[7]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[9]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[10]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[8]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[9]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[11]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[12]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[10]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[11]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[12]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[13]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[14]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[13]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[14]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[15]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[16]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[15]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[16]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[17]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[18]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[17]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[18]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[19]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[20]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[19]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[20]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[21]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[22]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[21]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[22]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[23]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[24]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[23]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[24]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[25]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[25]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[26]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[26]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[27]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[27]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[28]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[28]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[29]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[29]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[30]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[30]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[31]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[31]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[32]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[32]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[33]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[33]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[34]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[34]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[35]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[35]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[36]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[36]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[37]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[37]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[38]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[38]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[39]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[39]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[40]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[40]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[41]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[42]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[41]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[42]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[43]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[44]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[43]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[44]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[45]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[46]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[45]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_IDLE_N_ERROR_CORR/shreg_reg[46]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_SFD_CORR/shreg_reg[47]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_PREAMBLE_CORR/shreg_reg[48]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RX_SIDE/U_RX_INTERFACE/U_RX_MX/U_ONE_N_ZERO_CORR/shreg_reg[47]) is unused and will be removed from module nexys4DDR.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Area Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:53 . Memory (MB): peak = 676.441 ; gain = 468.879
+---------------------------------------------------------------------------------
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:43 ; elapsed = 00:00:53 . Memory (MB): peak = 676.441 ; gain = 468.879
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:53 ; elapsed = 00:01:04 . Memory (MB): peak = 676.441 ; gain = 468.879
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:53 ; elapsed = 00:01:04 . Memory (MB): peak = 705.664 ; gain = 498.102
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:55 ; elapsed = 00:01:06 . Memory (MB): peak = 738.777 ; gain = 531.215
+---------------------------------------------------------------------------------
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:55 ; elapsed = 00:01:06 . Memory (MB): peak = 738.777 ; gain = 531.215
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:55 ; elapsed = 00:01:06 . Memory (MB): peak = 738.777 ; gain = 531.215
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:55 ; elapsed = 00:01:07 . Memory (MB): peak = 738.777 ; gain = 531.215
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:55 ; elapsed = 00:01:07 . Memory (MB): peak = 738.777 ; gain = 531.215
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:56 ; elapsed = 00:01:07 . Memory (MB): peak = 738.777 ; gain = 531.215
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:56 ; elapsed = 00:01:07 . Memory (MB): peak = 738.777 ; gain = 531.215
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:56 ; elapsed = 00:01:07 . Memory (MB): peak = 738.777 ; gain = 531.215
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:56 ; elapsed = 00:01:07 . Memory (MB): peak = 738.777 ; gain = 531.215
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     1|
+|2     |CARRY4   |    30|
+|3     |LUT1     |    93|
+|4     |LUT2     |   118|
+|5     |LUT3     |   255|
+|6     |LUT4     |   164|
+|7     |LUT5     |   323|
+|8     |LUT6     |   545|
+|9     |MUXF7    |     9|
+|10    |RAM64M   |    16|
+|11    |RAM64X1D |    16|
+|12    |FDCE     |    40|
+|13    |FDRE     |   855|
+|14    |FDSE     |    11|
+|15    |IBUF     |    13|
+|16    |OBUF     |    30|
++------+---------+------+
+
+Report Instance Areas: 
++------+----------------------------+------------------------------+------+
+|      |Instance                    |Module                        |Cells |
++------+----------------------------+------------------------------+------+
+|1     |top                         |                              |  2519|
+|2     |  U_RX_SIDE                 |receiver_side                 |  1600|
+|3     |    U_EXTRACTOR_FSM         |FSM_rx_mx_to_tx_uart          |     8|
+|4     |    U_RX_INTERFACE          |Receiver_Interface            |  1511|
+|5     |      U_CRC_ERROR_COUNT     |counter_parm__parameterized1  |    17|
+|6     |      U_CRC_GEN             |crc_8_2                       |    18|
+|7     |      U_FCS_FSM             |FSM_FCS_3                     |    28|
+|8     |      U_FIFO                |p_fifo                        |    74|
+|9     |      U_FRAME_TYPE_COUNTER  |counter_parm__parameterized0  |    20|
+|10    |      U_FSM_ADDR            |FSM_Address_check             |    46|
+|11    |      U_FSM_FRAME_ID        |FSM_Frame_type_4              |    21|
+|12    |      U_RX_MX               |mx_rcvr                       |  1287|
+|13    |        U_BIT_COUNT         |counter                       |     8|
+|14    |        U_DATA              |data_buffer                   |    29|
+|15    |        U_ERROR             |f_error_5                     |     1|
+|16    |        U_FAST_COUNT        |counter__parameterized1       |    24|
+|17    |        U_FSM               |FSMs                          |   187|
+|18    |          U_DATA            |fsm_data                      |    29|
+|19    |          U_DETECT          |fsm_psfd                      |    18|
+|20    |          U_ERROR_ACCUM     |accumulator                   |    23|
+|21    |          U_LAST_BIT        |one_bit_ff                    |     1|
+|22    |          U_PLL             |fsm_pll                       |   115|
+|23    |          U_WRITE           |sync_input_6                  |     1|
+|24    |        U_IDLE_N_ERROR_CORR |correlator__parameterized2    |   114|
+|25    |        U_ONE_N_ZERO_CORR   |correlator__parameterized1    |   119|
+|26    |        U_PEAK_DETECT       |peak_detector                 |    19|
+|27    |        U_PREAMBLE_CORR     |correlator                    |   231|
+|28    |        U_SAMPLE            |clkenb__parameterized1        |    12|
+|29    |        U_SFD_CORR          |correlator__parameterized0    |   503|
+|30    |        U_SLOW_COUNT        |counter__parameterized0       |    20|
+|31    |        U_SLOW_SAMPLE       |clkenb__parameterized0        |    19|
+|32    |        U_SYNC              |sync_input                    |     1|
+|33    |    U_UART_TX               |transmitter                   |    79|
+|34    |      U_CLKENB              |clkenb__parameterized2        |    50|
+|35    |      U_COUNTER             |counter_parm__parameterized2  |     9|
+|36    |      U_SNAPSHOT            |reg_parm_1                    |    12|
+|37    |  U_SEG_CTL                 |dispctl                       |    89|
+|38    |    U_CLKENB                |clkenb                        |    60|
+|39    |    U_COUNTER               |counter_parm                  |    29|
+|40    |  U_TX_SIDE                 |transmitter_side              |   786|
+|41    |    U_EXTRACTOR_FSM         |FSM_uart_to_mx                |    12|
+|42    |    U_TX_INTERFACE          |Transmitter_Interface         |   581|
+|43    |      U_BACKOFF_MODULE      |Backoff_module                |   124|
+|44    |        U_ACK_TIMER         |counter_parm__parameterized9  |    19|
+|45    |        U_BIT_RATE_CLOCK    |clkenb__parameterized5        |    32|
+|46    |        U_DIFS_TIMER        |counter_parm__parameterized6  |    16|
+|47    |        U_FSM               |Backoff_FSM                   |    15|
+|48    |        U_LFSR              |random_generator              |    10|
+|49    |        U_SIFS_TIMER        |counter_parm__parameterized7  |    13|
+|50    |        U_SLOTS_COUNTER     |counter_parm__parameterized10 |    12|
+|51    |        U_SLOTS_TIMER       |counter_parm__parameterized8  |     7|
+|52    |      U_BUFFER              |p_fifo__parameterized0        |    77|
+|53    |      U_CRC_GEN             |crc_8                         |    11|
+|54    |      U_FCS_FSM             |FSM_FCS                       |    27|
+|55    |      U_FRAME_TYPE_COUNTER  |counter_parm__parameterized11 |    23|
+|56    |      U_FSM_ACK_TIMEOUT     |FSM_ack_timeout               |    16|
+|57    |      U_FSM_FRAME_ID        |FSM_Frame_type                |    25|
+|58    |      U_FSM_TX              |FSM_fifo_to_send              |    37|
+|59    |      U_GET_DEST_ADDR       |FSM_get_dest_addr             |    15|
+|60    |      U_NAK_COUNT           |counter_parm__parameterized12 |    17|
+|61    |      U_RETRY               |FSM_retry                     |    28|
+|62    |      U_SEND_ACK            |fsm_send_ack                  |    18|
+|63    |      U_TX_MX               |manchester_tx                 |    99|
+|64    |        U_TX                |transmitter_for_mx            |    97|
+|65    |          U_BAUD_GEN        |clkenb_baud                   |    30|
+|66    |          U_CLKENB          |clkenb__parameterized3        |    36|
+|67    |          U_EOF_WIDTH_COUNT |counter_parm__parameterized4  |    11|
+|68    |          U_SNAPSHOT        |reg_parm                      |    12|
+|69    |      U_WATCHDOG_ENB        |clkenb__parameterized4        |    32|
+|70    |      U_WATCHDOG_LATCH      |f_error_0                     |     1|
+|71    |      U_WATCHDOG_TIMER      |counter_parm__parameterized5  |    30|
+|72    |    U_UART_RX               |receiver                      |   193|
+|73    |      U_BIT_COUNTER         |counter_parm__parameterized13 |    16|
+|74    |      U_DATA                |data                          |    14|
+|75    |      U_DELAY_TIMER         |delay_timer                   |    97|
+|76    |        U_FULL              |clkenb__parameterized7        |    52|
+|77    |        U_HALF              |clkenb__parameterized6        |    45|
+|78    |      U_FERR_COUNTER        |counter_parm__parameterized14 |     9|
+|79    |      U_FSM                 |fsm                           |    20|
+|80    |      U_F_ERROR             |f_error                       |     1|
+|81    |      U_RXD_SYNCHRONISER    |rxd_synchroniser              |     1|
+|82    |      U_START_PULSER        |clkenb__parameterized8        |    27|
+|83    |      U_TEMP_DATA           |temp_data                     |     8|
+|84    |        U_BIT_EIGHT         |reg_parm__parameterized0      |     1|
+|85    |        U_BIT_FIVE          |reg_parm__parameterized3      |     1|
+|86    |        U_BIT_FOUR          |reg_parm__parameterized4      |     1|
+|87    |        U_BIT_ONE           |reg_parm__parameterized7      |     1|
+|88    |        U_BIT_SEVEN         |reg_parm__parameterized1      |     1|
+|89    |        U_BIT_SIX           |reg_parm__parameterized2      |     1|
+|90    |        U_BIT_THREE         |reg_parm__parameterized5      |     1|
+|91    |        U_BIT_TWO           |reg_parm__parameterized6      |     1|
++------+----------------------------+------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:56 ; elapsed = 00:01:07 . Memory (MB): peak = 738.777 ; gain = 531.215
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 205 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:43 ; elapsed = 00:00:52 . Memory (MB): peak = 738.777 ; gain = 193.289
+Synthesis Optimization Complete : Time (s): cpu = 00:00:56 ; elapsed = 00:01:07 . Memory (MB): peak = 738.777 ; gain = 531.215
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 75 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 32 instances were transformed.
+  RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 16 instances
+  RAM64X1D => RAM64X1D (RAMD64E, RAMD64E): 16 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+484 Infos, 112 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:56 ; elapsed = 00:01:05 . Memory (MB): peak = 738.777 ; gain = 505.172
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 738.777 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 12 19:46:09 2016...
